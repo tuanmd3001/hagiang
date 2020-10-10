@@ -20,3 +20,11 @@ Route::get('/', function () {
 Auth::routes(['verify' => true]);
 
 Route::get('/home', 'HomeController@index')->middleware('verified');
+
+Route::resource('users', 'UserController')->middleware('auth');
+
+Route::group(['middleware' => ['role:SuperAdmin']], function () {
+    Route::resource('roles', 'RoleController');
+
+    Route::resource('permissions', 'PermissionController');
+});
