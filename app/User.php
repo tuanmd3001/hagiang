@@ -9,8 +9,8 @@ use Spatie\Permission\Traits\HasRoles;
 
 class User extends Authenticatable
 {
-    use HasRoles;
-    use Notifiable;
+    use HasRoles, Notifiable;
+    public $timestamps = true;
 
     /**
      * The attributes that are mass assignable.

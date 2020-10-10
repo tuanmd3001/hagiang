@@ -23,6 +23,13 @@ class DatabaseSeeder extends Seeder
                 'password' => Hash::make('12345678'),
             ]);
         }
+        $super_admin = Role::where('name', 'SuperAdmin')->first();
+        if(!$super_admin){
+            Role::create([
+               'name' => 'SuperAdmin',
+               'guard_name' => 'web'
+            ]);
+        }
         $admin->assignRole('SuperAdmin');
 
         // $this->call(UsersTableSeeder::class);

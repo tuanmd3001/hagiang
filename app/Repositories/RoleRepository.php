@@ -2,13 +2,13 @@
 
 namespace App\Repositories;
 
+use App\Models\Role;
 use App\Repositories\BaseRepository;
-use Spatie\Permission\Models\Role;
 
 /**
  * Class RoleRepository
  * @package App\Repositories
- * @version October 10, 2020, 4:30 am UTC
+ * @version October 10, 2020, 8:47 am UTC
 */
 
 class RoleRepository extends BaseRepository

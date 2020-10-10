@@ -8,8 +8,10 @@ use Illuminate\Database\Eloquent\SoftDeletes;
 /**
  * Class Permission
  * @package App\Models
- * @version October 10, 2020, 4:35 am UTC
+ * @version October 10, 2020, 8:50 am UTC
  *
+ * @property \App\Models\ModelHasPermission $modelHasPermission
+ * @property \Illuminate\Database\Eloquent\Collection $roles
  * @property string $name
  * @property string $guard_name
  */
@@ -23,6 +25,8 @@ class Permission extends Model
 
 
     protected $dates = ['deleted_at'];
+
+    public $timestamps = true;
 
 
 
@@ -54,5 +58,19 @@ class Permission extends Model
         'updated_at' => 'nullable'
     ];
 
+    /**
+     * @return \Illuminate\Database\Eloquent\Relations\HasOne
+     **/
+    public function modelHasPermission()
+    {
+        return $this->hasOne(\App\Models\ModelHasPermission::class);
+    }
 
+    /**
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsToMany
+     **/
+    public function roles()
+    {
+        return $this->belongsToMany(\App\Models\Role::class, 'role_has_permissions');
+    }
 }

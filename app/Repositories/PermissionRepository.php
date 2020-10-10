@@ -2,13 +2,13 @@
 
 namespace App\Repositories;
 
+use App\Models\Permission;
 use App\Repositories\BaseRepository;
-use Spatie\Permission\Models\Permission;
 
 /**
  * Class PermissionRepository
  * @package App\Repositories
- * @version October 10, 2020, 4:35 am UTC
+ * @version October 10, 2020, 8:50 am UTC
 */
 
 class PermissionRepository extends BaseRepository

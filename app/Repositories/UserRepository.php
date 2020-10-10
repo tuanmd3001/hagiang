@@ -2,12 +2,13 @@
 
 namespace App\Repositories;
 
-use App\User;
+use App\Models\User;
 use App\Repositories\BaseRepository;
 
 /**
  * Class UserRepository
  * @package App\Repositories
+ * @version October 10, 2020, 8:58 am UTC
 */
 
 class UserRepository extends BaseRepository
@@ -18,7 +19,9 @@ class UserRepository extends BaseRepository
     protected $fieldSearchable = [
         'name',
         'email',
-        'password'
+        'email_verified_at',
+        'password',
+        'remember_token'
     ];
 
     /**

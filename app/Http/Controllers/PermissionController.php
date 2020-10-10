@@ -2,12 +2,13 @@
 
 namespace App\Http\Controllers;
 
+use App\DataTables\PermissionDataTable;
+use App\Http\Requests;
 use App\Http\Requests\CreatePermissionRequest;
 use App\Http\Requests\UpdatePermissionRequest;
 use App\Repositories\PermissionRepository;
-use App\Http\Controllers\AppBaseController;
-use Illuminate\Http\Request;
 use Flash;
+use App\Http\Controllers\AppBaseController;
 use Response;
 
 class PermissionController extends AppBaseController
@@ -23,16 +24,12 @@ class PermissionController extends AppBaseController
     /**
      * Display a listing of the Permission.
      *
-     * @param Request $request
-     *
+     * @param PermissionDataTable $permissionDataTable
      * @return Response
      */
-    public function index(Request $request)
+    public function index(PermissionDataTable $permissionDataTable)
     {
-        $permissions = $this->permissionRepository->all();
-
-        return view('permissions.index')
-            ->with('permissions', $permissions);
+        return $permissionDataTable->render('permissions.index');
     }
 
     /**
@@ -66,7 +63,7 @@ class PermissionController extends AppBaseController
     /**
      * Display the specified Permission.
      *
-     * @param int $id
+     * @param  int $id
      *
      * @return Response
      */
@@ -86,7 +83,7 @@ class PermissionController extends AppBaseController
     /**
      * Show the form for editing the specified Permission.
      *
-     * @param int $id
+     * @param  int $id
      *
      * @return Response
      */
@@ -106,7 +103,7 @@ class PermissionController extends AppBaseController
     /**
      * Update the specified Permission in storage.
      *
-     * @param int $id
+     * @param  int              $id
      * @param UpdatePermissionRequest $request
      *
      * @return Response
@@ -131,9 +128,7 @@ class PermissionController extends AppBaseController
     /**
      * Remove the specified Permission from storage.
      *
-     * @param int $id
-     *
-     * @throws \Exception
+     * @param  int $id
      *
      * @return Response
      */

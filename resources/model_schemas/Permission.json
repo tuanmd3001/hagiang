@@ -58,5 +58,13 @@
         "inForm": false,
         "inIndex": false,
         "inView": false
+    },
+    {
+        "type": "relation",
+        "relation": "1t1,ModelHasPermission"
+    },
+    {
+        "type": "relation",
+        "relation": "mtm,Role,role_has_permissions"
     }
 ]
