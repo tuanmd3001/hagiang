@@ -25,6 +25,5 @@ Route::resource('users', 'UserController')->middleware('auth');
 
 Route::group(['middleware' => ['role:SuperAdmin']], function () {
     Route::resource('roles', 'RoleController');
-
     Route::resource('permissions', 'PermissionController');
 });
