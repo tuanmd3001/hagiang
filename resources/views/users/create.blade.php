@@ -8,16 +8,10 @@
     </section>
     <div class="content">
         @include('adminlte-templates::common.errors')
-        <div class="box box-primary">
-            <div class="box-body">
-                <div class="row">
-                    {!! Form::open(['route' => 'users.store']) !!}
+        {!! Form::open(['route' => 'users.store']) !!}
 
-                        @include('users.fields')
+        @include('users.fields')
 
-                    {!! Form::close() !!}
-                </div>
-            </div>
-        </div>
+        {!! Form::close() !!}
     </div>
 @endsection

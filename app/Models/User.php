@@ -4,6 +4,9 @@ namespace App\Models;
 
 use Eloquent as Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
+use Illuminate\Foundation\Auth\User as Authenticatable;
+use Illuminate\Notifications\Notifiable;
+use Spatie\Permission\Traits\HasRoles;
 
 /**
  * Class User
@@ -16,9 +19,9 @@ use Illuminate\Database\Eloquent\SoftDeletes;
  * @property string $password
  * @property string $remember_token
  */
-class User extends Model
+class User extends Authenticatable
 {
-
+    use HasRoles, Notifiable;
     public $table = 'users';
 
     const CREATED_AT = 'created_at';
@@ -30,11 +33,11 @@ class User extends Model
 
 
     public $fillable = [
-        'name',
-        'email',
-        'email_verified_at',
-        'password',
-        'remember_token'
+        'name', 'email', 'password',
+    ];
+
+    protected $hidden = [
+        'password', 'remember_token',
     ];
 
     /**

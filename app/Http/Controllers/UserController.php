@@ -6,10 +6,14 @@ use App\DataTables\UserDataTable;
 use App\Http\Requests;
 use App\Http\Requests\CreateUserRequest;
 use App\Http\Requests\UpdateUserRequest;
+use App\Models\Permission;
+use App\Models\Role;
 use App\Repositories\UserRepository;
 use Flash;
 use App\Http\Controllers\AppBaseController;
+use Illuminate\Notifications\Notifiable;
 use Response;
+use Spatie\Permission\Traits\HasRoles;
 
 class UserController extends AppBaseController
 {
@@ -39,7 +43,9 @@ class UserController extends AppBaseController
      */
     public function create()
     {
-        return view('users.create');
+        $roles = Role::all();
+        $permissions = Permission::all();
+        return view('users.create', compact('roles', 'permissions'));
     }
 
     /**
@@ -70,7 +76,6 @@ class UserController extends AppBaseController
     public function show($id)
     {
         $user = $this->userRepository->find($id);
-
         if (empty($user)) {
             Flash::error('User not found');
 
@@ -96,8 +101,10 @@ class UserController extends AppBaseController
 
             return redirect(route('users.index'));
         }
+        $roles = Role::all();
+        $permissions = Permission::all();
 
-        return view('users.edit')->with('user', $user);
+        return view('users.edit', compact('user', 'roles', 'permissions'));
     }
 
     /**

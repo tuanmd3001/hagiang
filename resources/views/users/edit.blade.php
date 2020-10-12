@@ -3,21 +3,16 @@
 @section('content')
     <section class="content-header">
         <h1>
-            User
+            Cập nhật người dùng
         </h1>
-   </section>
-   <div class="content">
-       @include('adminlte-templates::common.errors')
-       <div class="box box-primary">
-           <div class="box-body">
-               <div class="row">
-                   {!! Form::model($user, ['route' => ['users.update', $user->id], 'method' => 'patch']) !!}
+    </section>
+    <div class="content">
+        @include('adminlte-templates::common.errors')
 
-                        @include('users.fields')
+        {!! Form::model($user, ['route' => ['users.update', $user->id], 'method' => 'patch']) !!}
 
-                   {!! Form::close() !!}
-               </div>
-           </div>
-       </div>
-   </div>
+        @include('users.fields')
+
+        {!! Form::close() !!}
+    </div>
 @endsection
