@@ -13,7 +13,7 @@ return [
     |
     */
 
-    'failed' => 'Thông tin đăng nhập không đúng. Vui lòng thử lại.',
+    'failed' => 'Thông tin không đúng. Vui lòng thử lại.',
     'throttle' => 'Bạn nhập sai quá nhiều. Vui lòng thử lại sau :seconds giây.',
 
 ];

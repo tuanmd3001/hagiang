@@ -45,7 +45,7 @@
                 @foreach($permissions as $permission)
                     <div class="checkbox">
                         <label>
-                            <input type="checkbox" name="permissions[]">
+                            <input type="checkbox" name="permissions[]" value="{{$permission->name}}" @if(auth()->user()->hasPermissionTo($permission->name)) checked @endif>
                             {{$permission->name}}
                         </label>
                     </div>

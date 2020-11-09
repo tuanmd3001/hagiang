@@ -19,9 +19,9 @@ class UserRepository extends BaseRepository
     protected $fieldSearchable = [
         'name',
         'email',
-        'email_verified_at',
-        'password',
-        'remember_token'
+//        'email_verified_at',
+//        'password',
+//        'remember_token'
     ];
 
     /**
@@ -40,5 +40,31 @@ class UserRepository extends BaseRepository
     public function model()
     {
         return User::class;
+    }
+
+    public function update($input, $id)
+    {
+        $query = $this->model->newQuery();
+
+        $user = $query->findOrFail($id);
+
+        $user->fill($input);
+
+        $user->save();
+        if (!empty($input['roles'])){
+            $user->syncRoles($input['roles']);
+        }
+        else {
+            $user->syncRoles([]);
+        }
+
+        if (!empty($input['permissions'])){
+            $user->syncPermissions($input['permissions']);
+        }
+        else {
+            $user->syncPermissions([]);
+        }
+
+        return $user;
     }
 }
