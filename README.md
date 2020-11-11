@@ -79,4 +79,6 @@ The Laravel framework is open-sourced software licensed under the [MIT license](
 
 
 php artisan infyom:scaffold User --fromTable --tableName=users
+php artisan infyom:scaffold DmCapDonVi --fromTable --tableName=dm_cap_don_vi  --prefix=danh_muc --plural=CapDonVi
+
 

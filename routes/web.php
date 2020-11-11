@@ -27,3 +27,19 @@ Route::group(['middleware' => ['role:SuperAdmin']], function () {
     Route::resource('roles', 'RoleController');
     Route::resource('permissions', 'PermissionController');
 });
+
+
+Route::group(['prefix' => 'danhMuc'], function () {
+    Route::resource('capDonVi', 'Danh_Muc\DmCapDonViController', ["as" => 'danhMuc']);
+});
+
+
+Route::resource('hoiNghiHoiThao', 'HoiNghiHoiThaoController');
+
+Route::resource('ngos', 'NgoController');
+
+Route::resource('duAnNgos', 'DuAnNgoController');
+
+Route::resource('duAnKhacs', 'DuAnKhacController');
+
+Route::resource('xuatNhapKhaus', 'XuatNhapKhauController');
