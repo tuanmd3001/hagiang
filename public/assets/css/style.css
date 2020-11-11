@@ -1,16 +1,32 @@
 div.dataTables_wrapper div.dataTables_filter {
     text-align: left;
 }
+
 .select2 {
     width: 100% !important;
 }
+
 .main-header .logo, .main-sidebar {
-    width: 250px;
+    width: 300px;
 }
-.content-wrapper, .main-footer{
-    margin-left: 250px;
+
+.content-wrapper, .main-footer {
+    margin-left: 300px;
 }
-.table>thead>tr>th {
+
+.main-header .navbar {
+    margin-left: 300px;
+}
+
+.sidebar-mini:not(.sidebar-mini-expand-feature).sidebar-collapse .sidebar-menu > li:hover > a > span:not(.pull-right),
+.sidebar-mini:not(.sidebar-mini-expand-feature).sidebar-collapse .sidebar-menu > li:hover > .treeview-menu {
+    width: 300px;
+}
+.sidebar-mini:not(.sidebar-mini-expand-feature).sidebar-collapse .sidebar-menu>li:hover>a>.pull-right-container {
+    left: 300px !important;
+}
+
+.table > thead > tr > th {
     text-align: center;
     vertical-align: middle;
 }

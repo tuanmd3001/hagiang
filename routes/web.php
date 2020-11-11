@@ -43,3 +43,7 @@ Route::resource('duAnNgos', 'DuAnNgoController');
 Route::resource('duAnKhacs', 'DuAnKhacController');
 
 Route::resource('xuatNhapKhaus', 'XuatNhapKhauController');
+
+Route::resource('nguonOdas', 'NguonOdaController');
+
+Route::resource('duAnOdas', 'DuAnOdaController');
