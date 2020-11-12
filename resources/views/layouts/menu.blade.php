@@ -65,7 +65,15 @@
         </li>
         <li class="{{ Request::is('duAnOdas*') ? 'active' : '' }}">
             <a href="{{ route('duAnOdas.index') }}"><i class="fa fa-circle-o"></i>
-                <span>Dự án ODA</span></a>
+                <span>Các dự án ODA</span></a>
+        </li>
+        <li class="{{ Request::is('nguonFdis*') ? 'active' : '' }}">
+            <a href="{{ route('nguonFdis.index') }}"><i class="fa fa-circle-o"></i>
+                <span>Đơn vị, quốc gia tài trợ vốn FDI</span></a>
+        </li>
+        <li class="{{ Request::is('duAnFdis*') ? 'active' : '' }}">
+            <a href="{{ route('duAnFdis.index') }}"><i class="fa fa-circle-o"></i>
+                <span>Các dự án FDI</span></a>
         </li>
     </ul>
 </li>
@@ -121,5 +129,13 @@
             </a>
         </li>
     </ul>
+</li>
+
+<li class="{{ Request::is('nguonFdis*') ? 'active' : '' }}">
+    <a href="{{ route('nguonFdis.index') }}"><i class="fa fa-edit"></i><span>Nguon Fdis</span></a>
+</li>
+
+<li class="{{ Request::is('duAnFdis*') ? 'active' : '' }}">
+    <a href="{{ route('duAnFdis.index') }}"><i class="fa fa-edit"></i><span>Du An Fdis</span></a>
 </li>
 

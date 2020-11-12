@@ -47,3 +47,7 @@ Route::resource('xuatNhapKhaus', 'XuatNhapKhauController');
 Route::resource('nguonOdas', 'NguonOdaController');
 
 Route::resource('duAnOdas', 'DuAnOdaController');
+
+Route::resource('nguonFdis', 'NguonFdiController');
+
+Route::resource('duAnFdis', 'DuAnFdiController');
