@@ -51,3 +51,7 @@ Route::resource('duAnOdas', 'DuAnOdaController');
 Route::resource('nguonFdis', 'NguonFdiController');
 
 Route::resource('duAnFdis', 'DuAnFdiController');
+
+Route::resource('dnNuocNgoais', 'DnNuocNgoaiController');
+
+Route::resource('dnVonNuocNgoais', 'DnVonNuocNgoaiController');

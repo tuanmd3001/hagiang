@@ -20,7 +20,7 @@
     </ul>
 </li>
 
-<li class="treeview {{ Request::is('ngos*') || Request::is('duAnNgos*') || Request::is('duAnKhacs*') ? 'active' : ''}}">
+<li class="treeview {{ Request::is(['ngos*', 'duAnNgos*', 'duAnKhacs*']) ? 'active' : ''}}">
     <a href="#"><i class="fa fa-building-o"></i> <span>Quản lý tổ chức NGOs</span>
         <span class="pull-right-container">
             <i class="fa fa-angle-left pull-right"></i>
@@ -48,7 +48,7 @@
     </ul>
 </li>
 
-<li class="treeview active">
+<li class="treeview {{ Request::is(['xuatNhapKhaus*', 'nguonOdas*', 'duAnOdas*', 'nguonFdis*', 'duAnFdis*', 'dnVonNuocNgoais*', 'dnNuocNgoais*']) ? 'active' : '' }}">
     <a href="#"><i class="fa fa-exchange"></i> <span>Quản lý kinh tế đối ngoại</span>
         <span class="pull-right-container">
             <i class="fa fa-angle-left pull-right"></i>
@@ -74,6 +74,14 @@
         <li class="{{ Request::is('duAnFdis*') ? 'active' : '' }}">
             <a href="{{ route('duAnFdis.index') }}"><i class="fa fa-circle-o"></i>
                 <span>Các dự án FDI</span></a>
+        </li>
+        <li class="{{ Request::is('dnVonNuocNgoais*') ? 'active' : '' }}">
+            <a href="{{ route('dnVonNuocNgoais.index') }}"><i class="fa fa-circle-o"></i>
+                <span>Doanh nghiệp <br> có vốn đầu tư nước ngoài</span></a>
+        </li>
+        <li class="{{ Request::is('dnNuocNgoais*') ? 'active' : '' }}">
+            <a href="{{ route('dnNuocNgoais.index') }}"><i class="fa fa-circle-o"></i>
+                <span>Doanh nghiệp <br> nước ngoài tại Hà Giang</span></a>
         </li>
     </ul>
 </li>
@@ -105,7 +113,7 @@
     </ul>
 </li>
 
-<li class="treeview {{ Request::is('users*') | Request::is('roles*') | Request::is('permissions*') ? 'active' : '' }}">
+<li class="treeview {{ Request::is(['users*', 'roles*', 'permissions*']) ? 'active' : '' }}">
     <a href="#"><i class="fa fa-cogs"></i> <span>Quản trị hệ thống</span>
         <span class="pull-right-container">
             <i class="fa fa-angle-left pull-right"></i>
@@ -129,13 +137,5 @@
             </a>
         </li>
     </ul>
-</li>
-
-<li class="{{ Request::is('nguonFdis*') ? 'active' : '' }}">
-    <a href="{{ route('nguonFdis.index') }}"><i class="fa fa-edit"></i><span>Nguon Fdis</span></a>
-</li>
-
-<li class="{{ Request::is('duAnFdis*') ? 'active' : '' }}">
-    <a href="{{ route('duAnFdis.index') }}"><i class="fa fa-edit"></i><span>Du An Fdis</span></a>
 </li>
 
