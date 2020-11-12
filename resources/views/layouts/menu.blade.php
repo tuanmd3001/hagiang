@@ -7,12 +7,12 @@
         </span>
     </a>
     <ul class="treeview-menu">
-        <li class="{{ Request::is('hoiNghiHoiThao*' && Request::get("type") != \App\Models\HoiNghiHoiThao::TYPE_JOIN) ? 'active' : '' }}">
+        <li class="{{ Request::is('hoiNghiHoiThao*') && Request::get("type") != \App\Models\HoiNghiHoiThao::TYPE_JOIN ? 'active' : '' }}">
             <a href="{{ route('hoiNghiHoiThao.index') }}">
                 <i class="fa fa-circle-o"></i>
                 <span>Chủ trì, tổ chức <br> hoặc tham mưu tỉnh chủ trì tổ chức</span></a>
         </li>
-        <li class="{{ Request::is('hoiNghiHoiThao*' && Request::get("type") == \App\Models\HoiNghiHoiThao::TYPE_JOIN) ? 'active' : '' }}">
+        <li class="{{ Request::is('hoiNghiHoiThao*') && Request::get("type") == \App\Models\HoiNghiHoiThao::TYPE_JOIN ? 'active' : '' }}">
             <a href="{{ route('hoiNghiHoiThao.index') }}?type={{\App\Models\HoiNghiHoiThao::TYPE_JOIN}}">
                 <i class="fa fa-circle-o"></i>
                 <span>Cơ quan tham dự <br> hoặc tham mưu tỉnh tham dự</span></a>
@@ -85,7 +85,37 @@
         </li>
     </ul>
 </li>
-
+<li class="treeview {{ Request::is(['lanhSuTinhs*', 'lanhSuNuocNgoais*', 'bhNgNuocNgoais*', 'bhNgHaGiangs*']) ? 'active' : ''}}">
+    <a href="#">
+        <i class="fa fa-user"></i>
+        <span>Lãnh sự - bảo hộ công dân</span>
+        <span class="pull-right-container">
+            <i class="fa fa-angle-left pull-right"></i>
+        </span>
+    </a>
+    <ul class="treeview-menu">
+        <li class="{{ Request::is('lanhSuTinhs*') ? 'active' : '' }}">
+            <a href="{{ route('lanhSuTinhs.index') }}">
+                <i class="fa fa-circle-o"></i>
+                <span>Vụ việc lãnh sự trên địa bàn tỉnh</span></a>
+        </li>
+        <li class="{{ Request::is('lanhSuNuocNgoais*') ? 'active' : '' }}">
+            <a href="{{ route('lanhSuNuocNgoais.index') }}">
+                <i class="fa fa-circle-o"></i>
+                <span>Vụ việc lãnh sự tại nước ngoài</span></a>
+        </li>
+        <li class="{{ Request::is('bhNgNuocNgoais*') ? 'active' : '' }}">
+            <a href="{{ route('bhNgNuocNgoais.index') }}">
+                <i class="fa fa-circle-o"></i>
+                <span>Người nước ngoài đang  <br> hoạt động, tạm trú tại Hà Giang</span></a>
+        </li>
+        <li class="{{ Request::is('bhNgHaGiangs*') ? 'active' : '' }}">
+            <a href="{{ route('bhNgHaGiangs.index') }}">
+                <i class="fa fa-circle-o"></i>
+                <span>Người Hà Giang <br> đi lao động tại nước ngoài</span></a>
+        </li>
+    </ul>
+</li>
 
 
 
@@ -137,5 +167,13 @@
             </a>
         </li>
     </ul>
+</li>
+
+<li class="{{ Request::is('bhNgNuocNgoais*') ? 'active' : '' }}">
+    <a href="{{ route('bhNgNuocNgoais.index') }}"><i class="fa fa-edit"></i><span>Bh Ng Nuoc Ngoais</span></a>
+</li>
+
+<li class="{{ Request::is('bhNgHaGiangs*') ? 'active' : '' }}">
+    <a href="{{ route('bhNgHaGiangs.index') }}"><i class="fa fa-edit"></i><span>Bh Ng Ha Giangs</span></a>
 </li>
 

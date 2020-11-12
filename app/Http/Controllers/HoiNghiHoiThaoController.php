@@ -63,8 +63,8 @@ class HoiNghiHoiThaoController extends AppBaseController
     public function store(CreateHoiNghiHoiThaoRequest $request)
     {
         $input = $request->all();
-        $date = \DateTime::createFromFormat('d/m/Y H:i:s', $input['thoi_gian'].' 00:00:00');
-        $input['thoi_gian'] =  $date->format('Y-m-d H:i:s');
+        $date = \DateTime::createFromFormat('d/m/Y', $input['thoi_gian']);
+        $input['thoi_gian'] =  $date->format('Y-m-d');
         if (isset($input['trong_kh'])) {
             $input['trong_kh'] = 1;
         }
@@ -95,8 +95,6 @@ class HoiNghiHoiThaoController extends AppBaseController
 
             return redirect(route('hoiNghiHoiThao.index', ['type' => $hoiNghiHoiThao->loai]));
         }
-        $date = \DateTime::createFromFormat('Y-m-d H:i:s', $hoiNghiHoiThao->thoi_gian.' 00:00:00');
-        $hoiNghiHoiThao->thoi_gian =  $date->format('d/m/Y');
 
         return view('hoi_nghi_hoi_thao.show')->with('hoiNghiHoiThao', $hoiNghiHoiThao);
     }
@@ -118,8 +116,7 @@ class HoiNghiHoiThaoController extends AppBaseController
             return redirect(route('hoiNghiHoiThao.index', ['type' => $hoiNghiHoiThao->loai]));
         }
 
-        $date = \DateTime::createFromFormat('Y-m-d H:i:s', $hoiNghiHoiThao->thoi_gian.' 00:00:00');
-        $hoiNghiHoiThao->thoi_gian =  $date->format('d/m/Y');
+        $hoiNghiHoiThao->thoi_gian = date_format(new \DateTime($hoiNghiHoiThao->thoi_gian), 'd/m/Y') ?? '';
 
         $nguon_kinh_phi = [
             ["id" => 1, "name" => "NS tỉnh"],
@@ -148,8 +145,8 @@ class HoiNghiHoiThaoController extends AppBaseController
             return redirect(route('hoiNghiHoiThao.index', ['type' => $hoiNghiHoiThao->loai]));
         }
         $input = $request->all();
-        $date = \DateTime::createFromFormat('d/m/Y H:i:s', $input['thoi_gian'].' 00:00:00');
-        $input['thoi_gian'] =  $date->format('Y-m-d H:i:s');
+        $date = \DateTime::createFromFormat('d/m/Y', $input['thoi_gian']);
+        $input['thoi_gian'] =  $date->format('Y-m-d');
         if (isset($input['trong_kh'])) {
             $input['trong_kh'] = 1;
         }

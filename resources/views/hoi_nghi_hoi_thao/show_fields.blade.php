@@ -49,7 +49,7 @@
 <!-- Thoi Gian Field -->
 <div class="form-group col-md-6">
     {!! Form::label('thoi_gian', 'Thời gian thực hiện:') !!}
-    <p>{{ $hoiNghiHoiThao->thoi_gian }}</p>
+    <p>{{ date_format(new \DateTime($hoiNghiHoiThao->thoi_gian), 'd/m/Y') ?? '' }}</p>
 </div>
 
 <!-- Dia Diem Field -->

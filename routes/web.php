@@ -55,3 +55,11 @@ Route::resource('duAnFdis', 'DuAnFdiController');
 Route::resource('dnNuocNgoais', 'DnNuocNgoaiController');
 
 Route::resource('dnVonNuocNgoais', 'DnVonNuocNgoaiController');
+
+Route::resource('lanhSuTinhs', 'LanhSuTinhController');
+
+Route::resource('lanhSuNuocNgoais', 'LanhSuNuocNgoaiController');
+
+Route::resource('bhNgNuocNgoais', 'BhNgNuocNgoaiController');
+
+Route::resource('bhNgHaGiangs', 'BhNgHaGiangController');
