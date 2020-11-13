@@ -21,7 +21,7 @@
 </li>
 
 <li class="treeview {{ Request::is(['ngos*', 'duAnNgos*', 'duAnKhacs*']) ? 'active' : ''}}">
-    <a href="#"><i class="fa fa-building-o"></i> <span>Quản lý tổ chức NGOs</span>
+    <a href="#"><i class="fa fa-building"></i> <span>Quản lý tổ chức NGOs</span>
         <span class="pull-right-container">
             <i class="fa fa-angle-left pull-right"></i>
         </span>
@@ -116,6 +116,58 @@
         </li>
     </ul>
 </li>
+<li class="treeview active">
+    <a href="#">
+        <i class="fa fa-flag"></i>
+        <span>Quản lý biên giới, lãnh thổ</span>
+        <span class="pull-right-container">
+            <i class="fa fa-angle-left pull-right"></i>
+        </span>
+    </a>
+    <ul class="treeview-menu">
+        <li class="{{ Request::is('lanhSuTinhs*') ? 'active' : '' }}">
+            <a href="{{ route('lanhSuTinhs.index') }}">
+                <i class="fa fa-circle-o"></i>
+                <span>Quản lý đường biên, mốc giới</span></a>
+        </li>
+        <li class="{{ Request::is('lanhSuNuocNgoais*') ? 'active' : '' }}">
+            <a href="{{ route('lanhSuNuocNgoais.index') }}">
+                <i class="fa fa-circle-o"></i>
+                <span>Quản lý sự vụ, sự việc trên biên giới</span></a>
+        </li>
+        <li class="{{ Request::is('bhNgNuocNgoais*') ? 'active' : '' }}">
+            <a href="{{ route('bhNgNuocNgoais.index') }}">
+                <i class="fa fa-circle-o"></i>
+                <span>Thông tin, tình hình ký kết hữu nghị</span></a>
+        </li>
+        <li class="{{ Request::is('bhNgHaGiangs*') ? 'active' : '' }}">
+            <a href="{{ route('bhNgHaGiangs.index') }}">
+                <i class="fa fa-circle-o"></i>
+                <span>Quy hoạch hệ thống cửa khẩu, lỗi mở</span></a>
+        </li>
+    </ul>
+</li>
+<li class="treeview {{ Request::is(['ngHgNuocNgoais*', 'ngHgVeNuocs*']) ? 'active' : ''}}">
+    <a href="#">
+        <i class="fa fa-user"></i>
+        <span>Người Việt Nam ở nước ngoài</span>
+        <span class="pull-right-container">
+            <i class="fa fa-angle-left pull-right"></i>
+        </span>
+    </a>
+    <ul class="treeview-menu">
+        <li class="{{ Request::is('ngHgNuocNgoais*') ? 'active' : '' }}">
+            <a href="{{ route('ngHgNuocNgoais.index') }}">
+                <i class="fa fa-circle-o"></i>
+                <span>Người Hà Giang ở nước ngoài</span></a>
+        </li>
+        <li class="{{ Request::is('ngHgVeNuocs*') ? 'active' : '' }}">
+            <a href="{{ route('ngHgVeNuocs.index') }}">
+                <i class="fa fa-circle-o"></i>
+                <span>Người Hà Giang ở nước ngoài <br> về thăm thân, làm việc trong nước</span></a>
+        </li>
+    </ul>
+</li>
 
 
 
@@ -167,13 +219,5 @@
             </a>
         </li>
     </ul>
-</li>
-
-<li class="{{ Request::is('bhNgNuocNgoais*') ? 'active' : '' }}">
-    <a href="{{ route('bhNgNuocNgoais.index') }}"><i class="fa fa-edit"></i><span>Bh Ng Nuoc Ngoais</span></a>
-</li>
-
-<li class="{{ Request::is('bhNgHaGiangs*') ? 'active' : '' }}">
-    <a href="{{ route('bhNgHaGiangs.index') }}"><i class="fa fa-edit"></i><span>Bh Ng Ha Giangs</span></a>
 </li>
 

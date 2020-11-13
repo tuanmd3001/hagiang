@@ -63,3 +63,7 @@ Route::resource('lanhSuNuocNgoais', 'LanhSuNuocNgoaiController');
 Route::resource('bhNgNuocNgoais', 'BhNgNuocNgoaiController');
 
 Route::resource('bhNgHaGiangs', 'BhNgHaGiangController');
+
+Route::resource('ngHgNuocNgoais', 'NgHgNuocNgoaiController');
+
+Route::resource('ngHgVeNuocs', 'NgHgVeNuocController');
