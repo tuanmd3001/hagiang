@@ -109,14 +109,14 @@ class HoiNghiHoiThao extends Model
         'nguon_kinh_phi_label'
     ];
 
-    public static function getNguonKinhPhiLabelAttribute($id)
+    public function getNguonKinhPhiLabelAttribute()
     {
         $nguon_kinh_phi = [
             ["id" => 1, "name" => "NS tỉnh"],
             ["id" => 2, "name" => "NS ngành"],
             ["id" => 3, "name" => "Đài thọ"],
         ];
-        return $nguon_kinh_phi[$id + 1]['name'];
+        return $nguon_kinh_phi[$this->kinh_phi - 1]['name'];
     }
 
 }

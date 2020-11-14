@@ -152,7 +152,7 @@ class HoiNghiHoiThaoDataTable extends DataTable
             ['data' => 'db_cac_nuoc_den', 'name' => 'db_cac_nuoc_den', 'title' => 'Đến từ (các) nước'],
             ['data' => 'thoi_gian', 'name' => 'thoi_gian', 'title' => 'Thời gian thực hiện'],
             ['data' => 'dia_diem', 'name' => 'dia_diem', 'title' => 'Địa điểm tổ chức'],
-            ['data' => 'kinh_phi', 'name' => 'kinh_phi', 'title' => 'Kinh phí'],
+            ['data' => 'nguon_kinh_phi_label', 'name' => 'kinh_phi', 'title' => 'Kinh phí'],
             ['data' => 'bao_cao', 'name' => 'bao_cao', 'title' => 'Báo cáo'],
             ['data' => 'trong_kh', 'name' => 'trong_kh', 'title' => 'Hoạt động trong KH'],
             ['data' => 'cap_cho_phep', 'name' => 'cap_cho_phep', 'title' => 'Cấp cho phép']

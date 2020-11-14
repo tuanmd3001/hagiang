@@ -34,3 +34,17 @@ div.dataTables_wrapper div.dataTables_filter {
     text-align: center;
     vertical-align: middle;
 }
+.treeview-menu li a>i{
+    position: absolute;
+    top: 8px;
+}
+
+.treeview-menu li>a>div{
+    padding-left: 20px;
+    white-space: break-spaces;
+}
+
+.img_chu_ky, .chu_ky_preview {
+    width: 300px;
+    margin-bottom: 20px;
+}

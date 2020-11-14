@@ -67,3 +67,17 @@ Route::resource('bhNgHaGiangs', 'BhNgHaGiangController');
 Route::resource('ngHgNuocNgoais', 'NgHgNuocNgoaiController');
 
 Route::resource('ngHgVeNuocs', 'NgHgVeNuocController');
+
+Route::resource('canBos', 'CanBoController');
+
+Route::resource('hcNgoaiGiaos', 'HcNgoaiGiaoController');
+
+Route::resource('hcCongVus', 'HcCongVuController');
+
+Route::resource('abtcs', 'AbtcController');
+
+Route::resource('xncHcNgoaiGiaos', 'XncHcNgoaiGiaoController');
+
+Route::resource('xncHcCongVus', 'XncHcCongVuController');
+
+Route::resource('chuKies', 'ChuKyController');
