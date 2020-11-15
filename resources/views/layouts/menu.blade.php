@@ -4,6 +4,37 @@
         <span>Quản lý thông tin cán bộ</span>
     </a>
 </li>
+
+<li class="treeview {{ Request::is(['ttqt*']) ? 'active' : ''}}">
+    <a href="#">
+        <i class="fa fa-sticky-note-o"></i>
+        <span>Thỏa thuận quốc tế</span>
+        <span class="pull-right-container">
+            <i class="fa fa-angle-left pull-right"></i>
+        </span>
+    </a>
+    <ul class="treeview-menu">
+        <li class="{{ Request::is('ttqt_tinh*') ? 'active' : '' }}">
+            <a href="{!! route('ttqt_tinh.index') !!}">
+                <i class="fa fa-circle-o"></i>
+                <div>Thỏa thuận quốc tế do tỉnh ký kết</div>
+            </a>
+        </li>
+        <li class="{{ Request::is('ttqt_so_nganh*') ? 'active' : '' }}">
+            <a href="{!! route('ttqt_so_nganh.index') !!}">
+                <i class="fa fa-circle-o"></i>
+                <div>Thỏa thuận do các sở, ngành cấp tỉnh ký kết</div>
+            </a>
+        </li>
+        <li class="{{ Request::is('ttqt_huyen_tp*') ? 'active' : '' }}">
+            <a href="{!! route('ttqt_huyen_tp.index') !!}">
+                <i class="fa fa-circle-o"></i>
+                <div>Thỏa thuận do UBND các huyện, thành phố ký kết</div>
+            </a>
+        </li>
+    </ul>
+</li>
+
 <li class="treeview {{ Request::is('hoiNghiHoiThao*') ? 'active' : ''}}">
     <a href="#">
         <i class="fa fa-comments"></i>
@@ -229,7 +260,33 @@
 
 
 
-
+<li class="treeview {{ Request::is(['canBoNgoaiGiaoTinhs*', 'canBoNgoaiGiaoHuyens*']) ? 'active' : ''}}">
+    <a href="#">
+        <i class="fa fa-user"></i>
+        <span>Cán bộ chuyên trách đối ngoại</span>
+        <span class="pull-right-container">
+            <i class="fa fa-angle-left pull-right"></i>
+        </span>
+    </a>
+    <ul class="treeview-menu">
+        <li class="{{ Request::is('canBoNgoaiGiaoTinhs*') ? 'active' : '' }}">
+            <a href="{{ route('canBoNgoaiGiaoTinhs.index') }}">
+                <i class="fa fa-circle-o"></i>
+                <div>Cán bộ chuyên trách đối ngoại cấp tỉnh</div></a>
+        </li>
+        <li class="{{ Request::is('canBoNgoaiGiaoHuyens*') ? 'active' : '' }}">
+            <a href="{{ route('canBoNgoaiGiaoHuyens.index') }}">
+                <i class="fa fa-circle-o"></i>
+                <div>Cán bộ chuyên trách đối ngoại cấp huyện</div></a>
+        </li>
+    </ul>
+</li>
+<li class="{{ Request::is("duqts") ? 'active' : ''}}">
+    <a href="{{ route('duqts.index') }}">
+        <i class="fa fa-sticky-note-o"></i>
+        <span>Các điều ước quốc tế</span>
+    </a>
+</li>
 <li class="treeview {{ Request::is('danhMuc*') ? 'active' : ''}}">
     <a href="#">
         <i class="fa fa-list-ul"></i>
@@ -274,3 +331,4 @@
         </li>
     </ul>
 </li>
+

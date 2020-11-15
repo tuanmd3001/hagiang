@@ -81,3 +81,16 @@ Route::resource('xncHcNgoaiGiaos', 'XncHcNgoaiGiaoController');
 Route::resource('xncHcCongVus', 'XncHcCongVuController');
 
 Route::resource('chuKies', 'ChuKyController');
+
+Route::resource('duqtTtqts', 'DuqtTtqtController');
+
+Route::resource('canBoNgoaiGiaoTinhs', 'CanBoNgoaiGiaoTinhController');
+
+Route::resource('canBoNgoaiGiaoHuyens', 'CanBoNgoaiGiaoHuyenController');
+
+Route::resource('duqts', 'DuqtController');
+
+Route::resource('ttqts', 'TtqtController');
+Route::resource('ttqt_tinh', 'TtqtController');
+Route::resource('ttqt_so_nganh', 'TtqtController');
+Route::resource('ttqt_huyen_tp', 'TtqtController');
