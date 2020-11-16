@@ -9,6 +9,7 @@ $factory->define(DmCapDonVi::class, function (Faker $faker) {
 
     return [
         'ten' => $faker->word,
+        'code' => $faker->word,
         'created_at' => $faker->date('Y-m-d H:i:s'),
         'updated_at' => $faker->date('Y-m-d H:i:s')
     ];

@@ -148,7 +148,7 @@
         <li class="{{ Request::is('bhNgNuocNgoais*') ? 'active' : '' }}">
             <a href="{{ route('bhNgNuocNgoais.index') }}">
                 <i class="fa fa-circle-o"></i>
-                <div>Người nước ngoài đang  hoạt động, tạm trú tại Hà Giang</div></a>
+                <div>Người nước ngoài đang hoạt động, tạm trú tại Hà Giang</div></a>
         </li>
         <li class="{{ Request::is('bhNgHaGiangs*') ? 'active' : '' }}">
             <a href="{{ route('bhNgHaGiangs.index') }}">
@@ -296,6 +296,71 @@
         </span>
     </a>
     <ul class="treeview-menu">
+        <li class="{{ Request::is('danhMuc/danhNghiaDoan*') ? 'active' : '' }}">
+            <a href="{!! route('danhMuc.danhNghiaDoan.index') !!}"><i class="fa fa-circle-o"></i>
+                <div>Danh nghĩa đoàn</div>
+            </a>
+        </li>
+        <li class="{{ Request::is('danhMuc/quocGia*') ? 'active' : '' }}">
+            <a href="{!! route('danhMuc.quocGia.index') !!}"><i class="fa fa-circle-o"></i>
+                <div>Quốc gia</div>
+            </a>
+        </li>
+        <li class="{{ Request::is('danhMuc/loaiKinhPhi*') ? 'active' : '' }}">
+            <a href="{!! route('danhMuc.loaiKinhPhi.index') !!}"><i class="fa fa-circle-o"></i>
+                <div>Loại kinh phí</div>
+            </a>
+        </li>
+        <li class="{{ Request::is('danhMuc/loaiDoan*') ? 'active' : '' }}">
+            <a href="{!! route('danhMuc.loaiDoan.index') !!}"><i class="fa fa-circle-o"></i>
+                <div>Loại đoàn</div>
+            </a>
+        </li>
+        <li class="{{ Request::is('danhMuc/loaiSuKien*') ? 'active' : '' }}">
+            <a href="{!! route('danhMuc.loaiSuKien.index') !!}"><i class="fa fa-circle-o"></i>
+                <div>Loại sự kiện</div>
+            </a>
+        </li>
+        <li class="{{ Request::is('danhMuc/chucVu*') ? 'active' : '' }}">
+            <a href="{!! route('danhMuc.chucVu.index') !!}"><i class="fa fa-circle-o"></i>
+                <div>Chức vụ</div>
+            </a>
+        </li>
+        <li class="{{ Request::is('danhMuc/toChuc*') ? 'active' : '' }}">
+            <a href="{!! route('danhMuc.toChuc.index') !!}"><i class="fa fa-circle-o"></i>
+                <div>Tổ chức</div>
+            </a>
+        </li>
+        <li class="{{ Request::is('danhMuc/donVi*') ? 'active' : '' }}">
+            <a href="{!! route('danhMuc.donVi.index') !!}"><i class="fa fa-circle-o"></i>
+                <div>Đơn vị</div>
+            </a>
+        </li>
+        <li class="{{ Request::is('danhMuc/loaiDuAn*') ? 'active' : '' }}">
+            <a href="{!! route('danhMuc.loaiDuAn.index') !!}"><i class="fa fa-circle-o"></i>
+                <div>Loại dự án</div>
+            </a>
+        </li>
+        <li class="{{ Request::is('danhMuc/loaiHinhToChuc*') ? 'active' : '' }}">
+            <a href="{!! route('danhMuc.loaiHinhToChuc.index') !!}"><i class="fa fa-circle-o"></i>
+                <div>Loại hình tổ chức</div>
+            </a>
+        </li>
+        <li class="{{ Request::is('danhMuc/loaiVanBan*') ? 'active' : '' }}">
+            <a href="{!! route('danhMuc.loaiVanBan.index') !!}"><i class="fa fa-circle-o"></i>
+                <div>Loại văn bản</div>
+            </a>
+        </li>
+        <li class="{{ Request::is('danhMuc/ngheNghiep*') ? 'active' : '' }}">
+            <a href="{!! route('danhMuc.ngheNghiep.index') !!}"><i class="fa fa-circle-o"></i>
+                <div>Nghề nghiệp</div>
+            </a>
+        </li>
+        <li class="{{ Request::is('danhMuc/loaiHangHoa*') ? 'active' : '' }}">
+            <a href="{!! route('danhMuc.loaiHangHoa.index') !!}"><i class="fa fa-circle-o"></i>
+                <div>Loại hàng hóa</div>
+            </a>
+        </li>
         <li class="{{ Request::is('danhMuc/capDonVi*') ? 'active' : '' }}">
             <a href="{!! route('danhMuc.capDonVi.index') !!}"><i class="fa fa-circle-o"></i>
                 <div>Cấp đơn vị</div>

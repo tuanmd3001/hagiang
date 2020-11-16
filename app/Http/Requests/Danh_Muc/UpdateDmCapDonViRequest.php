@@ -25,8 +25,11 @@ class UpdateDmCapDonViRequest extends FormRequest
      */
     public function rules()
     {
-        $rules = DmCapDonVi::$rules;
-        
-        return $rules;
+        return [
+            'ten' => 'required|string|max:255',
+            'code' => "required|string|max:255|unique:dm_cap_don_vi,code,{$this->capDonVi}",
+            'created_at' => 'nullable',
+            'updated_at' => 'nullable'
+        ];
     }
 }

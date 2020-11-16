@@ -8,7 +8,7 @@ use App\Repositories\BaseRepository;
 /**
  * Class DmCapDonViRepository
  * @package App\Repositories\Danh_Muc
- * @version November 10, 2020, 10:35 am UTC
+ * @version November 16, 2020, 1:50 pm +07
 */
 
 class DmCapDonViRepository extends BaseRepository
@@ -17,7 +17,8 @@ class DmCapDonViRepository extends BaseRepository
      * @var array
      */
     protected $fieldSearchable = [
-        'ten'
+        'ten',
+        'code'
     ];
 
     /**

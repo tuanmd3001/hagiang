@@ -3,7 +3,7 @@
 @section('content')
     <section class="content-header">
         <h1>
-            Dm Cap Don Vi
+            Chi tiết cấp đơn vị
         </h1>
     </section>
     <div class="content">
@@ -11,6 +11,7 @@
             <div class="box-body">
                 <div class="row" style="padding-left: 20px">
                     @include('danhMuc.cap_don_vi.show_fields')
+                    <a href="{{ route('danhMuc.capDonVi.edit', ['capDonVi' => $dmCapDonVi->id]) }}" class="btn btn-primary">Sửa</a>
                     <a href="{{ route('danhMuc.capDonVi.index') }}" class="btn btn-default">Back</a>
                 </div>
             </div>
