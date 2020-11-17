@@ -2,6 +2,7 @@
 
 namespace App\DataTables;
 
+use App\DataTables\ExportHandler\BaseExportHandler;
 use App\Models\LanhSuTinh;
 use Yajra\DataTables\Services\DataTable;
 use Yajra\DataTables\EloquentDataTable;
@@ -114,4 +115,5 @@ class LanhSuTinhDataTable extends DataTable
     {
         return 'lanh_su_tinhs_datatable_' . time();
     }
+    protected $exportClass = BaseExportHandler::class;
 }

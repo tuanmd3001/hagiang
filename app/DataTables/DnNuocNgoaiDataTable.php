@@ -2,6 +2,7 @@
 
 namespace App\DataTables;
 
+use App\DataTables\ExportHandler\BaseExportHandler;
 use App\Models\DnNuocNgoai;
 use Yajra\DataTables\Services\DataTable;
 use Yajra\DataTables\EloquentDataTable;
@@ -114,4 +115,5 @@ class DnNuocNgoaiDataTable extends DataTable
     {
         return 'dn_nuoc_ngoais_datatable_' . time();
     }
+    protected $exportClass = BaseExportHandler::class;
 }

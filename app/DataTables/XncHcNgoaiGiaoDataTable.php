@@ -2,6 +2,7 @@
 
 namespace App\DataTables;
 
+use App\DataTables\ExportHandler\BaseExportHandler;
 use App\Models\XncHcNgoaiGiao;
 use Yajra\DataTables\Services\DataTable;
 use Yajra\DataTables\EloquentDataTable;
@@ -117,4 +118,5 @@ class XncHcNgoaiGiaoDataTable extends DataTable
     {
         return 'xnc_hc_ngoai_giaos_datatable_' . time();
     }
+    protected $exportClass = BaseExportHandler::class;
 }

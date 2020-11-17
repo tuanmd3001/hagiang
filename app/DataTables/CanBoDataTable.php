@@ -2,6 +2,7 @@
 
 namespace App\DataTables;
 
+use App\DataTables\ExportHandler\BaseExportHandler;
 use App\Models\CanBo;
 use App\Models\Constants;
 use Yajra\DataTables\Services\DataTable;
@@ -124,4 +125,5 @@ class CanBoDataTable extends DataTable
     {
         return 'can_bos_datatable_' . time();
     }
+    protected $exportClass = BaseExportHandler::class;
 }

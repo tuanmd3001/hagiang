@@ -2,6 +2,7 @@
 
 namespace App\DataTables;
 
+use App\DataTables\ExportHandler\BaseExportHandler;
 use App\Models\NgHgNuocNgoai;
 use Yajra\DataTables\Services\DataTable;
 use Yajra\DataTables\EloquentDataTable;
@@ -113,4 +114,5 @@ class NgHgNuocNgoaiDataTable extends DataTable
     {
         return 'ng_hg_nuoc_ngoais_datatable_' . time();
     }
+    protected $exportClass = BaseExportHandler::class;
 }

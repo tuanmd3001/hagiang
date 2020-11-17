@@ -2,6 +2,7 @@
 
 namespace App\DataTables;
 
+use App\DataTables\ExportHandler\BaseExportHandler;
 use App\Models\Constants;
 use App\Models\HcCongVu;
 use Yajra\DataTables\Services\DataTable;
@@ -134,4 +135,5 @@ class HcCongVuDataTable extends DataTable
     {
         return 'hc_cong_vus_datatable_' . time();
     }
+    protected $exportClass = BaseExportHandler::class;
 }

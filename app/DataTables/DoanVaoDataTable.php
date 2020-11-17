@@ -2,6 +2,7 @@
 
 namespace App\DataTables;
 
+use App\DataTables\ExportHandler\BaseExportHandler;
 use App\Models\Danh_Muc\DmLoaiKinhPhi;
 use App\Models\Danh_Muc\DmQuocGia;
 use App\Models\DoanVao;
@@ -151,4 +152,5 @@ class DoanVaoDataTable extends DataTable
     {
         return 'doan_vaos_datatable_' . time();
     }
+    protected $exportClass = BaseExportHandler::class;
 }

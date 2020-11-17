@@ -2,6 +2,7 @@
 
 namespace App\DataTables;
 
+use App\DataTables\ExportHandler\BaseExportHandler;
 use App\Models\DuAnFdi;
 use Yajra\DataTables\Services\DataTable;
 use Yajra\DataTables\EloquentDataTable;
@@ -116,4 +117,5 @@ class DuAnFdiDataTable extends DataTable
     {
         return 'du_an_fdis_datatable_' . time();
     }
+    protected $exportClass = BaseExportHandler::class;
 }

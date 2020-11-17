@@ -2,6 +2,7 @@
 
 namespace App\DataTables;
 
+use App\DataTables\ExportHandler\BaseExportHandler;
 use App\Models\BhNgHaGiang;
 use Yajra\DataTables\Services\DataTable;
 use Yajra\DataTables\EloquentDataTable;
@@ -119,4 +120,5 @@ class BhNgHaGiangDataTable extends DataTable
     {
         return 'bh_ng_ha_giangs_datatable_' . time();
     }
+    protected $exportClass = BaseExportHandler::class;
 }

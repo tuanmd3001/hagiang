@@ -2,6 +2,7 @@
 
 namespace App\DataTables;
 
+use App\DataTables\ExportHandler\BaseExportHandler;
 use App\Models\Duqt;
 use App\Models\Ttqt;
 use Yajra\DataTables\Services\DataTable;
@@ -145,4 +146,5 @@ class DuqtDataTable extends DataTable
     {
         return 'duqts_datatable_' . time();
     }
+    protected $exportClass = BaseExportHandler::class;
 }

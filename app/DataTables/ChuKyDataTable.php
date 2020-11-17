@@ -2,6 +2,7 @@
 
 namespace App\DataTables;
 
+use App\DataTables\ExportHandler\BaseExportHandler;
 use App\Models\ChuKy;
 use Yajra\DataTables\Services\DataTable;
 use Yajra\DataTables\EloquentDataTable;
@@ -116,4 +117,5 @@ class ChuKyDataTable extends DataTable
     {
         return 'chu_kies_datatable_' . time();
     }
+    protected $exportClass = BaseExportHandler::class;
 }

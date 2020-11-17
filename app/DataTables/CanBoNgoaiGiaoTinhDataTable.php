@@ -2,6 +2,7 @@
 
 namespace App\DataTables;
 
+use App\DataTables\ExportHandler\BaseExportHandler;
 use App\Models\CanBoNgoaiGiaoTinh;
 use Yajra\DataTables\Services\DataTable;
 use Yajra\DataTables\EloquentDataTable;
@@ -115,4 +116,5 @@ class CanBoNgoaiGiaoTinhDataTable extends DataTable
     {
         return 'can_bo_ngoai_giao_tinhs_datatable_' . time();
     }
+    protected $exportClass = BaseExportHandler::class;
 }

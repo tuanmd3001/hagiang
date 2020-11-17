@@ -2,6 +2,7 @@
 
 namespace App\DataTables;
 
+use App\DataTables\ExportHandler\HoiNghiHoiThaoDataTableExportHandler;
 use App\Models\HoiNghiHoiThao;
 use Yajra\DataTables\Services\DataTable;
 use Yajra\DataTables\EloquentDataTable;
@@ -168,4 +169,6 @@ class HoiNghiHoiThaoDataTable extends DataTable
     {
         return 'hoi_nghi_hoi_thao_datatable_' . time();
     }
+
+    protected $exportClass = HoiNghiHoiThaoDataTableExportHandler::class;
 }

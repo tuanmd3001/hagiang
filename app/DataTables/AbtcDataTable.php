@@ -2,6 +2,7 @@
 
 namespace App\DataTables;
 
+use App\DataTables\ExportHandler\BaseExportHandler;
 use App\Models\Abtc;
 use Yajra\DataTables\Services\DataTable;
 use Yajra\DataTables\EloquentDataTable;
@@ -117,4 +118,5 @@ class AbtcDataTable extends DataTable
     {
         return 'abtcs_datatable_' . time();
     }
+    protected $exportClass = BaseExportHandler::class;
 }

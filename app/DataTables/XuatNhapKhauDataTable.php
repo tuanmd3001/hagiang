@@ -2,6 +2,7 @@
 
 namespace App\DataTables;
 
+use App\DataTables\ExportHandler\BaseExportHandler;
 use App\Models\XuatNhapKhau;
 use Yajra\DataTables\Services\DataTable;
 use Yajra\DataTables\EloquentDataTable;
@@ -128,4 +129,5 @@ class XuatNhapKhauDataTable extends DataTable
     {
         return 'xuat_nhap_khaus_datatable_' . time();
     }
+    protected $exportClass = BaseExportHandler::class;
 }

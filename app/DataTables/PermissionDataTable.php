@@ -2,6 +2,7 @@
 
 namespace App\DataTables;
 
+use App\DataTables\ExportHandler\BaseExportHandler;
 use App\Models\Permission;
 use Yajra\DataTables\Services\DataTable;
 use Yajra\DataTables\EloquentDataTable;
@@ -112,4 +113,5 @@ class PermissionDataTable extends DataTable
     {
         return 'permissions_datatable_' . time();
     }
+    protected $exportClass = BaseExportHandler::class;
 }

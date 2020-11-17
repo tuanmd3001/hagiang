@@ -2,6 +2,7 @@
 
 namespace App\DataTables;
 
+use App\DataTables\ExportHandler\BaseExportHandler;
 use App\Models\Ttqt;
 use Yajra\DataTables\Services\DataTable;
 use Yajra\DataTables\EloquentDataTable;
@@ -156,4 +157,5 @@ class TtqtDataTable extends DataTable
     {
         return 'ttqts_datatable_' . time();
     }
+    protected $exportClass = BaseExportHandler::class;
 }

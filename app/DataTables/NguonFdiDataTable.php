@@ -2,6 +2,7 @@
 
 namespace App\DataTables;
 
+use App\DataTables\ExportHandler\BaseExportHandler;
 use App\Models\NguonFdi;
 use Yajra\DataTables\Services\DataTable;
 use Yajra\DataTables\EloquentDataTable;
@@ -113,4 +114,5 @@ class NguonFdiDataTable extends DataTable
     {
         return 'nguon_fdis_datatable_' . time();
     }
+    protected $exportClass = BaseExportHandler::class;
 }
