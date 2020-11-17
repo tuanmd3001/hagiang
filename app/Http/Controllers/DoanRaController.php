@@ -159,8 +159,9 @@ class DoanRaController extends AppBaseController
         }
 
         $level = $this->level;
+        $thanh_viens = DoanRaThanhVien::where('doan_ra_id', $doanRa->id)->get();
 
-        return view('doan_ras.show', compact('doanRa', 'level'));
+        return view('doan_ras.show', compact('doanRa', 'level', 'thanh_viens'));
     }
 
     /**

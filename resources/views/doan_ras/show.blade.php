@@ -1,5 +1,9 @@
 @extends('layouts.app')
 
+@section('css')
+    @include('layouts.datatables_css')
+@endsection
+
 @section('content')
     <section class="content-header">
         <h1>
@@ -20,3 +24,6 @@
         </div>
     </div>
 @endsection
+@push('scripts')
+    @include('layouts.datatables_js')
+@endpush
