@@ -107,7 +107,10 @@ Route::group(['prefix' => 'danhMuc'], function () {
 });
 
 
-//Route::resource('doanRas', 'DoanRaController');
 Route::resource('doanRaCapTinh', 'DoanRaController');
 Route::resource('doanRaCapHuyen', 'DoanRaController');
 Route::resource('doanRaCapXa', 'DoanRaController');
+Route::resource('doanVaoCapTinh', 'DoanVaoController');
+Route::resource('doanVaoCapHuyen', 'DoanVaoController');
+Route::resource('doanVaoCapXa', 'DoanVaoController');
+

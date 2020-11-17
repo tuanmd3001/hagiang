@@ -4,15 +4,15 @@ namespace App\DataTables;
 
 use App\Models\Danh_Muc\DmLoaiKinhPhi;
 use App\Models\Danh_Muc\DmQuocGia;
-use App\Models\DoanRa;
-use App\Models\DoanRaThanhVien;
+use App\Models\DoanVao;
+use App\Models\DoanVaoThanhVien;
 use Yajra\DataTables\Services\DataTable;
 use Yajra\DataTables\EloquentDataTable;
 
-class DoanRaDataTable extends DataTable
+class DoanVaoDataTable extends DataTable
 {
     private $level;
-    function __construct($level = DoanRa::LEVEL_TINH)
+    function __construct($level = DoanVao::LEVEL_TINH)
     {
         $this->level = $level;
     }
@@ -44,22 +44,22 @@ class DoanRaDataTable extends DataTable
                 return date_format(new \DateTime($temp['thoi_gian']), 'd/m/Y') ?? '';
             })
             ->editColumn('truong_doan', function ($temp){
-                $truong_doan = DoanRaThanhVien::where('doan_ra_id', $temp->id)->where("truong_doan", 1)->first();
+                $truong_doan = DoanVaoThanhVien::where('doan_vao_id', $temp->id)->where("truong_doan", 1)->first();
                 return $truong_doan ? $truong_doan->ten : "";
             })
             ->editColumn('so_nguoi', function ($temp){
-                return DoanRaThanhVien::where('doan_ra_id', $temp->id)->count();
+                return DoanVaoThanhVien::where('doan_vao_id', $temp->id)->count();
             })
-            ->addColumn('action', 'doan_ras.datatables_actions');
+            ->addColumn('action', 'doan_vaos.datatables_actions');
     }
 
     /**
      * Get query source of dataTable.
      *
-     * @param \App\Models\DoanRa $model
+     * @param \App\Models\DoanVao $model
      * @return \Illuminate\Database\Eloquent\Builder
      */
-    public function query(DoanRa $model)
+    public function query(DoanVao $model)
     {
         return $model->newQuery();
     }
@@ -130,8 +130,8 @@ class DoanRaDataTable extends DataTable
             ['data' => 'DT_RowIndex', 'name' => 'DT_RowIndex', 'title' => 'STT','searchable' => false],
             ['name' => 'ten_doan', 'data' => 'ten_doan', 'title' => 'Tên đoàn'],
             ['name' => 'truong_doan', 'data' => 'truong_doan', 'title' => 'Trưởng đoàn'],
-            ['name' => 'ten_nuoc_di', 'data' => 'ten_nuoc_di', 'title' => 'Nước đi'],
-            ['name' => 'doi_tac', 'data' => 'doi_tac', 'title' => 'Đối tác làm việc'],
+            ['name' => 'ten_nuoc_den', 'data' => 'ten_nuoc_den', 'title' => 'Đến từ nước'],
+            ['name' => 'doi_tac', 'data' => 'doi_tac', 'title' => 'Đơn vị, địa phương làm việc'],
             ['name' => 'noi_dung', 'data' => 'noi_dung', 'title' => 'Nội dung hoạt động'],
             ['name' => 'so_nguoi', 'data' => 'so_nguoi', 'title' => 'Số người', 'className' => 'text-right'],
             ['name' => 'thoi_gian', 'data' => 'thoi_gian', 'title' => 'Thời gian thực hiện', 'className' => 'text-center'],
@@ -149,6 +149,6 @@ class DoanRaDataTable extends DataTable
      */
     protected function filename()
     {
-        return 'doan_ras_datatable_' . time();
+        return 'doan_vaos_datatable_' . time();
     }
 }

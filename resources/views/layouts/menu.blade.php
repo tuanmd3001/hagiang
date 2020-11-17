@@ -5,7 +5,7 @@
     </a>
 </li>
 
-<li class="treeview {{ Request::is(["doanRa*"]) ? 'active' : ''}}">
+<li class="treeview {{ Request::is(["doanRa*", "doanVao*"]) ? 'active' : ''}}">
     <a href="#">
         <i class="fa fa-retweet"></i>
         <span>Quản lý đoàn ra - đoàn vào</span>
@@ -32,20 +32,20 @@
                 <div>Đoàn ra cấp xã</div>
             </a>
         </li>
-        <li class="{{ Request::is('ttqt_tinh*') ? 'active' : '' }}">
-            <a href="{!! route('ttqt_tinh.index') !!}">
+        <li class="{{ Request::is('doanVaoCapTinh*') ? 'active' : '' }}">
+            <a href="{!! route('doanVaoCapTinh.index') !!}">
                 <i class="fa fa-circle-o"></i>
                 <div>Đoàn vào cấp tỉnh</div>
             </a>
         </li>
-        <li class="{{ Request::is('ttqt_so_nganh*') ? 'active' : '' }}">
-            <a href="{!! route('ttqt_so_nganh.index') !!}">
+        <li class="{{ Request::is('doanVaoCapHuyen*') ? 'active' : '' }}">
+            <a href="{!! route('doanVaoCapHuyen.index') !!}">
                 <i class="fa fa-circle-o"></i>
                 <div>Đoàn vào cấp huyện</div>
             </a>
         </li>
-        <li class="{{ Request::is('ttqt_huyen_tp*') ? 'active' : '' }}">
-            <a href="{!! route('ttqt_huyen_tp.index') !!}">
+        <li class="{{ Request::is('doanVaoCapXa*') ? 'active' : '' }}">
+            <a href="{!! route('doanVaoCapXa.index') !!}">
                 <i class="fa fa-circle-o"></i>
                 <div>Đoàn vào cấp xã</div>
             </a>

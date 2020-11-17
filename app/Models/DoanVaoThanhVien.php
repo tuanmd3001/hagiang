@@ -11,7 +11,8 @@ use Eloquent as Model;
  * @package App\Models
  * @version November 16, 2020, 7:51 pm +07
  *
- * @property integer $doan_ra_id
+ *
+ * @property integer $doan_vao_id
  * @property integer $can_bo_id
  * @property integer $truong_doan
  * @property string  $ten
@@ -22,10 +23,10 @@ use Eloquent as Model;
  * @property string  $noi_cong_tac
  * @property string  $noi_o
  */
-class DoanRaThanhVien extends Model
+class DoanVaoThanhVien extends Model
 {
 
-    public $table = 'doan_ra_thanh_vien';
+    public $table = 'doan_vao_thanh_vien';
 
     const CREATED_AT = 'created_at';
     const UPDATED_AT = 'updated_at';
@@ -36,7 +37,7 @@ class DoanRaThanhVien extends Model
 //    }
 
     public $fillable = [
-        'doan_ra_id',
+        'doan_vao_id',
         'can_bo_id',
         'truong_doan',
         'ten',
@@ -55,7 +56,7 @@ class DoanRaThanhVien extends Model
      */
     protected $casts = [
         'id' => 'integer',
-        'doan_ra_id' => 'integer',
+        'doan_vao_id' => 'integer',
         'can_bo_id' => 'integer',
         'truong_doan' => 'integer',
         'ten' => 'string',
@@ -73,7 +74,7 @@ class DoanRaThanhVien extends Model
      * @var array
      */
     public static $rules = [
-        'doan_ra_id' => 'required|integer',
+        'doan_vao_id' => 'required|integer',
         'can_bo_id' => 'nullable|integer',
         'truong_doan' => 'nullable',
         'ten' => 'required|string',
