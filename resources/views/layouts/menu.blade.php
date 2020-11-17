@@ -214,11 +214,11 @@
         </span>
     </a>
     <ul class="treeview-menu">
-        <li class="{{ Request::is('lanhSuTinhs*') ? 'active' : '' }}">
-            <a href="{{ route('lanhSuTinhs.index') }}">
-                <i class="fa fa-circle-o"></i>
-                <div>Quản lý đường biên, mốc giới</div></a>
-        </li>
+{{--        <li class="{{ Request::is('lanhSuTinhs*') ? 'active' : '' }}">--}}
+{{--            <a href="{{ route('lanhSuTinhs.index') }}">--}}
+{{--                <i class="fa fa-circle-o"></i>--}}
+{{--                <div>Quản lý đường biên, mốc giới</div></a>--}}
+{{--        </li>--}}
         <li class="{{ Request::is('lanhSuNuocNgoais*') ? 'active' : '' }}">
             <a href="{{ route('lanhSuNuocNgoais.index') }}">
                 <i class="fa fa-circle-o"></i>
@@ -229,11 +229,11 @@
                 <i class="fa fa-circle-o"></i>
                 <div>Thông tin, tình hình ký kết hữu nghị</div></a>
         </li>
-        <li class="{{ Request::is('bhNgHaGiangs*') ? 'active' : '' }}">
-            <a href="{{ route('bhNgHaGiangs.index') }}">
-                <i class="fa fa-circle-o"></i>
-                <div>Quy hoạch hệ thống cửa khẩu, lối mở</div></a>
-        </li>
+{{--        <li class="{{ Request::is('bhNgHaGiangs*') ? 'active' : '' }}">--}}
+{{--            <a href="{{ route('bhNgHaGiangs.index') }}">--}}
+{{--                <i class="fa fa-circle-o"></i>--}}
+{{--                <div>Quy hoạch hệ thống cửa khẩu, lối mở</div></a>--}}
+{{--        </li>--}}
     </ul>
 </li>
 <li class="treeview {{ Request::is(['ngHgNuocNgoais*', 'ngHgVeNuocs*']) ? 'active' : ''}}">

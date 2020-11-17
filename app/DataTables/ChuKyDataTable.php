@@ -57,7 +57,7 @@ class ChuKyDataTable extends DataTable
                     "emptyTable" => "Không có bản ghi nào",
                     "info" => "Hiển thị bản ghi _START_ - _END_ trên tổng _TOTAL_ bản ghi",
                     "infoEmpty" => "Hiển thị 0 bản ghi",
-                    "infoFiltered" => "(lọc từ _MAX_ bản ghi)",
+                    "infoFiltered" => "",
                     "infoPostFix" => "",
                     "thousands" => ",",
                     "lengthMenu" => "Hiển thị _MENU_ bản ghi",
