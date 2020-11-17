@@ -197,3 +197,10 @@ div.dataTables_wrapper div.dataTables_filter {
 div:has(table.table) {
     overflow-x: auto;
 }
+
+.tab-content {
+    padding: 15px 0;
+}
+.has-error .select2-selection {
+    border-color: rgb(185, 74, 72) !important;
+}

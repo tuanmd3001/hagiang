@@ -63,8 +63,8 @@ class CanBo extends Model
         'gioi_tinh' => 'required|integer',
         'sdt' => 'required|string|max:15',
         'email' => 'required|string|max:255',
-        'noi_cong_tac' => 'required|string|max:255',
-        'noi_o' => 'required|string|max:255',
+        'noi_cong_tac' => 'nullable|max:255',
+        'noi_o' => 'nullable|max:255',
         'created_at' => 'nullable',
         'updated_at' => 'nullable'
     ];

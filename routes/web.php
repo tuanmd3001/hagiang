@@ -29,11 +29,6 @@ Route::group(['middleware' => ['role:SuperAdmin']], function () {
 });
 
 
-Route::group(['prefix' => 'danhMuc'], function () {
-    Route::resource('capDonVi', 'Danh_Muc\DmCapDonViController', ["as" => 'danhMuc']);
-});
-
-
 Route::resource('hoiNghiHoiThao', 'HoiNghiHoiThaoController');
 
 Route::resource('ngos', 'NgoController');
@@ -82,8 +77,6 @@ Route::resource('xncHcCongVus', 'XncHcCongVuController');
 
 Route::resource('chuKies', 'ChuKyController');
 
-Route::resource('duqtTtqts', 'DuqtTtqtController');
-
 Route::resource('canBoNgoaiGiaoTinhs', 'CanBoNgoaiGiaoTinhController');
 
 Route::resource('canBoNgoaiGiaoHuyens', 'CanBoNgoaiGiaoHuyenController');
@@ -98,69 +91,23 @@ Route::resource('ttqt_huyen_tp', 'TtqtController');
 
 Route::group(['prefix' => 'danhMuc'], function () {
     Route::resource('capDonVi', 'Danh_Muc\DmCapDonViController', ["as" => 'danhMuc']);
-});
-
-
-Route::group(['prefix' => 'danhMuc'], function () {
     Route::resource('chucVu', 'Danh_Muc\DmChucVuController', ["as" => 'danhMuc']);
-});
-
-
-Route::group(['prefix' => 'danhMuc'], function () {
     Route::resource('danhNghiaDoan', 'Danh_Muc\DmDanhNghiaDoanController', ["as" => 'danhMuc']);
-});
-
-
-Route::group(['prefix' => 'danhMuc'], function () {
     Route::resource('donVi', 'Danh_Muc\DmDonViController', ["as" => 'danhMuc']);
-});
-
-
-Route::group(['prefix' => 'danhMuc'], function () {
     Route::resource('loaiDoan', 'Danh_Muc\DmLoaiDoanController', ["as" => 'danhMuc']);
-});
-
-
-Route::group(['prefix' => 'danhMuc'], function () {
     Route::resource('loaiDuAn', 'Danh_Muc\DmLoaiDuAnController', ["as" => 'danhMuc']);
-});
-
-
-Route::group(['prefix' => 'danhMuc'], function () {
     Route::resource('loaiHangHoa', 'Danh_Muc\DmLoaiHangHoaController', ["as" => 'danhMuc']);
-});
-
-
-Route::group(['prefix' => 'danhMuc'], function () {
     Route::resource('loaiHinhToChuc', 'Danh_Muc\DmLoaiHinhToChucController', ["as" => 'danhMuc']);
-});
-
-
-Route::group(['prefix' => 'danhMuc'], function () {
     Route::resource('loaiKinhPhi', 'Danh_Muc\DmLoaiKinhPhiController', ["as" => 'danhMuc']);
-});
-
-
-Route::group(['prefix' => 'danhMuc'], function () {
     Route::resource('loaiSuKien', 'Danh_Muc\DmLoaiSuKienController', ["as" => 'danhMuc']);
-});
-
-
-Route::group(['prefix' => 'danhMuc'], function () {
     Route::resource('loaiVanBan', 'Danh_Muc\DmLoaiVanBanController', ["as" => 'danhMuc']);
-});
-
-
-Route::group(['prefix' => 'danhMuc'], function () {
     Route::resource('ngheNghiep', 'Danh_Muc\DmNgheNghiepController', ["as" => 'danhMuc']);
-});
-
-
-Route::group(['prefix' => 'danhMuc'], function () {
     Route::resource('quocGia', 'Danh_Muc\DmQuocGiaController', ["as" => 'danhMuc']);
-});
-
-
-Route::group(['prefix' => 'danhMuc'], function () {
     Route::resource('toChuc', 'Danh_Muc\DmToChucController', ["as" => 'danhMuc']);
 });
+
+
+//Route::resource('doanRas', 'DoanRaController');
+Route::resource('doanRaCapTinh', 'DoanRaController');
+Route::resource('doanRaCapHuyen', 'DoanRaController');
+Route::resource('doanRaCapXa', 'DoanRaController');

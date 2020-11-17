@@ -5,6 +5,54 @@
     </a>
 </li>
 
+<li class="treeview {{ Request::is(["doanRa*"]) ? 'active' : ''}}">
+    <a href="#">
+        <i class="fa fa-retweet"></i>
+        <span>Quản lý đoàn ra - đoàn vào</span>
+        <span class="pull-right-container">
+            <i class="fa fa-angle-left pull-right"></i>
+        </span>
+    </a>
+    <ul class="treeview-menu">
+        <li class="{{ Request::is('doanRaCapTinh*') ? 'active' : '' }}">
+            <a href="{!! route('doanRaCapTinh.index') !!}">
+                <i class="fa fa-circle-o"></i>
+                <div>Đoàn ra cấp tỉnh</div>
+            </a>
+        </li>
+        <li class="{{ Request::is('doanRaCapHuyen*') ? 'active' : '' }}">
+            <a href="{!! route('doanRaCapHuyen.index') !!}">
+                <i class="fa fa-circle-o"></i>
+                <div>Đoàn ra cấp huyện</div>
+            </a>
+        </li>
+        <li class="{{ Request::is('doanRaCapXa*') ? 'active' : '' }}">
+            <a href="{!! route('doanRaCapXa.index') !!}">
+                <i class="fa fa-circle-o"></i>
+                <div>Đoàn ra cấp xã</div>
+            </a>
+        </li>
+        <li class="{{ Request::is('ttqt_tinh*') ? 'active' : '' }}">
+            <a href="{!! route('ttqt_tinh.index') !!}">
+                <i class="fa fa-circle-o"></i>
+                <div>Đoàn vào cấp tỉnh</div>
+            </a>
+        </li>
+        <li class="{{ Request::is('ttqt_so_nganh*') ? 'active' : '' }}">
+            <a href="{!! route('ttqt_so_nganh.index') !!}">
+                <i class="fa fa-circle-o"></i>
+                <div>Đoàn vào cấp huyện</div>
+            </a>
+        </li>
+        <li class="{{ Request::is('ttqt_huyen_tp*') ? 'active' : '' }}">
+            <a href="{!! route('ttqt_huyen_tp.index') !!}">
+                <i class="fa fa-circle-o"></i>
+                <div>Đoàn vào cấp xã</div>
+            </a>
+        </li>
+    </ul>
+</li>
+
 <li class="treeview {{ Request::is(['ttqt*']) ? 'active' : ''}}">
     <a href="#">
         <i class="fa fa-sticky-note-o"></i>
@@ -396,4 +444,3 @@
         </li>
     </ul>
 </li>
-
