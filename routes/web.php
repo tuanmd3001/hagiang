@@ -114,3 +114,10 @@ Route::resource('doanVaoCapTinh', 'DoanVaoController');
 Route::resource('doanVaoCapHuyen', 'DoanVaoController');
 Route::resource('doanVaoCapXa', 'DoanVaoController');
 
+
+
+Route::resource('suVuBienGiois', 'SuVuBienGioiController');
+
+Route::resource('suVuBienGiois', 'SuVuBienGioiController');
+
+Route::resource('kyKetHuuNghis', 'KyKetHuuNghiController');

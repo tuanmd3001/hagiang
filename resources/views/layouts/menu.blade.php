@@ -205,7 +205,7 @@
         </li>
     </ul>
 </li>
-<li class="treeview">
+<li class="treeview {{ Request::is(['suVuBienGiois*', 'kyKetHuuNghis*']) ? 'active' : '' }}">
     <a href="#">
         <i class="fa fa-flag"></i>
         <span>Quản lý biên giới, lãnh thổ</span>
@@ -219,13 +219,13 @@
 {{--                <i class="fa fa-circle-o"></i>--}}
 {{--                <div>Quản lý đường biên, mốc giới</div></a>--}}
 {{--        </li>--}}
-        <li class="{{ Request::is('lanhSuNuocNgoais*') ? 'active' : '' }}">
-            <a href="{{ route('lanhSuNuocNgoais.index') }}">
+        <li class="{{ Request::is('suVuBienGiois*') ? 'active' : '' }}">
+            <a href="{{ route('suVuBienGiois.index') }}">
                 <i class="fa fa-circle-o"></i>
                 <div>Quản lý sự vụ, sự việc trên biên giới</div></a>
         </li>
-        <li class="{{ Request::is('bhNgNuocNgoais*') ? 'active' : '' }}">
-            <a href="{{ route('bhNgNuocNgoais.index') }}">
+        <li class="{{ Request::is('kyKetHuuNghis*') ? 'active' : '' }}">
+            <a href="{{ route('kyKetHuuNghis.index') }}">
                 <i class="fa fa-circle-o"></i>
                 <div>Thông tin, tình hình ký kết hữu nghị</div></a>
         </li>
@@ -444,3 +444,4 @@
         </li>
     </ul>
 </li>
+
