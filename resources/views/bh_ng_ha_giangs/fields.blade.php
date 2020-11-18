@@ -1,5 +1,5 @@
 <!-- Ho Ten Field -->
-<div class="form-group col-md-4 @if($errors->has('ho_ten')) has-error @endif">
+<div class="form-group col-md-6 @if($errors->has('ho_ten')) has-error @endif">
     {!! Form::label('ho_ten', 'Họ tên:') !!}
     {!! Form::text('ho_ten', null, ['class' => 'form-control','maxlength' => 255,'maxlength' => 255]) !!}
     @if($errors->has('ho_ten'))
@@ -8,7 +8,7 @@
 </div>
 
 <!-- Nam Sinh Field -->
-<div class="form-group col-md-4 @if($errors->has('nam_sinh')) has-error @endif">
+<div class="form-group col-md-6 @if($errors->has('nam_sinh')) has-error @endif">
     {!! Form::label('nam_sinh', 'Năm sinh:') !!}
     {!! Form::text('nam_sinh', null, ['class' => 'form-control','id'=>'nam_sinh']) !!}
     @if($errors->has('nam_sinh'))
@@ -27,7 +27,7 @@
 @endpush
 
 <!-- Que Quan Field -->
-<div class="form-group col-md-4 @if($errors->has('que_quan')) has-error @endif">
+<div class="form-group col-md-6 @if($errors->has('que_quan')) has-error @endif">
     {!! Form::label('que_quan', 'Quê quán:') !!}
     {!! Form::text('que_quan', null, ['class' => 'form-control','maxlength' => 255,'maxlength' => 255]) !!}
     @if($errors->has('que_quan'))
@@ -36,16 +36,28 @@
 </div>
 
 <!-- Nuoc Lao Dong Field -->
-<div class="form-group col-md-4 @if($errors->has('nuoc_lao_dong')) has-error @endif">
+<div class="form-group col-md-6 @if($errors->has('nuoc_lao_dong')) has-error @endif">
     {!! Form::label('nuoc_lao_dong', 'Đi lao động tại nước:') !!}
-    {!! Form::text('nuoc_lao_dong', null, ['class' => 'form-control','maxlength' => 255,'maxlength' => 255]) !!}
-    @if($errors->has('nuoc_lao_dong'))
-        <div class="help-block">{{ $errors->first('nuoc_lao_dong') }}</div>
-    @endif
+    <div class="row">
+        <div class="col-xs-7 col-sm-8 col-lg-9">
+            <select class="form-control select2 select2-hidden-accessible" name="nuoc_lao_dong">
+                <option></option>
+                @foreach($quoc_gias as $quoc_gia)
+                    <option @if (isset($bhNgHaGiang) && $bhNgHaGiang->nuoc_lao_dong == $quoc_gia->id || old('nuoc_lao_dong') == $quoc_gia->id) selected @endif value="{{$quoc_gia->id}}">{{$quoc_gia->ten}}</option>
+                @endforeach
+            </select>
+            @if($errors->has('nuoc_lao_dong'))
+                <div class="help-block">{{ $errors->first('nuoc_lao_dong') }}</div>
+            @endif
+        </div>
+        <div class="col-xs-5 col-sm-4 col-lg-3">
+            <a class="btn btn-primary pull-right" href="{{route('danhMuc.quocGia.create')}}">Thêm quốc gia</a>
+        </div>
+    </div>
 </div>
 
 <!-- Nganh Nghe Field -->
-<div class="form-group col-md-4 @if($errors->has('nganh_nghe')) has-error @endif">
+<div class="form-group col-md-6 @if($errors->has('nganh_nghe')) has-error @endif">
     {!! Form::label('nganh_nghe', 'Ngành nghề lao động:') !!}
     {!! Form::text('nganh_nghe', null, ['class' => 'form-control','maxlength' => 255,'maxlength' => 255]) !!}
     @if($errors->has('nganh_nghe'))
@@ -54,7 +66,7 @@
 </div>
 
 <!-- Thoi Han Field -->
-<div class="form-group col-md-4 @if($errors->has('thoi_han')) has-error @endif">
+<div class="form-group col-md-6 @if($errors->has('thoi_han')) has-error @endif">
     {!! Form::label('thoi_han', 'Thời hạn lao động:') !!}
     {!! Form::text('thoi_han', null, ['class' => 'form-control','id'=>'thoi_han']) !!}
     @if($errors->has('thoi_han'))
@@ -77,3 +89,8 @@
     {!! Form::submit('Lưu', ['class' => 'btn btn-primary']) !!}
     <a href="{{ route('bhNgHaGiangs.index') }}" class="btn btn-default">Quay lại</a>
 </div>
+@push('scripts')
+    <script type="text/javascript">
+        $('.select2').select2()
+    </script>
+@endpush

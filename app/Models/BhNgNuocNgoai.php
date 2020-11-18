@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use App\Models\Danh_Muc\DmQuocGia;
 use Eloquent as Model;
 
 /**
@@ -19,7 +20,7 @@ class BhNgNuocNgoai extends Model
 {
 
     public $table = 'bh_ng_nuoc_ngoais';
-    
+
     const CREATED_AT = 'created_at';
     const UPDATED_AT = 'updated_at';
 
@@ -63,5 +64,17 @@ class BhNgNuocNgoai extends Model
         'updated_at' => 'nullable'
     ];
 
-    
+
+    protected $appends = [
+        'ten_quoc_tich'
+    ];
+
+    public function getTenQuocTichAttribute(){
+        $quoc_gia = DmQuocGia::find($this->quoc_tich);
+        if ($quoc_gia){
+            return $quoc_gia->ten;
+        }
+        return "";
+    }
+
 }

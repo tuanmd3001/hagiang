@@ -2,6 +2,8 @@
 
 namespace App\Models;
 
+use App\Models\Danh_Muc\DmLoaiVanBan;
+use App\Models\Danh_Muc\DmQuocGia;
 use Eloquent as Model;
 
 /**
@@ -14,7 +16,7 @@ use Eloquent as Model;
  * @property string $danh_nghia_ky
  * @property integer $loai_van_ban
  * @property string $ten_van_ban
- * @property string $nuoc_ky
+ * @property integer $nuoc_ky
  * @property string $ten_doi_tac
  * @property string $ngay_ky
  * @property integer $tinh_trang_hieu_luc
@@ -87,7 +89,7 @@ class Ttqt extends Model
         'danh_nghia_ky' => 'string',
         'loai_van_ban' => 'integer',
         'ten_van_ban' => 'string',
-        'nuoc_ky' => 'string',
+        'nuoc_ky' => 'integer',
         'ten_doi_tac' => 'string',
         'ngay_ky' => 'string',
         'tinh_trang_hieu_luc' => 'integer',
@@ -97,6 +99,11 @@ class Ttqt extends Model
         'cap_phe_duyet' => 'string',
         'uy_quyen' => 'integer',
         'ghi_chu' => 'string'
+    ];
+
+    protected $appends = [
+        'ten_nuoc_ky',
+        'loai_van_ban_label'
     ];
 
     /**
@@ -109,7 +116,7 @@ class Ttqt extends Model
         'danh_nghia_ky' => 'required|string|max:255',
         'loai_van_ban' => 'required|integer',
         'ten_van_ban' => 'required|string|max:255',
-        'nuoc_ky' => 'required|string|max:255',
+        'nuoc_ky' => 'required|integer',
         'ten_doi_tac' => 'required|string|max:255',
         'ngay_ky' => 'required',
         'tinh_trang_hieu_luc' => 'required|integer',
@@ -123,5 +130,20 @@ class Ttqt extends Model
         'updated_at' => 'nullable'
     ];
 
+    public function getTenNuocKyAttribute(){
+        $nuoc_ky = DmQuocGia::find($this->nuoc_ky);
+        if ($nuoc_ky){
+            return $nuoc_ky->ten;
+        }
+        return "";
+    }
+
+    public function getLoaiVanBanLabelAttribute(){
+        $loai_van_ban = DmLoaiVanBan::find($this->loai_van_ban);
+        if ($loai_van_ban){
+            return $loai_van_ban->ten;
+        }
+        return "";
+    }
 
 }

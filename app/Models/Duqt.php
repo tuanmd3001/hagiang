@@ -2,6 +2,8 @@
 
 namespace App\Models;
 
+use App\Models\Danh_Muc\DmLoaiVanBan;
+use App\Models\Danh_Muc\DmQuocGia;
 use Eloquent as Model;
 
 /**
@@ -83,7 +85,7 @@ class Duqt extends Model
         'danh_nghia_ky' => 'string',
         'loai_van_ban' => 'integer',
         'ten_van_ban' => 'string',
-        'nuoc_ky' => 'string',
+        'nuoc_ky' => 'integer',
         'ten_doi_tac' => 'string',
         'ngay_ky' => 'string',
         'tinh_trang_hieu_luc' => 'integer',
@@ -96,6 +98,11 @@ class Duqt extends Model
         'ghi_chu' => 'string'
     ];
 
+    protected $appends = [
+        'ten_nuoc_ky',
+        'loai_van_ban_label'
+    ];
+
     /**
      * Validation rules
      *
@@ -106,7 +113,7 @@ class Duqt extends Model
         'danh_nghia_ky' => 'required|string|max:255',
         'loai_van_ban' => 'required|integer',
         'ten_van_ban' => 'required|string|max:255',
-        'nuoc_ky' => 'required|string|max:255',
+        'nuoc_ky' => 'required|integer',
         'ten_doi_tac' => 'required|string|max:255',
         'ngay_ky' => 'required',
         'tinh_trang_hieu_luc' => 'required|integer',
@@ -120,6 +127,22 @@ class Duqt extends Model
         'created_at' => 'nullable',
         'updated_at' => 'nullable'
     ];
+
+    public function getTenNuocKyAttribute(){
+        $nuoc_ky = DmQuocGia::find($this->nuoc_ky);
+        if ($nuoc_ky){
+            return $nuoc_ky->ten;
+        }
+        return "";
+    }
+
+    public function getLoaiVanBanLabelAttribute(){
+        $loai_van_ban = DmLoaiVanBan::find($this->loai_van_ban);
+        if ($loai_van_ban){
+            return $loai_van_ban->ten;
+        }
+        return "";
+    }
 
 
 }

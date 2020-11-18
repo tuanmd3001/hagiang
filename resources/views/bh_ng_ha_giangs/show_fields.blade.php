@@ -19,7 +19,7 @@
 <!-- Nuoc Lao Dong Field -->
 <div class="form-group">
     {!! Form::label('nuoc_lao_dong', 'Đi lao động tại nước:') !!}
-    <p>{{ $bhNgHaGiang->nuoc_lao_dong }}</p>
+    <p>{{ $bhNgHaGiang->ten_nuoc_lao_dong }}</p>
 </div>
 
 <!-- Nganh Nghe Field -->

@@ -19,14 +19,22 @@
 <!-- Loai Van Ban Field -->
 <div class="form-group col-md-6 @if($errors->has('loai_van_ban')) has-error @endif">
     {!! Form::label('loai_van_ban', 'Loại văn bản:') !!}
-    <select class="form-control select2 select2-hidden-accessible" name="loai_van_ban">
-        @foreach(\App\Models\Duqt::TYPE_LABEL as $key => $loai)
-            <option @if (isset($duqt) && $duqt->loai_van_ban == $key) selected @endif value="{{$key}}">{{$loai}}</option>
-        @endforeach
-    </select>
-    @if($errors->has('loai_van_ban'))
-        <div class="help-block">{{ $errors->first('loai_van_ban') }}</div>
-    @endif
+    <div class="row">
+        <div class="col-xs-7 col-sm-8 col-lg-9">
+            <select class="form-control select2 select2-hidden-accessible" name="loai_van_ban">
+                <option></option>
+                @foreach($loai_vbs as $loai_vb)
+                    <option @if (isset($duqt) && $duqt->loai_van_ban == $loai_vb->id || old('loai_van_ban') == $loai_vb->id) selected @endif value="{{$loai_vb->id}}">{{$loai_vb->ten}}</option>
+                @endforeach
+            </select>
+            @if($errors->has('loai_van_ban'))
+                <div class="help-block">{{ $errors->first('loai_van_ban') }}</div>
+            @endif
+        </div>
+        <div class="col-xs-5 col-sm-4 col-lg-3">
+            <a class="btn btn-primary pull-right" href="{{route('danhMuc.loaiVanBan.create')}}">Thêm loại</a>
+        </div>
+    </div>
 </div>
 
 <!-- Ten Van Ban Field -->
@@ -41,10 +49,22 @@
 <!-- Nuoc Ky Field -->
 <div class="form-group col-md-6 @if($errors->has('nuoc_ky')) has-error @endif">
     {!! Form::label('nuoc_ky', 'Nước ký:') !!}
-    {!! Form::text('nuoc_ky', null, ['class' => 'form-control','maxlength' => 255,'maxlength' => 255]) !!}
-    @if($errors->has('nuoc_ky'))
-        <div class="help-block">{{ $errors->first('nuoc_ky') }}</div>
-    @endif
+    <div class="row">
+        <div class="col-xs-7 col-sm-8 col-lg-9">
+            <select class="form-control select2 select2-hidden-accessible" name="nuoc_ky">
+                <option></option>
+                @foreach($quoc_gias as $quoc_gia)
+                    <option @if (isset($duqt) && $duqt->nuoc_ky == $quoc_gia->id || old('nuoc_ky') == $quoc_gia->id) selected @endif value="{{$quoc_gia->id}}">{{$quoc_gia->ten}}</option>
+                @endforeach
+            </select>
+            @if($errors->has('nuoc_ky'))
+                <div class="help-block">{{ $errors->first('nuoc_ky') }}</div>
+            @endif
+        </div>
+        <div class="col-xs-5 col-sm-4 col-lg-3">
+            <a class="btn btn-primary pull-right" href="{{route('danhMuc.quocGia.create')}}">Thêm quốc gia</a>
+        </div>
+    </div>
 </div>
 
 <!-- Ten Doi Tac Field -->

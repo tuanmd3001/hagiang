@@ -6,6 +6,7 @@ use App\DataTables\BhNgNuocNgoaiDataTable;
 use App\Http\Requests;
 use App\Http\Requests\CreateBhNgNuocNgoaiRequest;
 use App\Http\Requests\UpdateBhNgNuocNgoaiRequest;
+use App\Models\Danh_Muc\DmQuocGia;
 use App\Repositories\BhNgNuocNgoaiRepository;
 use Flash;
 use App\Http\Controllers\AppBaseController;
@@ -39,7 +40,8 @@ class BhNgNuocNgoaiController extends AppBaseController
      */
     public function create()
     {
-        return view('bh_ng_nuoc_ngoais.create');
+        $quoc_gias = DmQuocGia::all();
+        return view('bh_ng_nuoc_ngoais.create', compact('quoc_gias'));
     }
 
     /**
@@ -96,8 +98,9 @@ class BhNgNuocNgoaiController extends AppBaseController
 
             return redirect(route('bhNgNuocNgoais.index'));
         }
+        $quoc_gias = DmQuocGia::all();
 
-        return view('bh_ng_nuoc_ngoais.edit')->with('bhNgNuocNgoai', $bhNgNuocNgoai);
+        return view('bh_ng_nuoc_ngoais.edit', compact('bhNgNuocNgoai', 'quoc_gias'));
     }
 
     /**

@@ -13,7 +13,7 @@
 <!-- Loai Van Ban Field -->
 <div class="form-group col-md-6">
     {!! Form::label('loai_van_ban', 'Loại văn bản:') !!}
-    <p>{{ \App\Models\Duqt::TYPE_LABEL[$ttqt->loai_van_ban] }}</p>
+    <p>{{ $ttqt->loai_van_ban_label }}</p>
 </div>
 
 <!-- Ten Van Ban Field -->
@@ -24,8 +24,8 @@
 
 <!-- Nuoc Ky Field -->
 <div class="form-group col-md-6">
-    {!! Form::label('nuoc_ky', 'Nước ký:') !!}
-    <p>{{ $ttqt->nuoc_ky }}</p>
+    {!! Form::label('ten_nuoc_ky', 'Nước ký:') !!}
+    <p>{{ $ttqt->ten_nuoc_ky }}</p>
 </div>
 
 <!-- Ten Doi Tac Field -->

@@ -7,7 +7,7 @@
 <!-- Quoc Tich Field -->
 <div class="form-group">
     {!! Form::label('quoc_tich', 'Quốc tịch:') !!}
-    <p>{{ $bhNgNuocNgoai->quoc_tich }}</p>
+    <p>{{ $bhNgNuocNgoai->ten_quoc_tich }}</p>
 </div>
 
 <!-- So Ho Chieu Field -->

@@ -6,6 +6,8 @@ use App\DataTables\TtqtDataTable;
 use App\Http\Requests;
 use App\Http\Requests\CreateTtqtRequest;
 use App\Http\Requests\UpdateTtqtRequest;
+use App\Models\Danh_Muc\DmLoaiVanBan;
+use App\Models\Danh_Muc\DmQuocGia;
 use App\Models\Ttqt;
 use App\Repositories\TtqtRepository;
 use Flash;
@@ -53,8 +55,10 @@ class TtqtController extends AppBaseController
      */
     public function create()
     {
+        $quoc_gias = DmQuocGia::all();
+        $loai_vbs = DmLoaiVanBan::all();
         $level = $this->level;
-        return view('ttqts.create', compact(['level']));
+        return view('ttqts.create', compact('level', 'quoc_gias', 'loai_vbs'));
     }
 
     /**
@@ -138,8 +142,10 @@ class TtqtController extends AppBaseController
         }
         $ttqt->ngay_ky = date_format(new \DateTime($ttqt->ngay_ky), 'd/m/Y') ?? '';
         $ttqt->ngay_hieu_luc = date_format(new \DateTime($ttqt->ngay_hieu_luc), 'd/m/Y') ?? '';
+        $quoc_gias = DmQuocGia::all();
+        $loai_vbs = DmLoaiVanBan::all();
         $level = $this->level;
-        return view('ttqts.edit', compact(['ttqt', 'level']));
+        return view('ttqts.edit', compact('ttqt', 'level', 'quoc_gias', 'loai_vbs'));
     }
 
     /**

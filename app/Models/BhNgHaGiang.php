@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use App\Models\Danh_Muc\DmQuocGia;
 use Eloquent as Model;
 
 /**
@@ -67,5 +68,16 @@ class BhNgHaGiang extends Model
         'updated_at' => 'nullable'
     ];
 
+    protected $appends = [
+        'ten_nuoc_lao_dong'
+    ];
+
+    public function getTenNuocLaoDongAttribute(){
+        $quoc_gia = DmQuocGia::find($this->nuoc_lao_dong);
+        if ($quoc_gia){
+            return $quoc_gia->ten;
+        }
+        return "";
+    }
 
 }

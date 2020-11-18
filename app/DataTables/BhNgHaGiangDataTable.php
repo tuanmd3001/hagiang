@@ -105,7 +105,7 @@ class BhNgHaGiangDataTable extends DataTable
             ['name' => 'ho_ten', 'data' => 'ho_ten', 'title' => 'Họ tên'],
             ['name' => 'nam_sinh', 'data' => 'nam_sinh', 'title' => 'Năm sinh'],
             ['name' => 'que_quan', 'data' => 'que_quan', 'title' => 'Quê quán'],
-            ['name' => 'nuoc_lao_dong', 'data' => 'nuoc_lao_dong', 'title' => 'Nước lao động'],
+            ['name' => 'ten_nuoc_lao_dong', 'data' => 'ten_nuoc_lao_dong', 'title' => 'Nước lao động'],
             ['name' => 'nganh_nghe', 'data' => 'nganh_nghe', 'title' => 'Ngành nghề lao động'],
             ['name' => 'thoi_han', 'data' => 'thoi_han', 'title' => 'Thời hạn lao động']
         ];

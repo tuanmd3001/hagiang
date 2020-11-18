@@ -100,7 +100,7 @@ class BhNgNuocNgoaiDataTable extends DataTable
         return [
             ['data' => 'DT_RowIndex', 'name' => 'DT_RowIndex', 'title' => 'STT','searchable' => false],
             ['name' => 'ho_ten', 'data' => 'ho_ten', 'title' => 'Họ tên'],
-            ['name' => 'quoc_tich', 'data' => 'quoc_tich', 'title' => 'Quốc tịch'],
+            ['name' => 'ten_quoc_tich', 'data' => 'ten_quoc_tich', 'title' => 'Quốc tịch'],
             ['name' => 'so_ho_chieu', 'data' => 'so_ho_chieu', 'title' => 'Số hộ chiếu'],
             ['name' => 'noi_dung', 'data' => 'noi_dung', 'title' => 'Nội dung hoạt động'],
             ['name' => 'dia_chi', 'data' => 'dia_chi', 'title' => 'Địa chỉ tạm trú']

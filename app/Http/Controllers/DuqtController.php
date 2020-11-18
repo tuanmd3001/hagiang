@@ -6,6 +6,8 @@ use App\DataTables\DuqtDataTable;
 use App\Http\Requests;
 use App\Http\Requests\CreateDuqtRequest;
 use App\Http\Requests\UpdateDuqtRequest;
+use App\Models\Danh_Muc\DmLoaiVanBan;
+use App\Models\Danh_Muc\DmQuocGia;
 use App\Repositories\DuqtRepository;
 use Flash;
 use App\Http\Controllers\AppBaseController;
@@ -39,7 +41,9 @@ class DuqtController extends AppBaseController
      */
     public function create()
     {
-        return view('duqts.create');
+        $quoc_gias = DmQuocGia::all();
+        $loai_vbs = DmLoaiVanBan::all();
+        return view('duqts.create', compact('quoc_gias', 'loai_vbs'));
     }
 
     /**
@@ -111,8 +115,10 @@ class DuqtController extends AppBaseController
         }
         $duqt->ngay_ky = date_format(new \DateTime($duqt->ngay_ky), 'd/m/Y') ?? '';
         $duqt->ngay_hieu_luc = date_format(new \DateTime($duqt->ngay_hieu_luc), 'd/m/Y') ?? '';
+        $quoc_gias = DmQuocGia::all();
+        $loai_vbs = DmLoaiVanBan::all();
 
-        return view('duqts.edit')->with('duqt', $duqt);
+        return view('duqts.edit', compact('duqt', 'quoc_gias', 'loai_vbs'));
     }
 
     /**

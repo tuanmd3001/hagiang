@@ -6,6 +6,7 @@ use App\DataTables\BhNgHaGiangDataTable;
 use App\Http\Requests;
 use App\Http\Requests\CreateBhNgHaGiangRequest;
 use App\Http\Requests\UpdateBhNgHaGiangRequest;
+use App\Models\Danh_Muc\DmQuocGia;
 use App\Repositories\BhNgHaGiangRepository;
 use Flash;
 use App\Http\Controllers\AppBaseController;
@@ -39,7 +40,8 @@ class BhNgHaGiangController extends AppBaseController
      */
     public function create()
     {
-        return view('bh_ng_ha_giangs.create');
+        $quoc_gias = DmQuocGia::all();
+        return view('bh_ng_ha_giangs.create', compact('quoc_gias'));
     }
 
     /**
@@ -98,8 +100,9 @@ class BhNgHaGiangController extends AppBaseController
             return redirect(route('bhNgHaGiangs.index'));
         }
         $bhNgHaGiang->thoi_han = date_format(new \DateTime($bhNgHaGiang->thoi_han), 'd/m/Y') ?? '';
+        $quoc_gias = DmQuocGia::all();
 
-        return view('bh_ng_ha_giangs.edit')->with('bhNgHaGiang', $bhNgHaGiang);
+        return view('bh_ng_ha_giangs.edit', compact('bhNgHaGiang', 'quoc_gias'));
     }
 
     /**
