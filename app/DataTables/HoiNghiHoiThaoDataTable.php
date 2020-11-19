@@ -86,7 +86,7 @@ class HoiNghiHoiThaoDataTable extends DataTable
         return $this->builder()
             ->columns($this->getColumns())
             ->minifiedAjax()
-            ->addAction(['width' => '120px', 'printable' => false, 'title' => 'Thao tác'])
+            ->addAction(['width' => '120px', 'printable' => false, 'title' => 'Thao tác', 'className' => 'text-center'])
             ->parameters([
                 "initComplete" => "function( settings, json) {
                     $(`{$header}`).prependTo('thead');
@@ -143,7 +143,7 @@ class HoiNghiHoiThaoDataTable extends DataTable
     protected function getColumns()
     {
         return [
-            ['data' => 'DT_RowIndex', 'name' => 'DT_RowIndex', 'title' => 'STT','searchable' => false],
+            ['data' => 'DT_RowIndex', 'name' => 'DT_RowIndex', 'title' => 'STT','searchable' => false, 'className' => 'text-center'],
             ['data' => 'ten', 'name' => 'ten', 'title' => 'Tên/Chủ đề hội nghị, hội thảo'],
             ['data' => 'co_quan', 'name' => 'co_quan', 'title' => 'Tên cơ quan/Tổ chức nước ngoài phối hợp thực hiện'],
             ['data' => 'noi_dung', 'name' => 'noi_dung', 'title' => 'Nội dung hoạt động'],

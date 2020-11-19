@@ -12,8 +12,8 @@
                 <div class="row">
                     @include('ttqts.show_fields')
                     <div class="col-md-12">
-                    <a href="{{ route('ttqts.edit', ['ttqt' => $ttqt->id]) }}" class="btn btn-primary">Sửa</a>
-                    <a href="{{ route('ttqts.index') }}" class="btn btn-default">Quay lại</a>
+                    <a href="{{ route(\App\Models\Ttqt::ROUTE_NAME[$level] . '.edit', ['ttqt' => $ttqt->id]) }}" class="btn btn-primary">Sửa</a>
+                    <a href="{{ route(\App\Models\Ttqt::ROUTE_NAME[$level] . '.index') }}" class="btn btn-default">Quay lại</a>
                     </div>
                 </div>
             </div>

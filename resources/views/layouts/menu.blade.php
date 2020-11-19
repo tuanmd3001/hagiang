@@ -1,10 +1,12 @@
+@can('canBos')
 <li class="{{ Request::is("canBos") ? 'active' : ''}}">
     <a href="{{ route('canBos.index') }}">
         <i class="fa fa-user"></i>
         <span>Quản lý thông tin cán bộ</span>
     </a>
 </li>
-
+@endif
+@canany(['doanRaCapTinh', 'doanRaCapHuyen', 'doanRaCapXa', 'doanVaoCapTinh', 'doanVaoCapHuyen', 'doanVaoCapXa'])
 <li class="treeview {{ Request::is(["doanRa*", "doanVao*"]) ? 'active' : ''}}">
     <a href="#">
         <i class="fa fa-retweet"></i>
@@ -14,45 +16,58 @@
         </span>
     </a>
     <ul class="treeview-menu">
+        @can('doanRaCapTinh')
         <li class="{{ Request::is('doanRaCapTinh*') ? 'active' : '' }}">
             <a href="{!! route('doanRaCapTinh.index') !!}">
                 <i class="fa fa-circle-o"></i>
                 <div>Đoàn ra cấp tỉnh</div>
             </a>
         </li>
+        @endif
+        @can('doanRaCapHuyen')
         <li class="{{ Request::is('doanRaCapHuyen*') ? 'active' : '' }}">
             <a href="{!! route('doanRaCapHuyen.index') !!}">
                 <i class="fa fa-circle-o"></i>
                 <div>Đoàn ra cấp huyện</div>
             </a>
         </li>
+        @endif
+        @can('doanRaCapXa')
         <li class="{{ Request::is('doanRaCapXa*') ? 'active' : '' }}">
             <a href="{!! route('doanRaCapXa.index') !!}">
                 <i class="fa fa-circle-o"></i>
                 <div>Đoàn ra cấp xã</div>
             </a>
         </li>
+        @endif
+        @can('doanVaoCapTinh')
         <li class="{{ Request::is('doanVaoCapTinh*') ? 'active' : '' }}">
             <a href="{!! route('doanVaoCapTinh.index') !!}">
                 <i class="fa fa-circle-o"></i>
                 <div>Đoàn vào cấp tỉnh</div>
             </a>
         </li>
+        @endif
+        @can('doanVaoCapHuyen')
         <li class="{{ Request::is('doanVaoCapHuyen*') ? 'active' : '' }}">
             <a href="{!! route('doanVaoCapHuyen.index') !!}">
                 <i class="fa fa-circle-o"></i>
                 <div>Đoàn vào cấp huyện</div>
             </a>
         </li>
+        @endif
+        @can('doanVaoCapXa')
         <li class="{{ Request::is('doanVaoCapXa*') ? 'active' : '' }}">
             <a href="{!! route('doanVaoCapXa.index') !!}">
                 <i class="fa fa-circle-o"></i>
                 <div>Đoàn vào cấp xã</div>
             </a>
         </li>
+        @endif
     </ul>
 </li>
-
+@endif
+@canany(['ttqt_tinh', 'ttqt_so_nganh', 'ttqt_huyen_tp'])
 <li class="treeview {{ Request::is(['ttqt*']) ? 'active' : ''}}">
     <a href="#">
         <i class="fa fa-sticky-note-o"></i>
@@ -62,27 +77,34 @@
         </span>
     </a>
     <ul class="treeview-menu">
+        @can('ttqt_tinh')
         <li class="{{ Request::is('ttqt_tinh*') ? 'active' : '' }}">
             <a href="{!! route('ttqt_tinh.index') !!}">
                 <i class="fa fa-circle-o"></i>
                 <div>Thỏa thuận quốc tế do tỉnh ký kết</div>
             </a>
         </li>
+        @endif
+        @can('ttqt_so_nganh')
         <li class="{{ Request::is('ttqt_so_nganh*') ? 'active' : '' }}">
             <a href="{!! route('ttqt_so_nganh.index') !!}">
                 <i class="fa fa-circle-o"></i>
                 <div>Thỏa thuận do các sở, ngành cấp tỉnh ký kết</div>
             </a>
         </li>
+        @endif
+        @can('ttqt_huyen_tp')
         <li class="{{ Request::is('ttqt_huyen_tp*') ? 'active' : '' }}">
             <a href="{!! route('ttqt_huyen_tp.index') !!}">
                 <i class="fa fa-circle-o"></i>
                 <div>Thỏa thuận do UBND các huyện, thành phố ký kết</div>
             </a>
         </li>
+        @endif
     </ul>
 </li>
-
+@endif
+@can('hoiNghiHoiThao')
 <li class="treeview {{ Request::is('hoiNghiHoiThao*') ? 'active' : ''}}">
     <a href="#">
         <i class="fa fa-comments"></i>
@@ -104,7 +126,8 @@
         </li>
     </ul>
 </li>
-
+@endif
+@canany(['ngos', 'duAnNgos', 'duAnKhacs'])
 <li class="treeview {{ Request::is(['ngos*', 'duAnNgos*', 'duAnKhacs*']) ? 'active' : ''}}">
     <a href="#">
         <i class="fa fa-building"></i>
@@ -114,27 +137,34 @@
         </span>
     </a>
     <ul class="treeview-menu">
+        @can('ngos')
         <li class="{{ Request::is('ngos*') ? 'active' : '' }}">
             <a href="{!! route('ngos.index') !!}">
                 <i class="fa fa-circle-o"></i>
                 <div>Các tổ chức NGOs</div>
             </a>
         </li>
+        @endif
+        @can('duAnNgos')
         <li class="{{ Request::is('duAnNgos*') ? 'active' : '' }}">
             <a href="{!! route('duAnNgos.index') !!}">
                 <i class="fa fa-circle-o"></i>
                 <div>Dự án của các tổ chức NGOs</div>
             </a>
         </li>
+        @endif
+        @can('duAnKhacs')
         <li class="{{ Request::is('duAnKhacs*') ? 'active' : '' }}">
             <a href="{!! route('duAnKhacs.index') !!}">
                 <i class="fa fa-circle-o"></i>
                 <div>Dự án của các tổ chức khác</div>
             </a>
         </li>
+        @endif
     </ul>
 </li>
-
+@endif
+@canany(['xuatNhapKhaus', 'nguonOdas', 'duAnOdas', 'nguonFdis', 'duAnFdis', 'dnVonNuocNgoais', 'dnNuocNgoais'])
 <li class="treeview {{ Request::is(['xuatNhapKhaus*', 'nguonOdas*', 'duAnOdas*', 'nguonFdis*', 'duAnFdis*', 'dnVonNuocNgoais*', 'dnNuocNgoais*']) ? 'active' : '' }}">
     <a href="#">
         <i class="fa fa-exchange"></i>
@@ -144,36 +174,52 @@
         </span>
     </a>
     <ul class="treeview-menu">
+        @can('xuatNhapKhaus')
         <li class="{{ Request::is('xuatNhapKhaus*') ? 'active' : '' }}">
             <a href="{{ route('xuatNhapKhaus.index') }}"><i class="fa fa-circle-o"></i>
                 <div>Số liệu xuất - nhập khẩu</div></a>
         </li>
+        @endif
+        @can('nguonOdas')
         <li class="{{ Request::is('nguonOdas*') ? 'active' : '' }}">
             <a href="{{ route('nguonOdas.index') }}"><i class="fa fa-circle-o"></i>
                 <div>Đơn vị, quốc gia tài trợ vốn ODA</div></a>
         </li>
+        @endif
+        @can('duAnOdas')
         <li class="{{ Request::is('duAnOdas*') ? 'active' : '' }}">
             <a href="{{ route('duAnOdas.index') }}"><i class="fa fa-circle-o"></i>
                 <div>Các dự án ODA</div></a>
         </li>
+        @endif
+        @can('nguonFdis')
         <li class="{{ Request::is('nguonFdis*') ? 'active' : '' }}">
             <a href="{{ route('nguonFdis.index') }}"><i class="fa fa-circle-o"></i>
                 <div>Đơn vị, quốc gia tài trợ vốn FDI</div></a>
         </li>
+        @endif
+        @can('duAnFdis')
         <li class="{{ Request::is('duAnFdis*') ? 'active' : '' }}">
             <a href="{{ route('duAnFdis.index') }}"><i class="fa fa-circle-o"></i>
                 <div>Các dự án FDI</div></a>
         </li>
+        @endif
+        @can('dnVonNuocNgoais')
         <li class="{{ Request::is('dnVonNuocNgoais*') ? 'active' : '' }}">
             <a href="{{ route('dnVonNuocNgoais.index') }}"><i class="fa fa-circle-o"></i>
                 <div>Doanh nghiệp có vốn đầu tư nước ngoài</div></a>
         </li>
+        @endif
+        @can('dnNuocNgoais')
         <li class="{{ Request::is('dnNuocNgoais*') ? 'active' : '' }}">
             <a href="{{ route('dnNuocNgoais.index') }}"><i class="fa fa-circle-o"></i>
                 <div>Doanh nghiệp nước ngoài tại Hà Giang</div></a>
         </li>
+        @endif
     </ul>
 </li>
+@endif
+@canany(['lanhSuTinhs', 'lanhSuNuocNgoais', 'bhNgNuocNgoais', 'bhNgHaGiangs'])
 <li class="treeview {{ Request::is(['lanhSuTinhs*', 'lanhSuNuocNgoais*', 'bhNgNuocNgoais*', 'bhNgHaGiangs*']) ? 'active' : ''}}">
     <a href="#">
         <i class="fa fa-cab"></i>
@@ -183,28 +229,38 @@
         </span>
     </a>
     <ul class="treeview-menu">
+        @can('lanhSuTinhs')
         <li class="{{ Request::is('lanhSuTinhs*') ? 'active' : '' }}">
             <a href="{{ route('lanhSuTinhs.index') }}">
                 <i class="fa fa-circle-o"></i>
                 <div>Vụ việc lãnh sự trên địa bàn tỉnh</div></a>
         </li>
+        @endif
+        @can('lanhSuNuocNgoais')
         <li class="{{ Request::is('lanhSuNuocNgoais*') ? 'active' : '' }}">
             <a href="{{ route('lanhSuNuocNgoais.index') }}">
                 <i class="fa fa-circle-o"></i>
                 <div>Vụ việc lãnh sự tại nước ngoài</div></a>
         </li>
+        @endif
+        @can('bhNgNuocNgoais')
         <li class="{{ Request::is('bhNgNuocNgoais*') ? 'active' : '' }}">
             <a href="{{ route('bhNgNuocNgoais.index') }}">
                 <i class="fa fa-circle-o"></i>
                 <div>Người nước ngoài đang hoạt động, tạm trú tại Hà Giang</div></a>
         </li>
+        @endif
+        @can('bhNgHaGiangs')
         <li class="{{ Request::is('bhNgHaGiangs*') ? 'active' : '' }}">
             <a href="{{ route('bhNgHaGiangs.index') }}">
                 <i class="fa fa-circle-o"></i>
                 <div>Người Hà Giang đi lao động tại nước ngoài</div></a>
         </li>
+        @endif
     </ul>
 </li>
+@endif
+@canany(['suVuBienGiois', 'kyKetHuuNghis'])
 <li class="treeview {{ Request::is(['suVuBienGiois*', 'kyKetHuuNghis*']) ? 'active' : '' }}">
     <a href="#">
         <i class="fa fa-flag"></i>
@@ -219,16 +275,20 @@
 {{--                <i class="fa fa-circle-o"></i>--}}
 {{--                <div>Quản lý đường biên, mốc giới</div></a>--}}
 {{--        </li>--}}
+        @can('suVuBienGiois')
         <li class="{{ Request::is('suVuBienGiois*') ? 'active' : '' }}">
             <a href="{{ route('suVuBienGiois.index') }}">
                 <i class="fa fa-circle-o"></i>
                 <div>Quản lý sự vụ, sự việc trên biên giới</div></a>
         </li>
+        @endif
+        @can('kyKetHuuNghis')
         <li class="{{ Request::is('kyKetHuuNghis*') ? 'active' : '' }}">
             <a href="{{ route('kyKetHuuNghis.index') }}">
                 <i class="fa fa-circle-o"></i>
                 <div>Thông tin, tình hình ký kết hữu nghị</div></a>
         </li>
+        @endif
 {{--        <li class="{{ Request::is('bhNgHaGiangs*') ? 'active' : '' }}">--}}
 {{--            <a href="{{ route('bhNgHaGiangs.index') }}">--}}
 {{--                <i class="fa fa-circle-o"></i>--}}
@@ -236,6 +296,8 @@
 {{--        </li>--}}
     </ul>
 </li>
+@endif
+@canany(['ngHgNuocNgoais', 'ngHgVeNuocs'])
 <li class="treeview {{ Request::is(['ngHgNuocNgoais*', 'ngHgVeNuocs*']) ? 'active' : ''}}">
     <a href="#">
         <i class="fa fa-user"></i>
@@ -245,18 +307,24 @@
         </span>
     </a>
     <ul class="treeview-menu">
+        @can('ngHgNuocNgoais')
         <li class="{{ Request::is('ngHgNuocNgoais*') ? 'active' : '' }}">
             <a href="{{ route('ngHgNuocNgoais.index') }}">
                 <i class="fa fa-circle-o"></i>
                 <div>Người Hà Giang ở nước ngoài</div></a>
         </li>
+        @endif
+        @can('ngHgVeNuocs')
         <li class="{{ Request::is('ngHgVeNuocs*') ? 'active' : '' }}">
             <a href="{{ route('ngHgVeNuocs.index') }}">
                 <i class="fa fa-circle-o"></i>
                 <div>Người Hà Giang ở nước ngoài về thăm thân, làm việc trong nước</div></a>
         </li>
+        @endif
     </ul>
 </li>
+@endif
+@canany(['hcNgoaiGiaos', 'xncHcNgoaiGiaos', 'hcCongVus', 'xncHcCongVus', 'abtcs', 'chuKies'])
 <li class="treeview {{ Request::is(['hcNgoaiGiaos*', 'xncHcNgoaiGiaos*', 'hcCongVus*', 'xncHcCongVus*', 'abtcs*', 'chuKies*']) ? 'active' : ''}}">
     <a href="#">
         <i class="fa fa-book"></i>
@@ -266,48 +334,54 @@
         </span>
     </a>
     <ul class="treeview-menu">
+        @can('hcNgoaiGiaos')
         <li class="{{ Request::is('hcNgoaiGiaos*') ? 'active' : '' }}">
             <a href="{{ route('hcNgoaiGiaos.index') }}">
                 <i class="fa fa-circle-o"></i>
                 <div>Hộ chiếu ngoại giao</div></a>
         </li>
+        @endif
+        @can('xncHcNgoaiGiaos')
         <li class="{{ Request::is('xncHcNgoaiGiaos*') ? 'active' : '' }}">
             <a href="{{ route('xncHcNgoaiGiaos.index') }}">
                 <i class="fa fa-circle-o"></i>
                 <div>Cán bộ xuất/nhập cảnh bằng hộ chiếu ngoại giao</div></a>
         </li>
+        @endif
+        @can('hcCongVus')
         <li class="{{ Request::is('hcCongVus*') ? 'active' : '' }}">
             <a href="{{ route('hcCongVus.index') }}">
                 <i class="fa fa-circle-o"></i>
                 <div>Hộ chiếu công vụ</div></a>
         </li>
+        @endif
+        @can('xncHcCongVus')
         <li class="{{ Request::is('xncHcCongVus*') ? 'active' : '' }}">
             <a href="{{ route('xncHcCongVus.index') }}">
                 <i class="fa fa-circle-o"></i>
                 <div>Cán bộ xuất/nhập cảnh bằng hộ chiếu công vụ</div></a>
         </li>
+        @endif
+        @can('abtcs')
         <li class="{{ Request::is('abtcs*') ? 'active' : '' }}">
             <a href="{{ route('abtcs.index') }}">
                 <i class="fa fa-circle-o"></i>
                 <div>Thẻ ABTC</div></a>
         </li>
+        @endif
+        @can('chuKies')
         <li class="{{ Request::is('chuKies*') ? 'active' : '' }}">
             <a href="{{ route('chuKies.index') }}">
                 <i class="fa fa-circle-o"></i>
                 <div>Mẫu chữ ký, con dấu</div></a>
         </li>
+        @endif
     </ul>
 </li>
+@endif
 
 
-
-
-
-
-
-
-
-
+@canany(['canBoNgoaiGiaoTinhs', 'canBoNgoaiGiaoHuyens'])
 <li class="treeview {{ Request::is(['canBoNgoaiGiaoTinhs*', 'canBoNgoaiGiaoHuyens*']) ? 'active' : ''}}">
     <a href="#">
         <i class="fa fa-user"></i>
@@ -317,24 +391,32 @@
         </span>
     </a>
     <ul class="treeview-menu">
+        @can('canBoNgoaiGiaoTinhs')
         <li class="{{ Request::is('canBoNgoaiGiaoTinhs*') ? 'active' : '' }}">
             <a href="{{ route('canBoNgoaiGiaoTinhs.index') }}">
                 <i class="fa fa-circle-o"></i>
                 <div>Cán bộ chuyên trách đối ngoại cấp tỉnh</div></a>
         </li>
+        @endif
+        @can('canBoNgoaiGiaoHuyens')
         <li class="{{ Request::is('canBoNgoaiGiaoHuyens*') ? 'active' : '' }}">
             <a href="{{ route('canBoNgoaiGiaoHuyens.index') }}">
                 <i class="fa fa-circle-o"></i>
                 <div>Cán bộ chuyên trách đối ngoại cấp huyện</div></a>
         </li>
+        @endif
     </ul>
 </li>
+@endif
+@can('duqts')
 <li class="{{ Request::is("duqts") ? 'active' : ''}}">
     <a href="{{ route('duqts.index') }}">
         <i class="fa fa-sticky-note-o"></i>
         <span>Các điều ước quốc tế</span>
     </a>
 </li>
+@endif
+@can('danhMuc')
 <li class="treeview {{ Request::is('danhMuc*') ? 'active' : ''}}">
     <a href="#">
         <i class="fa fa-list-ul"></i>
@@ -416,7 +498,8 @@
         </li>
     </ul>
 </li>
-
+@endif
+@canany(['users', 'roles', 'permissions'])
 <li class="treeview {{ Request::is(['users*', 'roles*', 'permissions*']) ? 'active' : '' }}">
     <a href="#">
         <i class="fa fa-cogs"></i>
@@ -426,22 +509,28 @@
         </span>
     </a>
     <ul class="treeview-menu">
+        @can('users')
         <li class="{{ Request::is('users*') ? 'active' : '' }}">
             <a href="{!! route('users.index') !!}"><i class="fa fa-user"></i>
                 <div>Quản lý người dùng</div>
             </a>
         </li>
+        @endif
+        @can('roles')
         <li class="{{ Request::is('roles*') ? 'active' : '' }}">
             <a href="{{ route('roles.index') }}"><i class="fa fa-users"></i>
                 <div>Quản lý vai trò người dùng</div>
             </a>
         </li>
-
+        @endif
+        @can('permissions')
         <li class="{{ Request::is('permissions*') ? 'active' : '' }}">
             <a href="{{ route('permissions.index') }}"><i class="fa fa-terminal"></i>
                 <div>Quản lý chức năng</div>
             </a>
         </li>
+        @endif
     </ul>
 </li>
+@endif
 

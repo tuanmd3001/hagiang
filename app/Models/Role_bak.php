@@ -6,19 +6,19 @@ use Eloquent as Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
 /**
- * Class Permission
+ * Class Role
  * @package App\Models
- * @version October 10, 2020, 8:50 am UTC
+ * @version October 10, 2020, 8:47 am UTC
  *
- * @property \App\Models\ModelHasPermission $modelHasPermission
- * @property \Illuminate\Database\Eloquent\Collection $roles
+ * @property \App\Models\ModelHasRole $modelHasRole
+ * @property \Illuminate\Database\Eloquent\Collection $permissions
  * @property string $name
  * @property string $guard_name
  */
-class Permission extends Model
+class RoleBak extends Model
 {
 
-    public $table = 'permissions';
+    public $table = 'roles';
 
     const CREATED_AT = 'created_at';
     const UPDATED_AT = 'updated_at';
@@ -61,16 +61,16 @@ class Permission extends Model
     /**
      * @return \Illuminate\Database\Eloquent\Relations\HasOne
      **/
-    public function modelHasPermission()
+    public function modelHasRole()
     {
-        return $this->hasOne(\App\Models\ModelHasPermission::class);
+        return $this->hasOne(\App\Models\ModelHasRole::class);
     }
 
     /**
      * @return \Illuminate\Database\Eloquent\Relations\BelongsToMany
      **/
-    public function roles()
+    public function permissions()
     {
-        return $this->belongsToMany(\App\Models\Role::class, 'role_has_permissions');
+        return $this->belongsToMany(PermissionBak::class, 'role_has_permissions');
     }
 }

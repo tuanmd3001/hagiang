@@ -1,6 +1,9 @@
 body {
     font-family: Tahoma, Geneva, sans-serif;
 }
+.login-logo, .register-logo {
+    font-size: 30px;
+}
 
 div.dataTables_wrapper div.dataTables_filter {
     text-align: left;
@@ -203,4 +206,8 @@ div:has(table.table) {
 }
 .has-error .select2-selection {
     border-color: rgb(185, 74, 72) !important;
+}
+.permission_selector{
+    max-height: 450px;
+    overflow-y: auto;
 }

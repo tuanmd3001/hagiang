@@ -3,13 +3,13 @@
 namespace App\Http\Controllers;
 
 use App\DataTables\RoleDataTable;
-use App\Http\Requests;
 use App\Http\Requests\CreateRoleRequest;
 use App\Http\Requests\UpdateRoleRequest;
 use App\Repositories\RoleRepository;
 use Flash;
-use App\Http\Controllers\AppBaseController;
+use Illuminate\Support\Facades\Auth;
 use Response;
+use Spatie\Permission\Models\Permission;
 
 class RoleController extends AppBaseController
 {
@@ -39,7 +39,8 @@ class RoleController extends AppBaseController
      */
     public function create()
     {
-        return view('roles.create');
+        $permissions = Permission::all();
+        return view('roles.create', compact('permissions'));
     }
 
     /**
@@ -63,47 +64,53 @@ class RoleController extends AppBaseController
     /**
      * Display the specified Role.
      *
-     * @param  int $id
+     * @param int $id
      *
      * @return Response
      */
     public function show($id)
     {
         $role = $this->roleRepository->find($id);
-
+        if ($role->name == "SuperAdmin") {
+            return redirect(route('roles.index'));
+        }
         if (empty($role)) {
             Flash::error('Role not found');
 
             return redirect(route('roles.index'));
         }
-
-        return view('roles.show')->with('role', $role);
+        $permissions = Permission::all();
+        $rolePermissions = $role->permissions()->pluck('name')->toArray();
+        return view('roles.show', compact('role', 'rolePermissions', 'permissions'));
     }
 
     /**
      * Show the form for editing the specified Role.
      *
-     * @param  int $id
+     * @param int $id
      *
      * @return Response
      */
     public function edit($id)
     {
         $role = $this->roleRepository->find($id);
-
+        if ($role->name == "SuperAdmin") {
+            return redirect(route('roles.index'));
+        }
         if (empty($role)) {
             Flash::error('Role not found');
 
             return redirect(route('roles.index'));
         }
-
-        return view('roles.edit')->with('role', $role);
+        $permissions = Permission::all();
+        $rolePermissions = $role->permissions()->pluck('name')->toArray();
+        return view('roles.edit', compact('role', 'permissions', 'rolePermissions'));
     }
 
     /**
      * Update the specified Role in storage.
      *
-     * @param  int              $id
+     * @param int $id
      * @param UpdateRoleRequest $request
      *
      * @return Response
@@ -111,7 +118,9 @@ class RoleController extends AppBaseController
     public function update($id, UpdateRoleRequest $request)
     {
         $role = $this->roleRepository->find($id);
-
+        if ($role->name == "SuperAdmin") {
+            return redirect(route('roles.index'));
+        }
         if (empty($role)) {
             Flash::error('Role not found');
 
@@ -119,6 +128,13 @@ class RoleController extends AppBaseController
         }
 
         $role = $this->roleRepository->update($request->all(), $id);
+
+        if (!empty($input['permissions'])){
+            $role->syncPermissions($input['permissions']);
+        }
+        else {
+            $role->syncPermissions([]);
+        }
 
         Flash::success('Role updated successfully.');
 
@@ -128,14 +144,16 @@ class RoleController extends AppBaseController
     /**
      * Remove the specified Role from storage.
      *
-     * @param  int $id
+     * @param int $id
      *
      * @return Response
      */
     public function destroy($id)
     {
         $role = $this->roleRepository->find($id);
-
+        if ($role->name == "SuperAdmin") {
+            return redirect(route('roles.index'));
+        }
         if (empty($role)) {
             Flash::error('Role not found');
 

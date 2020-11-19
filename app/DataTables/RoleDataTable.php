@@ -3,7 +3,7 @@
 namespace App\DataTables;
 
 use App\DataTables\ExportHandler\BaseExportHandler;
-use App\Models\Role;
+use Spatie\Permission\Models\Role;
 use Yajra\DataTables\Services\DataTable;
 use Yajra\DataTables\EloquentDataTable;
 
@@ -21,13 +21,17 @@ class RoleDataTable extends DataTable
 
         return $dataTable
             ->addIndexColumn()
-            ->addColumn('action', 'roles.datatables_actions');
+            ->addColumn('action', function($role) {
+                $view = view('roles.datatables_actions')->with('role', $role);
+                return $view->render();
+            });
+//            ->addColumn('action', 'roles.datatables_actions');
     }
 
     /**
      * Get query source of dataTable.
      *
-     * @param \App\Models\Role $model
+     * @param \App\Models\RoleBak $model
      * @return \Illuminate\Database\Eloquent\Builder
      */
     public function query(Role $model)
@@ -45,7 +49,7 @@ class RoleDataTable extends DataTable
         return $this->builder()
             ->columns($this->getColumns())
             ->minifiedAjax()
-            ->addAction(['width' => '120px', 'printable' => false, 'title' => 'Thao tác'])
+            ->addAction(['width' => '120px', 'printable' => false, 'title' => 'Thao tác', 'className' => 'text-center'])
             ->parameters([
                 'dom' => '<"row"<"col-xs-12"f>><"row"<"col-xs-8 p-t-5"l><"col-xs-4 text-right hidden-print"B>>" +
                     "<"row m-t-10"<"col-sm-12"tr>>" +
@@ -98,9 +102,8 @@ class RoleDataTable extends DataTable
     protected function getColumns()
     {
         return [
-            ['data' => 'DT_RowIndex', 'name' => 'DT_RowIndex', 'title' => 'STT','searchable' => false],
-            ['data' => 'name', 'name' => 'name', 'title' => 'Tên'],
-            ['data' => 'name', 'name' => 'guard_name', 'title' => 'Guard Name'],
+            ['data' => 'DT_RowIndex', 'name' => 'DT_RowIndex', 'title' => 'STT','searchable' => false, 'className' => 'text-center'],
+            ['data' => 'name', 'name' => 'name', 'title' => 'Tên vai trò', 'className' => 'text-center'],
         ];
     }
 

@@ -48,7 +48,7 @@ class XncHcCongVuDataTable extends DataTable
         return $this->builder()
             ->columns($this->getColumns())
             ->minifiedAjax()
-            ->addAction(['width' => '120px', 'printable' => false])
+            ->addAction(['width' => '120px', 'printable' => false, 'title' => 'Thao tác', 'className' => 'text-center'])
             ->parameters([
                 'dom' => '<"row"<"col-xs-12"f>><"row"<"col-xs-8 p-t-5"l><"col-xs-4 text-right hidden-print"B>>" +
                     "<"row m-t-10"<"col-sm-12"tr>>" +
@@ -101,7 +101,7 @@ class XncHcCongVuDataTable extends DataTable
     protected function getColumns()
     {
         return [
-            ['data' => 'DT_RowIndex', 'name' => 'DT_RowIndex', 'title' => 'STT','searchable' => false],
+            ['data' => 'DT_RowIndex', 'name' => 'DT_RowIndex', 'title' => 'STT','searchable' => false, 'className' => 'text-center'],
             ['name' => 'ho_ten', 'data' => 'ho_ten', 'title' => 'Họ tên','searchable' => false],
             ['name' => 'so_ho_chieu', 'data' => 'so_ho_chieu', 'title' => 'Số hộ chiếu','searchable' => false],
             ['name' => 'ngay_xnc', 'data' => 'ngay_xnc', 'title' => 'Ngày XNC'],

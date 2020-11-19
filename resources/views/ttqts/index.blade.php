@@ -4,7 +4,7 @@
     <section class="content-header">
         <h1 class="pull-left">Danh sách thỏa thuận quốc tế do {{\App\Models\Ttqt::LEVEL_LABEL[$level]}} ký kết</h1>
         <h1 class="pull-right">
-           <a class="btn btn-primary pull-right" style="margin-top: -10px;margin-bottom: 5px" href="{{ route('ttqts.create') }}">Thêm mới</a>
+           <a class="btn btn-primary pull-right" style="margin-top: -10px;margin-bottom: 5px" href="{{ route(\App\Models\Ttqt::ROUTE_NAME[$level] . '.create') }}">Thêm mới</a>
         </h1>
     </section>
     <div class="content">

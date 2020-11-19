@@ -39,7 +39,7 @@
             <!-- Logo -->
             <a href="{{url('/')}}" class="logo">
                 <!-- mini logo for sidebar mini 50x50 pixels -->
-                <span class="logo-mini"><b>A</b>LT</span>
+                <span class="logo-mini"><b>HG</b></span>
                 <!-- logo for regular state and mobile devices -->
                 <span class="logo-lg"><b>Admin</b>LTE</span>
             </a>
@@ -100,7 +100,7 @@
 
         <!-- Main Footer -->
         <footer class="main-footer" style="max-height: 100px;text-align: right">
-            CristM
+            Hà Giang 2020
         </footer>
 
     </div>

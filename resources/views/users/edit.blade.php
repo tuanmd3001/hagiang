@@ -7,7 +7,7 @@
         </h1>
     </section>
     <div class="content">
-        @include('adminlte-templates::common.errors')
+{{--        @include('adminlte-templates::common.errors')--}}
 
         {!! Form::model($user, ['route' => ['users.update', $user->id], 'method' => 'patch']) !!}
 

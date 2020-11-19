@@ -39,9 +39,14 @@ class Ttqt extends Model
     const LEVEL_SO = 2;
     const LEVEL_TP = 3;
     const LEVEL_LABEL = [
-        self::LEVEL_TINH => "Cấp tỉnh",
-        self::LEVEL_SO => "Cấp sở",
-        self::LEVEL_TP => "Cấp địa phương trực thuộc",
+        self::LEVEL_TINH => "Tỉnh",
+        self::LEVEL_SO => "Sở, ngành cấp tỉnh",
+        self::LEVEL_TP => "Huyện, thành phố",
+    ];
+    const ROUTE_NAME = [
+        self::LEVEL_TINH => "ttqt_tinh",
+        self::LEVEL_SO => "ttqt_so_nganh",
+        self::LEVEL_TP => "ttqt_huyen_tp"
     ];
 
     const TYPE_BBGN = 1;

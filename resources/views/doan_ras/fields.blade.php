@@ -39,22 +39,15 @@
                 <!-- Nuoc Di Field -->
                 <div class="form-group col-md-6 @if($errors->has('nuoc_di')) has-error @endif">
                     {!! Form::label('nuoc_di', 'Nước đi:') !!}
-                    <div class="row">
-                        <div class="col-xs-7 col-sm-8 col-lg-9">
-                            <select class="form-control select2 select2-hidden-accessible" name="nuoc_di">
-                                <option></option>
-                                @foreach($quoc_gias as $quoc_gia)
-                                    <option @if (isset($doanRa) && $doanRa->nuoc_di == $quoc_gia->id || old('nuoc_di') == $quoc_gia->id) selected @endif value="{{$quoc_gia->id}}">{{$quoc_gia->ten}}</option>
-                                @endforeach
-                            </select>
-                            @if($errors->has('nuoc_di'))
-                                <div class="help-block">{{ $errors->first('nuoc_di') }}</div>
-                            @endif
-                        </div>
-                        <div class="col-xs-5 col-sm-4 col-lg-3">
-                            <a class="btn btn-primary pull-right" href="{{route('danhMuc.quocGia.create')}}">Thêm quốc gia</a>
-                        </div>
-                    </div>
+                    <select class="form-control select2 select2-hidden-accessible" name="nuoc_di">
+                        <option></option>
+                        @foreach($quoc_gias as $quoc_gia)
+                            <option @if (isset($doanRa) && $doanRa->nuoc_di == $quoc_gia->id || old('nuoc_di') == $quoc_gia->id) selected @endif value="{{$quoc_gia->id}}">{{$quoc_gia->ten}}</option>
+                        @endforeach
+                    </select>
+                    @if($errors->has('nuoc_di'))
+                        <div class="help-block">{{ $errors->first('nuoc_di') }}</div>
+                    @endif
                 </div>
 
                 <!-- Doi Tac Field -->
@@ -78,22 +71,15 @@
                 <!-- Kinh Phi Field -->
                 <div class="form-group col-md-6 @if($errors->has('kinh_phi')) has-error @endif">
                     {!! Form::label('kinh_phi', 'Nguồn kinh phí:') !!}
-                    <div class="row">
-                        <div class="col-xs-7 col-sm-8 col-lg-9">
-                            <select class="form-control select2 select2-hidden-accessible" name="kinh_phi">
-                                <option></option>
-                                @foreach($kinh_phis as $kinh_phi)
-                                    <option @if ((isset($doanRa) && $doanRa->kinh_phi == $kinh_phi->id) || old('kinh_phi') == $kinh_phi->id) selected @endif value="{{$kinh_phi->id}}">{{$kinh_phi->ten}}</option>
-                                @endforeach
-                            </select>
-                            @if($errors->has('kinh_phi'))
-                                <div class="help-block">{{ $errors->first('kinh_phi') }}</div>
-                            @endif
-                        </div>
-                        <div class="col-xs-5 col-sm-4 col-lg-3">
-                            <a class="btn btn-primary pull-right" href="{{route('danhMuc.loaiKinhPhi.create')}}">Thêm kinh phí</a>
-                        </div>
-                    </div>
+                    <select class="form-control select2 select2-hidden-accessible" name="kinh_phi">
+                        <option></option>
+                        @foreach($kinh_phis as $kinh_phi)
+                            <option @if ((isset($doanRa) && $doanRa->kinh_phi == $kinh_phi->id) || old('kinh_phi') == $kinh_phi->id) selected @endif value="{{$kinh_phi->id}}">{{$kinh_phi->ten}}</option>
+                        @endforeach
+                    </select>
+                    @if($errors->has('kinh_phi'))
+                        <div class="help-block">{{ $errors->first('kinh_phi') }}</div>
+                    @endif
                 </div>
 
                 <!-- Bao Cao Field -->

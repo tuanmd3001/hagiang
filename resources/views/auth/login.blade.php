@@ -30,12 +30,13 @@
     <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
     <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
     <![endif]-->
+    <link rel="stylesheet" href="{{url('assets/css/style.css')}}">
 
 </head>
 <body class="hold-transition login-page">
 <div class="login-box">
     <div class="login-logo">
-        <a href="{{ url('/home') }}">AdminLTE</a>
+        <a href="javascrip:void(0)">PHẦN MỀM QUẢN LÝ HOẠT ĐỘNG ĐỐI NGOẠI</a>
     </div>
 
     <!-- /.login-logo -->
@@ -44,14 +45,14 @@
 
         <form method="post" action="{{ url('/login') }}">
             @csrf
-
-            <div class="form-group has-feedback {{ $errors->has('email') ? ' has-error' : '' }}">
-                <input type="email" class="form-control" name="email" value="{{ old('email') }}" placeholder="Email">
+            @if ($errors->has('error'))
+                <span class="help-block text-red text-center text-bold">{{ $errors->first('error') }}</span>
+            @endif
+            <div class="form-group has-feedback {{ $errors->has('username') ? ' has-error' : '' }}">
+                <input type="text" class="form-control" name="username" value="{{ old('username') }}" placeholder="Tên đăng nhập">
                 <span class="glyphicon glyphicon-envelope form-control-feedback"></span>
-                @if ($errors->has('email'))
-                    <span class="help-block">
-                    <strong>{{ $errors->first('email') }}</strong>
-                </span>
+                @if ($errors->has('username'))
+                    <span class="help-block">{{ $errors->first('username') }}</span>
                 @endif
             </div>
 
@@ -59,16 +60,14 @@
                 <input type="password" class="form-control" placeholder="Mật khẩu" name="password">
                 <span class="glyphicon glyphicon-lock form-control-feedback"></span>
                 @if ($errors->has('password'))
-                    <span class="help-block">
-                    <strong>{{ $errors->first('password') }}</strong>
-                </span>
+                    <span class="help-block">{{ $errors->first('password') }}</span>
                 @endif
 
             </div>
             <div class="row">
                 <div class="col-xs-7">
                     <div class="checkbox icheck">
-                        <label>
+                        <label style="height: 22px; vertical-align: middle">
                             <input type="checkbox" name="remember"> Lưu đăng nhập
                         </label>
                     </div>
@@ -81,7 +80,7 @@
             </div>
         </form>
 
-        <a href="{{ url('/password/reset') }}">Quên mật khẩu</a><br>
+{{--        <a href="{{ url('/password/reset') }}">Quên mật khẩu</a><br>--}}
 
     </div>
     <!-- /.login-box-body -->

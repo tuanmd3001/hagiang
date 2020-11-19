@@ -13,111 +13,116 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-//Route::get('/', function () {
-//    return view('welcome');
-//});
 App::setLocale('vi');
-Auth::routes(['verify' => true]);
+//Auth::routes(['verify' => true]);
 
-Route::get('/', 'HomeController@index')->middleware('auth');
-
-Route::resource('users', 'UserController')->middleware('auth');
+Route::get('/login', 'Auth\LoginController@showLoginForm')->name('login');
+Route::post('/login', 'Auth\LoginController@login');
+Route::post('/logout', 'Auth\LoginController@logout')->name('logout');
 
 Route::group(['middleware' => ['role:SuperAdmin']], function () {
     Route::resource('roles', 'RoleController');
     Route::resource('permissions', 'PermissionController');
+
+    Route::get('/firstRun', 'PermissionController@firstRun');
+    Route::get('users/{user}/reset_password', 'UserController@reset_password')->name('reset_user_password');
 });
 
 
-Route::resource('hoiNghiHoiThao', 'HoiNghiHoiThaoController');
+Route::group(['middleware' => ['auth']], function (){
+    Route::get('/', 'HomeController@index')->name('home');
 
-Route::resource('ngos', 'NgoController');
+    Route::resource('users', 'UserController')->middleware('can:users');
 
-Route::resource('duAnNgos', 'DuAnNgoController');
+    Route::resource('hoiNghiHoiThao', 'HoiNghiHoiThaoController')->middleware('can:hoiNghiHoiThao');
 
-Route::resource('duAnKhacs', 'DuAnKhacController');
+    Route::resource('ngos', 'NgoController')->middleware('can:ngos');
 
-Route::resource('xuatNhapKhaus', 'XuatNhapKhauController');
+    Route::resource('duAnNgos', 'DuAnNgoController')->middleware('can:duAnNgos');
 
-Route::resource('nguonOdas', 'NguonOdaController');
+    Route::resource('duAnKhacs', 'DuAnKhacController')->middleware('can:duAnKhacs');
 
-Route::resource('duAnOdas', 'DuAnOdaController');
+    Route::resource('xuatNhapKhaus', 'XuatNhapKhauController')->middleware('can:xuatNhapKhaus');
 
-Route::resource('nguonFdis', 'NguonFdiController');
+    Route::resource('nguonOdas', 'NguonOdaController')->middleware('can:nguonOdas');
 
-Route::resource('duAnFdis', 'DuAnFdiController');
+    Route::resource('duAnOdas', 'DuAnOdaController')->middleware('can:duAnOdas');
 
-Route::resource('dnNuocNgoais', 'DnNuocNgoaiController');
+    Route::resource('nguonFdis', 'NguonFdiController')->middleware('can:nguonFdis');
 
-Route::resource('dnVonNuocNgoais', 'DnVonNuocNgoaiController');
+    Route::resource('duAnFdis', 'DuAnFdiController')->middleware('can:duAnFdis');
 
-Route::resource('lanhSuTinhs', 'LanhSuTinhController');
+    Route::resource('dnNuocNgoais', 'DnNuocNgoaiController')->middleware('can:dnNuocNgoais');
 
-Route::resource('lanhSuNuocNgoais', 'LanhSuNuocNgoaiController');
+    Route::resource('dnVonNuocNgoais', 'DnVonNuocNgoaiController')->middleware('can:dnVonNuocNgoais');
 
-Route::resource('bhNgNuocNgoais', 'BhNgNuocNgoaiController');
+    Route::resource('lanhSuTinhs', 'LanhSuTinhController')->middleware('can:lanhSuTinhs');
 
-Route::resource('bhNgHaGiangs', 'BhNgHaGiangController');
+    Route::resource('lanhSuNuocNgoais', 'LanhSuNuocNgoaiController')->middleware('can:lanhSuNuocNgoais');
 
-Route::resource('ngHgNuocNgoais', 'NgHgNuocNgoaiController');
+    Route::resource('bhNgNuocNgoais', 'BhNgNuocNgoaiController')->middleware('can:bhNgNuocNgoais');
 
-Route::resource('ngHgVeNuocs', 'NgHgVeNuocController');
+    Route::resource('bhNgHaGiangs', 'BhNgHaGiangController')->middleware('can:bhNgHaGiangs');
 
-Route::resource('canBos', 'CanBoController');
+    Route::resource('ngHgNuocNgoais', 'NgHgNuocNgoaiController')->middleware('can:ngHgNuocNgoais');
 
-Route::resource('hcNgoaiGiaos', 'HcNgoaiGiaoController');
+    Route::resource('ngHgVeNuocs', 'NgHgVeNuocController')->middleware('can:ngHgVeNuocs');
 
-Route::resource('hcCongVus', 'HcCongVuController');
+    Route::resource('canBos', 'CanBoController')->middleware('can:canBos');
 
-Route::resource('abtcs', 'AbtcController');
+    Route::resource('hcNgoaiGiaos', 'HcNgoaiGiaoController')->middleware('can:hcNgoaiGiaos');
 
-Route::resource('xncHcNgoaiGiaos', 'XncHcNgoaiGiaoController');
+    Route::resource('hcCongVus', 'HcCongVuController')->middleware('can:hcCongVus');
 
-Route::resource('xncHcCongVus', 'XncHcCongVuController');
+    Route::resource('abtcs', 'AbtcController')->middleware('can:abtcs');
 
-Route::resource('chuKies', 'ChuKyController');
+    Route::resource('xncHcNgoaiGiaos', 'XncHcNgoaiGiaoController')->middleware('can:xncHcNgoaiGiaos');
 
-Route::resource('canBoNgoaiGiaoTinhs', 'CanBoNgoaiGiaoTinhController');
+    Route::resource('xncHcCongVus', 'XncHcCongVuController')->middleware('can:xncHcCongVus');
 
-Route::resource('canBoNgoaiGiaoHuyens', 'CanBoNgoaiGiaoHuyenController');
+    Route::resource('chuKies', 'ChuKyController')->middleware('can:chuKies');
 
-Route::resource('duqts', 'DuqtController');
+    Route::resource('canBoNgoaiGiaoTinhs', 'CanBoNgoaiGiaoTinhController')->middleware('can:canBoNgoaiGiaoTinhs');
 
-Route::resource('ttqts', 'TtqtController');
-Route::resource('ttqt_tinh', 'TtqtController');
-Route::resource('ttqt_so_nganh', 'TtqtController');
-Route::resource('ttqt_huyen_tp', 'TtqtController');
+    Route::resource('canBoNgoaiGiaoHuyens', 'CanBoNgoaiGiaoHuyenController')->middleware('can:canBoNgoaiGiaoHuyens');
+
+    Route::resource('duqts', 'DuqtController')->middleware('can:duqts');
+
+    Route::resource('ttqt_tinh', 'TtqtController')->middleware('can:ttqt_tinh');
+    Route::resource('ttqt_so_nganh', 'TtqtController')->middleware('can:ttqt_so_nganh');
+    Route::resource('ttqt_huyen_tp', 'TtqtController')->middleware('can:ttqt_huyen_tp');
+
+    Route::group(['prefix' => 'danhMuc', 'middleware' => ['can:danhMuc']], function () {
+        Route::resource('capDonVi', 'Danh_Muc\DmCapDonViController', ["as" => 'danhMuc']);
+        Route::resource('chucVu', 'Danh_Muc\DmChucVuController', ["as" => 'danhMuc']);
+        Route::resource('danhNghiaDoan', 'Danh_Muc\DmDanhNghiaDoanController', ["as" => 'danhMuc']);
+        Route::resource('donVi', 'Danh_Muc\DmDonViController', ["as" => 'danhMuc']);
+        Route::resource('loaiDoan', 'Danh_Muc\DmLoaiDoanController', ["as" => 'danhMuc']);
+        Route::resource('loaiDuAn', 'Danh_Muc\DmLoaiDuAnController', ["as" => 'danhMuc']);
+        Route::resource('loaiHangHoa', 'Danh_Muc\DmLoaiHangHoaController', ["as" => 'danhMuc']);
+        Route::resource('loaiHinhToChuc', 'Danh_Muc\DmLoaiHinhToChucController', ["as" => 'danhMuc']);
+        Route::resource('loaiKinhPhi', 'Danh_Muc\DmLoaiKinhPhiController', ["as" => 'danhMuc']);
+        Route::resource('loaiSuKien', 'Danh_Muc\DmLoaiSuKienController', ["as" => 'danhMuc']);
+        Route::resource('loaiVanBan', 'Danh_Muc\DmLoaiVanBanController', ["as" => 'danhMuc']);
+        Route::resource('ngheNghiep', 'Danh_Muc\DmNgheNghiepController', ["as" => 'danhMuc']);
+        Route::resource('quocGia', 'Danh_Muc\DmQuocGiaController', ["as" => 'danhMuc']);
+        Route::resource('toChuc', 'Danh_Muc\DmToChucController', ["as" => 'danhMuc']);
+    });
 
 
-Route::group(['prefix' => 'danhMuc'], function () {
-    Route::resource('capDonVi', 'Danh_Muc\DmCapDonViController', ["as" => 'danhMuc']);
-    Route::resource('chucVu', 'Danh_Muc\DmChucVuController', ["as" => 'danhMuc']);
-    Route::resource('danhNghiaDoan', 'Danh_Muc\DmDanhNghiaDoanController', ["as" => 'danhMuc']);
-    Route::resource('donVi', 'Danh_Muc\DmDonViController', ["as" => 'danhMuc']);
-    Route::resource('loaiDoan', 'Danh_Muc\DmLoaiDoanController', ["as" => 'danhMuc']);
-    Route::resource('loaiDuAn', 'Danh_Muc\DmLoaiDuAnController', ["as" => 'danhMuc']);
-    Route::resource('loaiHangHoa', 'Danh_Muc\DmLoaiHangHoaController', ["as" => 'danhMuc']);
-    Route::resource('loaiHinhToChuc', 'Danh_Muc\DmLoaiHinhToChucController', ["as" => 'danhMuc']);
-    Route::resource('loaiKinhPhi', 'Danh_Muc\DmLoaiKinhPhiController', ["as" => 'danhMuc']);
-    Route::resource('loaiSuKien', 'Danh_Muc\DmLoaiSuKienController', ["as" => 'danhMuc']);
-    Route::resource('loaiVanBan', 'Danh_Muc\DmLoaiVanBanController', ["as" => 'danhMuc']);
-    Route::resource('ngheNghiep', 'Danh_Muc\DmNgheNghiepController', ["as" => 'danhMuc']);
-    Route::resource('quocGia', 'Danh_Muc\DmQuocGiaController', ["as" => 'danhMuc']);
-    Route::resource('toChuc', 'Danh_Muc\DmToChucController', ["as" => 'danhMuc']);
+    Route::resource('doanRaCapTinh', 'DoanRaController')->middleware('can:doanRaCapTinh');
+    Route::resource('doanRaCapHuyen', 'DoanRaController')->middleware('can:doanRaCapHuyen');
+    Route::resource('doanRaCapXa', 'DoanRaController')->middleware('can:doanRaCapXa');
+    Route::resource('doanVaoCapTinh', 'DoanVaoController')->middleware('can:doanVaoCapTinh');
+    Route::resource('doanVaoCapHuyen', 'DoanVaoController')->middleware('can:doanVaoCapHuyen');
+    Route::resource('doanVaoCapXa', 'DoanVaoController')->middleware('can:doanVaoCapXa');
+
+
+
+    Route::resource('suVuBienGiois', 'SuVuBienGioiController')->middleware('can:suVuBienGiois');
+
+    Route::resource('suVuBienGiois', 'SuVuBienGioiController')->middleware('can:suVuBienGiois');
+
+    Route::resource('kyKetHuuNghis', 'KyKetHuuNghiController')->middleware('can:kyKetHuuNghis');
+
 });
-
-
-Route::resource('doanRaCapTinh', 'DoanRaController');
-Route::resource('doanRaCapHuyen', 'DoanRaController');
-Route::resource('doanRaCapXa', 'DoanRaController');
-Route::resource('doanVaoCapTinh', 'DoanVaoController');
-Route::resource('doanVaoCapHuyen', 'DoanVaoController');
-Route::resource('doanVaoCapXa', 'DoanVaoController');
-
-
-
-Route::resource('suVuBienGiois', 'SuVuBienGioiController');
-
-Route::resource('suVuBienGiois', 'SuVuBienGioiController');
-
-Route::resource('kyKetHuuNghis', 'KyKetHuuNghiController');

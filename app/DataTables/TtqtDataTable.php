@@ -9,10 +9,10 @@ use Yajra\DataTables\EloquentDataTable;
 
 class TtqtDataTable extends DataTable
 {
-    private $type;
-    function __construct($type = Ttqt::LEVEL_TINH)
+    private $level;
+    function __construct($level = Ttqt::LEVEL_TINH)
     {
-        $this->type = $type;
+        $this->level = $level;
     }
     /**
      * Build DataTable class.
@@ -25,7 +25,7 @@ class TtqtDataTable extends DataTable
         $dataTable = new EloquentDataTable($query);
 
         $dataTable->filter(function ($query) {
-            $query->where('danh_nghia_ky', $this->type);
+            $query->where('danh_nghia_ky', $this->level);
         }, true);
 
         return $dataTable
@@ -77,7 +77,7 @@ class TtqtDataTable extends DataTable
         return $this->builder()
             ->columns($this->getColumns())
             ->minifiedAjax()
-            ->addAction(['width' => '120px', 'printable' => false, 'title' => 'Thao tác'])
+            ->addAction(['width' => '120px', 'printable' => false, 'title' => 'Thao tác', 'className' => 'text-center'])
             ->parameters([
                 'dom' => '<"row"<"col-xs-12"f>><"row"<"col-xs-8 p-t-5"l><"col-xs-4 text-right hidden-print"B>>" +
                     "<"row m-t-10"<"col-sm-12"tr>>" +
@@ -130,7 +130,7 @@ class TtqtDataTable extends DataTable
     protected function getColumns()
     {
         return [
-            ['data' => 'DT_RowIndex', 'name' => 'DT_RowIndex', 'title' => 'STT','searchable' => false],
+            ['data' => 'DT_RowIndex', 'name' => 'DT_RowIndex', 'title' => 'STT','searchable' => false, 'className' => 'text-center'],
             ['name' => 'co_quan_de_xuat', 'data' => 'co_quan_de_xuat', 'title' => 'Cơ quan, địa phương đề xuất ký'],
             ['name' => 'danh_nghia_ky', 'data' => 'danh_nghia_ky', 'title' => 'Danh nghĩa ký'],
             ['name' => 'loai_van_ban_label', 'data' => 'loai_van_ban_label', 'title' => 'Loại văn bản'],

@@ -45,7 +45,7 @@ class BhNgNuocNgoaiDataTable extends DataTable
         return $this->builder()
             ->columns($this->getColumns())
             ->minifiedAjax()
-            ->addAction(['width' => '120px', 'printable' => false, 'title' => 'Thao tác'])
+            ->addAction(['width' => '120px', 'printable' => false, 'title' => 'Thao tác', 'className' => 'text-center'])
             ->parameters([
                 'dom' => '<"row"<"col-xs-12"f>><"row"<"col-xs-8 p-t-5"l><"col-xs-4 text-right hidden-print"B>>" +
                     "<"row m-t-10"<"col-sm-12"tr>>" +
@@ -98,7 +98,7 @@ class BhNgNuocNgoaiDataTable extends DataTable
     protected function getColumns()
     {
         return [
-            ['data' => 'DT_RowIndex', 'name' => 'DT_RowIndex', 'title' => 'STT','searchable' => false],
+            ['data' => 'DT_RowIndex', 'name' => 'DT_RowIndex', 'title' => 'STT','searchable' => false, 'className' => 'text-center'],
             ['name' => 'ho_ten', 'data' => 'ho_ten', 'title' => 'Họ tên'],
             ['name' => 'ten_quoc_tich', 'data' => 'ten_quoc_tich', 'title' => 'Quốc tịch'],
             ['name' => 'so_ho_chieu', 'data' => 'so_ho_chieu', 'title' => 'Số hộ chiếu'],

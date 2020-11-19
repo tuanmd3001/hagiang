@@ -2,8 +2,6 @@
 
 namespace App\Models;
 
-use Eloquent as Model;
-use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Spatie\Permission\Traits\HasRoles;
@@ -13,6 +11,7 @@ use Spatie\Permission\Traits\HasRoles;
  * @package App\Models
  * @version October 10, 2020, 8:58 am UTC
  *
+ * @property string $username
  * @property string $name
  * @property string $email
  * @property string|\Carbon\Carbon $email_verified_at
@@ -33,7 +32,7 @@ class User extends Authenticatable
 
 
     public $fillable = [
-        'name', 'email', 'password',
+        'username', 'name', 'email', 'password',
     ];
 
     protected $hidden = [
@@ -47,6 +46,7 @@ class User extends Authenticatable
      */
     protected $casts = [
         'id' => 'integer',
+        'username' => 'string',
         'name' => 'string',
         'email' => 'string',
         'email_verified_at' => 'datetime',
@@ -61,12 +61,13 @@ class User extends Authenticatable
      */
     public static $rules = [
         'name' => 'required|string|max:191',
-        'email' => 'required|string|max:191',
-        'email_verified_at' => 'nullable',
-        'password' => 'required|string|max:191',
-        'remember_token' => 'nullable|string|max:100',
-        'created_at' => 'nullable',
-        'updated_at' => 'nullable'
+        'username' => ['required', 'string', 'max:191', 'alpha_dash', 'unique:users,username'],
+//        'email' => 'required|string|max:191',
+//        'email_verified_at' => 'nullable',
+//        'password' => 'required|string|max:191',
+//        'remember_token' => 'nullable|string|max:100',
+//        'created_at' => 'nullable',
+//        'updated_at' => 'nullable'
     ];
 
 

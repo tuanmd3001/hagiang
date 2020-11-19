@@ -65,7 +65,7 @@ class DuqtDataTable extends DataTable
         return $this->builder()
             ->columns($this->getColumns())
             ->minifiedAjax()
-            ->addAction(['width' => '120px', 'printable' => false, 'title' => 'Thao tác'])
+            ->addAction(['width' => '120px', 'printable' => false, 'title' => 'Thao tác', 'className' => 'text-center'])
             ->parameters([
                 'dom' => '<"row"<"col-xs-12"f>><"row"<"col-xs-8 p-t-5"l><"col-xs-4 text-right hidden-print"B>>" +
                     "<"row m-t-10"<"col-sm-12"tr>>" +
@@ -118,7 +118,7 @@ class DuqtDataTable extends DataTable
     protected function getColumns()
     {
         return [
-            ['data' => 'DT_RowIndex', 'name' => 'DT_RowIndex', 'title' => 'STT','searchable' => false],
+            ['data' => 'DT_RowIndex', 'name' => 'DT_RowIndex', 'title' => 'STT','searchable' => false, 'className' => 'text-center'],
             ['name' => 'co_quan_de_xuat', 'data' => 'co_quan_de_xuat', 'title' => 'Cơ quan, địa phương đề xuất ký'],
             ['name' => 'danh_nghia_ky', 'data' => 'danh_nghia_ky', 'title' => 'Danh nghĩa ký'],
             ['name' => 'loai_van_ban_label', 'data' => 'loai_van_ban_label', 'title' => 'Loại văn bản'],

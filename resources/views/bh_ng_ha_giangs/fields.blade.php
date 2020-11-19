@@ -38,22 +38,15 @@
 <!-- Nuoc Lao Dong Field -->
 <div class="form-group col-md-6 @if($errors->has('nuoc_lao_dong')) has-error @endif">
     {!! Form::label('nuoc_lao_dong', 'Đi lao động tại nước:') !!}
-    <div class="row">
-        <div class="col-xs-7 col-sm-8 col-lg-9">
-            <select class="form-control select2 select2-hidden-accessible" name="nuoc_lao_dong">
-                <option></option>
-                @foreach($quoc_gias as $quoc_gia)
-                    <option @if (isset($bhNgHaGiang) && $bhNgHaGiang->nuoc_lao_dong == $quoc_gia->id || old('nuoc_lao_dong') == $quoc_gia->id) selected @endif value="{{$quoc_gia->id}}">{{$quoc_gia->ten}}</option>
-                @endforeach
-            </select>
-            @if($errors->has('nuoc_lao_dong'))
-                <div class="help-block">{{ $errors->first('nuoc_lao_dong') }}</div>
-            @endif
-        </div>
-        <div class="col-xs-5 col-sm-4 col-lg-3">
-            <a class="btn btn-primary pull-right" href="{{route('danhMuc.quocGia.create')}}">Thêm quốc gia</a>
-        </div>
-    </div>
+    <select class="form-control select2 select2-hidden-accessible" name="nuoc_lao_dong">
+        <option></option>
+        @foreach($quoc_gias as $quoc_gia)
+            <option @if (isset($bhNgHaGiang) && $bhNgHaGiang->nuoc_lao_dong == $quoc_gia->id || old('nuoc_lao_dong') == $quoc_gia->id) selected @endif value="{{$quoc_gia->id}}">{{$quoc_gia->ten}}</option>
+        @endforeach
+    </select>
+    @if($errors->has('nuoc_lao_dong'))
+        <div class="help-block">{{ $errors->first('nuoc_lao_dong') }}</div>
+    @endif
 </div>
 
 <!-- Nganh Nghe Field -->

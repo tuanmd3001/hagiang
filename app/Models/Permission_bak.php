@@ -6,19 +6,20 @@ use Eloquent as Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
 /**
- * Class Role
+ * Class Permission
  * @package App\Models
- * @version October 10, 2020, 8:47 am UTC
+ * @version October 10, 2020, 8:50 am UTC
  *
- * @property \App\Models\ModelHasRole $modelHasRole
- * @property \Illuminate\Database\Eloquent\Collection $permissions
+ * @property \App\Models\ModelHasPermission $modelHasPermission
+ * @property \Illuminate\Database\Eloquent\Collection $roles
  * @property string $name
+ * @property string $controller
  * @property string $guard_name
  */
-class Role extends Model
+class PermissionBak extends Model
 {
 
-    public $table = 'roles';
+    public $table = 'permissions';
 
     const CREATED_AT = 'created_at';
     const UPDATED_AT = 'updated_at';
@@ -32,6 +33,7 @@ class Role extends Model
 
     public $fillable = [
         'name',
+        'controller',
         'guard_name'
     ];
 
@@ -53,6 +55,7 @@ class Role extends Model
      */
     public static $rules = [
         'name' => 'required|string|max:191',
+        'controller' => 'nullable',
         'guard_name' => 'required|string|max:191',
         'created_at' => 'nullable',
         'updated_at' => 'nullable'
@@ -61,16 +64,16 @@ class Role extends Model
     /**
      * @return \Illuminate\Database\Eloquent\Relations\HasOne
      **/
-    public function modelHasRole()
+    public function modelHasPermission()
     {
-        return $this->hasOne(\App\Models\ModelHasRole::class);
+        return $this->hasOne(ModelHasPermission::class);
     }
 
     /**
      * @return \Illuminate\Database\Eloquent\Relations\BelongsToMany
      **/
-    public function permissions()
+    public function roles()
     {
-        return $this->belongsToMany(\App\Models\Permission::class, 'role_has_permissions');
+        return $this->belongsToMany(\Spatie\Permission\Models\Role::class, 'role_has_permissions');
     }
 }

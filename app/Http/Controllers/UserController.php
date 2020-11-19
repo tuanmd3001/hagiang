@@ -6,23 +6,24 @@ use App\DataTables\UserDataTable;
 use App\Http\Requests;
 use App\Http\Requests\CreateUserRequest;
 use App\Http\Requests\UpdateUserRequest;
-use App\Models\Permission;
-use App\Models\Role;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Hash;
+use Spatie\Permission\Models\Permission;
+use Spatie\Permission\Models\Role;
 use App\Repositories\UserRepository;
 use Flash;
-use App\Http\Controllers\AppBaseController;
-use Illuminate\Notifications\Notifiable;
 use Response;
-use Spatie\Permission\Traits\HasRoles;
 
 class UserController extends AppBaseController
 {
     /** @var  UserRepository */
     private $userRepository;
+    private $defaultPassword;
 
     public function __construct(UserRepository $userRepo)
     {
         $this->userRepository = $userRepo;
+        $this->defaultPassword = '12345678';
     }
 
     /**
@@ -58,6 +59,7 @@ class UserController extends AppBaseController
     public function store(CreateUserRequest $request)
     {
         $input = $request->all();
+        $input['password'] = Hash::make($this->defaultPassword);
 
         $user = $this->userRepository->create($input);
 
@@ -69,33 +71,40 @@ class UserController extends AppBaseController
     /**
      * Display the specified User.
      *
-     * @param  int $id
+     * @param int $id
      *
      * @return Response
      */
     public function show($id)
     {
         $user = $this->userRepository->find($id);
+        if ($user->username == 'admin') {
+            return redirect(route('users.index'));
+        }
         if (empty($user)) {
             Flash::error('User not found');
 
             return redirect(route('users.index'));
         }
+        $permissions = Permission::all();
+        $userPermissions = $user->permissions()->pluck('name')->toArray();
 
-        return view('users.show')->with('user', $user);
+        return view('users.show', compact('user', 'permissions', 'userPermissions'));
     }
 
     /**
      * Show the form for editing the specified User.
      *
-     * @param  int $id
+     * @param int $id
      *
      * @return Response
      */
     public function edit($id)
     {
         $user = $this->userRepository->find($id);
-
+        if ($user->username == 'admin') {
+            return redirect(route('users.index'));
+        }
         if (empty($user)) {
             Flash::error('User not found');
 
@@ -103,14 +112,15 @@ class UserController extends AppBaseController
         }
         $roles = Role::all();
         $permissions = Permission::all();
+        $userPermissions = $user->permissions()->pluck('name')->toArray();
 
-        return view('users.edit', compact('user', 'roles', 'permissions'));
+        return view('users.edit', compact('user', 'roles', 'permissions', 'userPermissions'));
     }
 
     /**
      * Update the specified User in storage.
      *
-     * @param  int              $id
+     * @param int $id
      * @param UpdateUserRequest $request
      *
      * @return Response
@@ -118,19 +128,35 @@ class UserController extends AppBaseController
     public function update($id, UpdateUserRequest $request)
     {
         $user = $this->userRepository->find($id);
-
+        if ($user->username == 'admin') {
+            return redirect(route('users.index'));
+        }
         if (empty($user)) {
             Flash::error('User not found');
 
             return redirect(route('users.index'));
         }
-        $input =  $request->all();
+        $input = $request->all();
         if (!empty($input['password'])) {
             $input['password'] = Hash::make($input['password']);
         } else {
             unset($input['password']);
         }
         $user = $this->userRepository->update($input, $id);
+
+        if (!empty($input['roles'])){
+            $user->syncRoles($input['roles']);
+        }
+        else {
+            $user->syncRoles([]);
+        }
+
+        if (!empty($input['permissions'])){
+            $user->syncPermissions($input['permissions']);
+        }
+        else {
+            $user->syncPermissions([]);
+        }
 
         Flash::success('User updated successfully.');
 
@@ -140,14 +166,16 @@ class UserController extends AppBaseController
     /**
      * Remove the specified User from storage.
      *
-     * @param  int $id
+     * @param int $id
      *
      * @return Response
      */
     public function destroy($id)
     {
         $user = $this->userRepository->find($id);
-
+        if ($user->username == 'admin') {
+            return redirect(route('users.index'));
+        }
         if (empty($user)) {
             Flash::error('User not found');
 
@@ -159,5 +187,20 @@ class UserController extends AppBaseController
         Flash::success('User deleted successfully.');
 
         return redirect(route('users.index'));
+    }
+
+    public function reset_password($id)
+    {
+        $user = $this->userRepository->find($id);
+
+        if (empty($user)) {
+            Flash::error('User not found');
+
+            return redirect(route('users.index'));
+        }
+        $user->password = Hash::make($this->defaultPassword);
+        $this->userRepository->update($user->toArray(), $id);
+        Flash::success('Mật khẩu đã được đặt về mặc định.');
+        return redirect(route('users.show', $id));
     }
 }

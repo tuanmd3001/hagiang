@@ -98,7 +98,7 @@ class CanBoNgoaiGiaoHuyenDataTable extends DataTable
     protected function getColumns()
     {
         return [
-            ['data' => 'DT_RowIndex', 'name' => 'DT_RowIndex', 'title' => 'STT','searchable' => false],
+            ['data' => 'DT_RowIndex', 'name' => 'DT_RowIndex', 'title' => 'STT','searchable' => false, 'className' => 'text-center'],
             ['name' => 'ho_ten', 'data' => 'ho_ten', 'title' => 'Họ tên'],
             ['name' => 'don_vi', 'data' => 'don_vi', 'title' => 'Đơn vị'],
             ['name' => 'chuc_danh', 'data' => 'chuc_danh', 'title' => 'Chức danh'],

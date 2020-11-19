@@ -45,7 +45,7 @@ class NguonOdaDataTable extends DataTable
         return $this->builder()
             ->columns($this->getColumns())
             ->minifiedAjax()
-            ->addAction(['width' => '120px', 'printable' => false, 'title' => 'Thao tác'])
+            ->addAction(['width' => '120px', 'printable' => false, 'title' => 'Thao tác', 'className' => 'text-center'])
             ->parameters([
                 'dom' => '<"row"<"col-xs-12"f>><"row"<"col-xs-8 p-t-5"l><"col-xs-4 text-right hidden-print"B>>" +
                     "<"row m-t-10"<"col-sm-12"tr>>" +
@@ -98,7 +98,7 @@ class NguonOdaDataTable extends DataTable
     protected function getColumns()
     {
         return [
-            ['data' => 'DT_RowIndex', 'name' => 'DT_RowIndex', 'title' => 'STT','searchable' => false],
+            ['data' => 'DT_RowIndex', 'name' => 'DT_RowIndex', 'title' => 'STT','searchable' => false, 'className' => 'text-center'],
             ['name' => 'ten', 'data' => 'ten', 'title' => 'Tên đơn vị / Quốc gia'],
             ['name' => 'tong_von', 'data' => 'tong_von', 'title' => 'Tổng vốn ODA đang đầu tư', 'className' => 'text-right'],
             ['name' => 'dia_ban', 'data' => 'dia_ban', 'title' => 'Địa bàn / dự án'],

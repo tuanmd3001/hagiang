@@ -1,17 +1,14 @@
 <!-- Name Field -->
-<div class="form-group col-sm-6">
-    {!! Form::label('name', 'Name:') !!}
-    {!! Form::text('name', null, ['class' => 'form-control','maxlength' => 191,'maxlength' => 191]) !!}
-</div>
-
-<!-- Guard Name Field -->
-<div class="form-group col-sm-6">
-    {!! Form::label('guard_name', 'Guard Name:') !!}
-    {!! Form::text('guard_name', null, ['class' => 'form-control','maxlength' => 191,'maxlength' => 191]) !!}
+<div class="form-group col-sm-6 @if($errors->has('display_name')) has-error @endif">
+    {!! Form::label('display_name', 'Tên chức năng:') !!}
+    {!! Form::text('display_name', null, ['class' => 'form-control','maxlength' => 191,'maxlength' => 191]) !!}
+    @if($errors->has('display_name'))
+        <div class="help-block">{{ $errors->first('display_name') }}</div>
+    @endif
 </div>
 
 <!-- Submit Field -->
 <div class="form-group col-sm-12">
-    {!! Form::submit('Save', ['class' => 'btn btn-primary']) !!}
-    <a href="{{ route('permissions.index') }}" class="btn btn-default">Cancel</a>
+    {!! Form::submit('Lưu', ['class' => 'btn btn-primary']) !!}
+    <a href="{{ route('permissions.index') }}" class="btn btn-default">Quay lại</a>
 </div>

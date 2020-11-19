@@ -7,7 +7,7 @@
         </h1>
     </section>
     <div class="content">
-        @include('adminlte-templates::common.errors')
+{{--        @include('adminlte-templates::common.errors')--}}
         {!! Form::open(['route' => 'users.store']) !!}
 
         @include('users.fields')

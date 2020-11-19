@@ -21,7 +21,11 @@ class UserDataTable extends DataTable
 
         return $dataTable
             ->addIndexColumn()
-            ->addColumn('action', 'users.datatables_actions');
+            ->addColumn('action', function($user) {
+                $view = view('users.datatables_actions')->with('user', $user);
+                return $view->render();
+            });
+//            ->addColumn('action', 'users.datatables_actions');
     }
 
     /**
@@ -45,7 +49,7 @@ class UserDataTable extends DataTable
         return $this->builder()
             ->columns($this->getColumns())
             ->minifiedAjax()
-            ->addAction(['width' => '120px', 'printable' => false, 'title' => 'Thao tác'])
+            ->addAction(['width' => '120px', 'printable' => false, 'title' => 'Thao tác', 'className' => 'text-center'])
             ->parameters([
                 'dom' => '<"row"<"col-xs-12"f>><"row"<"col-xs-8 p-t-5"l><"col-xs-4 text-right hidden-print"B>>" +
                     "<"row m-t-10"<"col-sm-12"tr>>" +
@@ -98,7 +102,8 @@ class UserDataTable extends DataTable
     protected function getColumns()
     {
         return [
-            ['data' => 'DT_RowIndex', 'name' => 'DT_RowIndex', 'title' => 'STT','searchable' => false],
+            ['data' => 'DT_RowIndex', 'name' => 'DT_RowIndex', 'title' => 'STT','searchable' => false, 'className' => 'text-center'],
+            ['data' => 'username', 'name' => 'username', 'title' => 'Tên đăng nhập'],
             ['data' => 'name', 'name' => 'name', 'title' => 'Tên'],
             ['data' => 'email', 'name' => 'email', 'title' => 'Email'],
         ];

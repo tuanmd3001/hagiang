@@ -3,11 +3,11 @@
 @section('content')
     <section class="content-header">
         <h1>
-            Permission
+            Cập nhật chức năng
         </h1>
    </section>
    <div class="content">
-       @include('adminlte-templates::common.errors')
+{{--       @include('adminlte-templates::common.errors')--}}
        <div class="box box-primary">
            <div class="box-body">
                <div class="row">

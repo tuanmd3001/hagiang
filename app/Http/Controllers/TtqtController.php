@@ -18,15 +18,14 @@ class TtqtController extends AppBaseController
 {
     /** @var  TtqtRepository */
     private $ttqtRepository;
-    private $level = Ttqt::LEVEL_TINH;
+    private $level;
 
     public function __construct(TtqtRepository $ttqtRepo)
     {
         $this->ttqtRepository = $ttqtRepo;
-        if(\Request::is('ttqt_tinh')){
-            $this->level = Ttqt::LEVEL_TINH;
-        }
-        elseif (\Request::is('ttqt_so_nganh')){
+        $this->level = Ttqt::LEVEL_TINH;
+
+        if (\Request::is('ttqt_so_nganh')){
             $this->level = Ttqt::LEVEL_SO;
         }
         elseif (\Request::is('ttqt_huyen_tp')){
@@ -42,10 +41,10 @@ class TtqtController extends AppBaseController
      */
     public function index()
     {
-        $datatable = new TtqtDataTable($this->level);
         $level = $this->level;
+        $datatable = new TtqtDataTable($level);
 
-        return $datatable->render('ttqts.index', compact(['level']));
+        return $datatable->render('ttqts.index', compact('level'));
     }
 
     /**
@@ -86,22 +85,9 @@ class TtqtController extends AppBaseController
         }
         $ttqt = $this->ttqtRepository->create($input);
 
-        if($input['danh_nghia_ky'] == Ttqt::LEVEL_TINH){
-            $route = 'ttqt_tinh.index';
-        }
-        elseif ($input['danh_nghia_ky'] == Ttqt::LEVEL_SO){
-            $route = 'ttqt_so_nganh.index';
-        }
-        elseif ($input['danh_nghia_ky'] == Ttqt::LEVEL_TP){
-            $route = 'ttqt_huyen_tp.index';
-        }
-        else {
-            $route = 'ttqt_tinh.index';
-        }
-
         Flash::success('Ttqt saved successfully.');
 
-        return redirect(route($route));
+        return redirect(route(Ttqt::ROUTE_NAME[$this->level].'.index'));
     }
 
     /**
@@ -118,7 +104,7 @@ class TtqtController extends AppBaseController
         if (empty($ttqt)) {
             Flash::error('Ttqt not found');
 
-            return redirect(route('ttqts.index'));
+            return redirect(route(Ttqt::ROUTE_NAME[$this->level].'.index'));
         }
         $level = $this->level;
         return view('ttqts.show', compact(['ttqt', 'level']));
@@ -138,7 +124,7 @@ class TtqtController extends AppBaseController
         if (empty($ttqt)) {
             Flash::error('Ttqt not found');
 
-            return redirect(route('ttqts.index'));
+            return redirect(route(Ttqt::ROUTE_NAME[$this->level].'.index'));
         }
         $ttqt->ngay_ky = date_format(new \DateTime($ttqt->ngay_ky), 'd/m/Y') ?? '';
         $ttqt->ngay_hieu_luc = date_format(new \DateTime($ttqt->ngay_hieu_luc), 'd/m/Y') ?? '';
@@ -163,7 +149,7 @@ class TtqtController extends AppBaseController
         if (empty($ttqt)) {
             Flash::error('Ttqt not found');
 
-            return redirect(route('ttqts.index'));
+            return redirect(route(Ttqt::ROUTE_NAME[$this->level].'.index'));
         }
         $input = $request->all();
         $ngay_ky = \DateTime::createFromFormat('d/m/Y', $input['ngay_ky']);
@@ -181,22 +167,9 @@ class TtqtController extends AppBaseController
 
         $ttqt = $this->ttqtRepository->update($input, $id);
 
-        if($input['danh_nghia_ky'] == Ttqt::LEVEL_TINH){
-            $route = 'ttqt_tinh.index';
-        }
-        elseif ($input['danh_nghia_ky'] == Ttqt::LEVEL_SO){
-            $route = 'ttqt_so_nganh.index';
-        }
-        elseif ($input['danh_nghia_ky'] == Ttqt::LEVEL_TP){
-            $route = 'ttqt_huyen_tp.index';
-        }
-        else {
-            $route = 'ttqt_tinh.index';
-        }
-
         Flash::success('Ttqt updated successfully.');
 
-        return redirect(route($route));
+        return redirect(route(Ttqt::ROUTE_NAME[$this->level].'.index'));
     }
 
     /**
@@ -213,13 +186,13 @@ class TtqtController extends AppBaseController
         if (empty($ttqt)) {
             Flash::error('Ttqt not found');
 
-            return redirect(route('ttqts.index'));
+            return redirect(route(Ttqt::ROUTE_NAME[$this->level].'.index'));
         }
 
         $this->ttqtRepository->delete($id);
 
         Flash::success('Ttqt deleted successfully.');
 
-        return redirect(route('ttqts.index'));
+        return redirect(route(Ttqt::ROUTE_NAME[$this->level].'.index'));
     }
 }

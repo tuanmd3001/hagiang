@@ -10,11 +10,20 @@
 </div>
 <div class="form-group col-md-6">
     <label>
-        Quyền
+        Quyền bổ sung (ngoài những quyền theo vai trò)
     </label>
-    @foreach($user->permissions()->get() as $permission)
-        <div>
-            <div class="label label-primary">{{$permission->name}}</div>
-        </div>
-    @endforeach
+    <div class="permission_selector">
+        @foreach($permissions as $permission)
+            <div class="checkbox">
+                <label>
+                    <input type="checkbox" name="permissions[]" value="{{$permission->name}}" disabled
+                           @if(in_array($permission->name, $userPermissions))
+                           checked
+                        @endif
+                    >
+                    {{$permission->display_name}}
+                </label>
+            </div>
+        @endforeach
+    </div>
 </div>
