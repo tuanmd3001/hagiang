@@ -57,7 +57,7 @@ class HcNgoaiGiaoController extends AppBaseController
 
         $hcNgoaiGiao = $this->hcNgoaiGiaoRepository->create($input);
 
-        Flash::success('Hc Ngoai Giao saved successfully.');
+        Flash::success('Thêm mới thành công');
 
         return redirect(route('hcNgoaiGiaos.index'));
     }
@@ -74,7 +74,7 @@ class HcNgoaiGiaoController extends AppBaseController
         $hcNgoaiGiao = $this->hcNgoaiGiaoRepository->find($id);
 
         if (empty($hcNgoaiGiao)) {
-            Flash::error('Hc Ngoai Giao not found');
+            Flash::error('Không tìm thấy thông tin');
 
             return redirect(route('hcNgoaiGiaos.index'));
         }
@@ -94,7 +94,7 @@ class HcNgoaiGiaoController extends AppBaseController
         $hcNgoaiGiao = $this->hcNgoaiGiaoRepository->find($id);
 
         if (empty($hcNgoaiGiao)) {
-            Flash::error('Hc Ngoai Giao not found');
+            Flash::error('Không tìm thấy thông tin');
 
             return redirect(route('hcNgoaiGiaos.index'));
         }
@@ -116,7 +116,7 @@ class HcNgoaiGiaoController extends AppBaseController
         $hcNgoaiGiao = $this->hcNgoaiGiaoRepository->find($id);
 
         if (empty($hcNgoaiGiao)) {
-            Flash::error('Hc Ngoai Giao not found');
+            Flash::error('Không tìm thấy thông tin');
 
             return redirect(route('hcNgoaiGiaos.index'));
         }
@@ -126,7 +126,7 @@ class HcNgoaiGiaoController extends AppBaseController
 
         $hcNgoaiGiao = $this->hcNgoaiGiaoRepository->update($input, $id);
 
-        Flash::success('Hc Ngoai Giao updated successfully.');
+        Flash::success('Cập nhật thông tin thành công');
 
         return redirect(route('hcNgoaiGiaos.index'));
     }
@@ -143,14 +143,14 @@ class HcNgoaiGiaoController extends AppBaseController
         $hcNgoaiGiao = $this->hcNgoaiGiaoRepository->find($id);
 
         if (empty($hcNgoaiGiao)) {
-            Flash::error('Hc Ngoai Giao not found');
+            Flash::error('Không tìm thấy thông tin');
 
             return redirect(route('hcNgoaiGiaos.index'));
         }
 
         $this->hcNgoaiGiaoRepository->delete($id);
 
-        Flash::success('Hc Ngoai Giao deleted successfully.');
+        Flash::success('Xóa thành công');
 
         return redirect(route('hcNgoaiGiaos.index'));
     }

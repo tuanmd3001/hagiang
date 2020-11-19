@@ -55,7 +55,7 @@ class NgHgNuocNgoaiController extends AppBaseController
 
         $ngHgNuocNgoai = $this->ngHgNuocNgoaiRepository->create($input);
 
-        Flash::success('Ng Hg Nuoc Ngoai saved successfully.');
+        Flash::success('Thêm mới thành công');
 
         return redirect(route('ngHgNuocNgoais.index'));
     }
@@ -72,7 +72,7 @@ class NgHgNuocNgoaiController extends AppBaseController
         $ngHgNuocNgoai = $this->ngHgNuocNgoaiRepository->find($id);
 
         if (empty($ngHgNuocNgoai)) {
-            Flash::error('Ng Hg Nuoc Ngoai not found');
+            Flash::error('Không tìm thấy thông tin');
 
             return redirect(route('ngHgNuocNgoais.index'));
         }
@@ -92,7 +92,7 @@ class NgHgNuocNgoaiController extends AppBaseController
         $ngHgNuocNgoai = $this->ngHgNuocNgoaiRepository->find($id);
 
         if (empty($ngHgNuocNgoai)) {
-            Flash::error('Ng Hg Nuoc Ngoai not found');
+            Flash::error('Không tìm thấy thông tin');
 
             return redirect(route('ngHgNuocNgoais.index'));
         }
@@ -113,14 +113,14 @@ class NgHgNuocNgoaiController extends AppBaseController
         $ngHgNuocNgoai = $this->ngHgNuocNgoaiRepository->find($id);
 
         if (empty($ngHgNuocNgoai)) {
-            Flash::error('Ng Hg Nuoc Ngoai not found');
+            Flash::error('Không tìm thấy thông tin');
 
             return redirect(route('ngHgNuocNgoais.index'));
         }
 
         $ngHgNuocNgoai = $this->ngHgNuocNgoaiRepository->update($request->all(), $id);
 
-        Flash::success('Ng Hg Nuoc Ngoai updated successfully.');
+        Flash::success('Cập nhật thông tin thành công');
 
         return redirect(route('ngHgNuocNgoais.index'));
     }
@@ -137,14 +137,14 @@ class NgHgNuocNgoaiController extends AppBaseController
         $ngHgNuocNgoai = $this->ngHgNuocNgoaiRepository->find($id);
 
         if (empty($ngHgNuocNgoai)) {
-            Flash::error('Ng Hg Nuoc Ngoai not found');
+            Flash::error('Không tìm thấy thông tin');
 
             return redirect(route('ngHgNuocNgoais.index'));
         }
 
         $this->ngHgNuocNgoaiRepository->delete($id);
 
-        Flash::success('Ng Hg Nuoc Ngoai deleted successfully.');
+        Flash::success('Xóa thành công');
 
         return redirect(route('ngHgNuocNgoais.index'));
     }

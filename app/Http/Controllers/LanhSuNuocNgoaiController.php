@@ -55,7 +55,7 @@ class LanhSuNuocNgoaiController extends AppBaseController
 
         $lanhSuNuocNgoai = $this->lanhSuNuocNgoaiRepository->create($input);
 
-        Flash::success('Lanh Su Nuoc Ngoai saved successfully.');
+        Flash::success('Thêm mới thành công');
 
         return redirect(route('lanhSuNuocNgoais.index'));
     }
@@ -72,7 +72,7 @@ class LanhSuNuocNgoaiController extends AppBaseController
         $lanhSuNuocNgoai = $this->lanhSuNuocNgoaiRepository->find($id);
 
         if (empty($lanhSuNuocNgoai)) {
-            Flash::error('Lanh Su Nuoc Ngoai not found');
+            Flash::error('Không tìm thấy thông tin');
 
             return redirect(route('lanhSuNuocNgoais.index'));
         }
@@ -92,7 +92,7 @@ class LanhSuNuocNgoaiController extends AppBaseController
         $lanhSuNuocNgoai = $this->lanhSuNuocNgoaiRepository->find($id);
 
         if (empty($lanhSuNuocNgoai)) {
-            Flash::error('Lanh Su Nuoc Ngoai not found');
+            Flash::error('Không tìm thấy thông tin');
 
             return redirect(route('lanhSuNuocNgoais.index'));
         }
@@ -113,14 +113,14 @@ class LanhSuNuocNgoaiController extends AppBaseController
         $lanhSuNuocNgoai = $this->lanhSuNuocNgoaiRepository->find($id);
 
         if (empty($lanhSuNuocNgoai)) {
-            Flash::error('Lanh Su Nuoc Ngoai not found');
+            Flash::error('Không tìm thấy thông tin');
 
             return redirect(route('lanhSuNuocNgoais.index'));
         }
 
         $lanhSuNuocNgoai = $this->lanhSuNuocNgoaiRepository->update($request->all(), $id);
 
-        Flash::success('Lanh Su Nuoc Ngoai updated successfully.');
+        Flash::success('Cập nhật thông tin thành công');
 
         return redirect(route('lanhSuNuocNgoais.index'));
     }
@@ -137,14 +137,14 @@ class LanhSuNuocNgoaiController extends AppBaseController
         $lanhSuNuocNgoai = $this->lanhSuNuocNgoaiRepository->find($id);
 
         if (empty($lanhSuNuocNgoai)) {
-            Flash::error('Lanh Su Nuoc Ngoai not found');
+            Flash::error('Không tìm thấy thông tin');
 
             return redirect(route('lanhSuNuocNgoais.index'));
         }
 
         $this->lanhSuNuocNgoaiRepository->delete($id);
 
-        Flash::success('Lanh Su Nuoc Ngoai deleted successfully.');
+        Flash::success('Xóa thành công');
 
         return redirect(route('lanhSuNuocNgoais.index'));
     }

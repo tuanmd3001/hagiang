@@ -57,7 +57,7 @@ class CanBoController extends AppBaseController
 
         $canBo = $this->canBoRepository->create($input);
 
-        Flash::success('Can Bo saved successfully.');
+        Flash::success('Thêm mới thành công');
 
         return redirect(route('canBos.index'));
     }
@@ -74,7 +74,7 @@ class CanBoController extends AppBaseController
         $canBo = $this->canBoRepository->find($id);
 
         if (empty($canBo)) {
-            Flash::error('Can Bo not found');
+            Flash::error('Không tìm thấy thông tin');
 
             return redirect(route('canBos.index'));
         }
@@ -94,7 +94,7 @@ class CanBoController extends AppBaseController
         $canBo = $this->canBoRepository->find($id);
 
         if (empty($canBo)) {
-            Flash::error('Can Bo not found');
+            Flash::error('Không tìm thấy thông tin');
 
             return redirect(route('canBos.index'));
         }
@@ -116,7 +116,7 @@ class CanBoController extends AppBaseController
         $canBo = $this->canBoRepository->find($id);
 
         if (empty($canBo)) {
-            Flash::error('Can Bo not found');
+            Flash::error('Không tìm thấy thông tin');
 
             return redirect(route('canBos.index'));
         }
@@ -126,7 +126,7 @@ class CanBoController extends AppBaseController
 
         $canBo = $this->canBoRepository->update($input, $id);
 
-        Flash::success('Can Bo updated successfully.');
+        Flash::success('Cập nhật thông tin thành công');
 
         return redirect(route('canBos.index'));
     }
@@ -143,14 +143,14 @@ class CanBoController extends AppBaseController
         $canBo = $this->canBoRepository->find($id);
 
         if (empty($canBo)) {
-            Flash::error('Can Bo not found');
+            Flash::error('Không tìm thấy thông tin');
 
             return redirect(route('canBos.index'));
         }
 
         $this->canBoRepository->delete($id);
 
-        Flash::success('Can Bo deleted successfully.');
+        Flash::success('Xóa thành công');
 
         return redirect(route('canBos.index'));
     }

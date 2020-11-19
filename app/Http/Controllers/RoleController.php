@@ -56,7 +56,7 @@ class RoleController extends AppBaseController
 
         $role = $this->roleRepository->create($input);
 
-        Flash::success('Role saved successfully.');
+        Flash::success('Thêm mới thành công');
 
         return redirect(route('roles.index'));
     }
@@ -75,7 +75,7 @@ class RoleController extends AppBaseController
             return redirect(route('roles.index'));
         }
         if (empty($role)) {
-            Flash::error('Role not found');
+            Flash::error('Không tìm thấy thông tin');
 
             return redirect(route('roles.index'));
         }
@@ -98,7 +98,7 @@ class RoleController extends AppBaseController
             return redirect(route('roles.index'));
         }
         if (empty($role)) {
-            Flash::error('Role not found');
+            Flash::error('Không tìm thấy thông tin');
 
             return redirect(route('roles.index'));
         }
@@ -122,7 +122,7 @@ class RoleController extends AppBaseController
             return redirect(route('roles.index'));
         }
         if (empty($role)) {
-            Flash::error('Role not found');
+            Flash::error('Không tìm thấy thông tin');
 
             return redirect(route('roles.index'));
         }
@@ -136,7 +136,7 @@ class RoleController extends AppBaseController
             $role->syncPermissions([]);
         }
 
-        Flash::success('Role updated successfully.');
+        Flash::success('Cập nhật thông tin thành công');
 
         return redirect(route('roles.index'));
     }
@@ -155,14 +155,14 @@ class RoleController extends AppBaseController
             return redirect(route('roles.index'));
         }
         if (empty($role)) {
-            Flash::error('Role not found');
+            Flash::error('Không tìm thấy thông tin');
 
             return redirect(route('roles.index'));
         }
 
         $this->roleRepository->delete($id);
 
-        Flash::success('Role deleted successfully.');
+        Flash::success('Xóa thành công');
 
         return redirect(route('roles.index'));
     }

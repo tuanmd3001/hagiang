@@ -74,7 +74,7 @@ class HoiNghiHoiThaoController extends AppBaseController
 
         $hoiNghiHoiThao = $this->hoiNghiHoiThaoRepository->create($input);
 
-        Flash::success('Hoi Nghi Hoi Thao saved successfully.');
+        Flash::success('Thêm mới thành công');
 
         return redirect(route('hoiNghiHoiThao.index', ['type' => $input['loai']]));
     }
@@ -91,7 +91,7 @@ class HoiNghiHoiThaoController extends AppBaseController
         $hoiNghiHoiThao = $this->hoiNghiHoiThaoRepository->find($id);
 
         if (empty($hoiNghiHoiThao)) {
-            Flash::error('Hoi Nghi Hoi Thao not found');
+            Flash::error('Không tìm thấy thông tin');
 
             return redirect(route('hoiNghiHoiThao.index', ['type' => $hoiNghiHoiThao->loai]));
         }
@@ -111,7 +111,7 @@ class HoiNghiHoiThaoController extends AppBaseController
         $hoiNghiHoiThao = $this->hoiNghiHoiThaoRepository->find($id);
 
         if (empty($hoiNghiHoiThao)) {
-            Flash::error('Hoi Nghi Hoi Thao not found');
+            Flash::error('Không tìm thấy thông tin');
 
             return redirect(route('hoiNghiHoiThao.index', ['type' => $hoiNghiHoiThao->loai]));
         }
@@ -140,7 +140,7 @@ class HoiNghiHoiThaoController extends AppBaseController
         $hoiNghiHoiThao = $this->hoiNghiHoiThaoRepository->find($id);
 
         if (empty($hoiNghiHoiThao)) {
-            Flash::error('Hoi Nghi Hoi Thao not found');
+            Flash::error('Không tìm thấy thông tin');
 
             return redirect(route('hoiNghiHoiThao.index', ['type' => $hoiNghiHoiThao->loai]));
         }
@@ -155,7 +155,7 @@ class HoiNghiHoiThaoController extends AppBaseController
         }
         $hoiNghiHoiThao = $this->hoiNghiHoiThaoRepository->update($input, $id);
 
-        Flash::success('Hoi Nghi Hoi Thao updated successfully.');
+        Flash::success('Cập nhật thông tin thành công');
 
         return redirect(route('hoiNghiHoiThao.index', ['type' => $input['loai']]));
     }
@@ -172,14 +172,14 @@ class HoiNghiHoiThaoController extends AppBaseController
         $hoiNghiHoiThao = $this->hoiNghiHoiThaoRepository->find($id);
 
         if (empty($hoiNghiHoiThao)) {
-            Flash::error('Hoi Nghi Hoi Thao not found');
+            Flash::error('Không tìm thấy thông tin');
 
             return redirect(route('hoiNghiHoiThao.index', ['type' => $hoiNghiHoiThao->loai]));
         }
 
         $this->hoiNghiHoiThaoRepository->delete($id);
 
-        Flash::success('Hoi Nghi Hoi Thao deleted successfully.');
+        Flash::success('Xóa thành công');
 
         return redirect(route('hoiNghiHoiThao.index', ['type' => $hoiNghiHoiThao->loai]));
     }

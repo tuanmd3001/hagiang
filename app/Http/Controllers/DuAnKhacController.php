@@ -55,7 +55,7 @@ class DuAnKhacController extends AppBaseController
 
         $duAnKhac = $this->duAnKhacRepository->create($input);
 
-        Flash::success('Du An Khac saved successfully.');
+        Flash::success('Thêm mới thành công');
 
         return redirect(route('duAnKhacs.index'));
     }
@@ -72,7 +72,7 @@ class DuAnKhacController extends AppBaseController
         $duAnKhac = $this->duAnKhacRepository->find($id);
 
         if (empty($duAnKhac)) {
-            Flash::error('Du An Khac not found');
+            Flash::error('Không tìm thấy thông tin');
 
             return redirect(route('duAnKhacs.index'));
         }
@@ -92,7 +92,7 @@ class DuAnKhacController extends AppBaseController
         $duAnKhac = $this->duAnKhacRepository->find($id);
 
         if (empty($duAnKhac)) {
-            Flash::error('Du An Khac not found');
+            Flash::error('Không tìm thấy thông tin');
 
             return redirect(route('duAnKhacs.index'));
         }
@@ -113,14 +113,14 @@ class DuAnKhacController extends AppBaseController
         $duAnKhac = $this->duAnKhacRepository->find($id);
 
         if (empty($duAnKhac)) {
-            Flash::error('Du An Khac not found');
+            Flash::error('Không tìm thấy thông tin');
 
             return redirect(route('duAnKhacs.index'));
         }
 
         $duAnKhac = $this->duAnKhacRepository->update($request->all(), $id);
 
-        Flash::success('Du An Khac updated successfully.');
+        Flash::success('Cập nhật thông tin thành công');
 
         return redirect(route('duAnKhacs.index'));
     }
@@ -137,14 +137,14 @@ class DuAnKhacController extends AppBaseController
         $duAnKhac = $this->duAnKhacRepository->find($id);
 
         if (empty($duAnKhac)) {
-            Flash::error('Du An Khac not found');
+            Flash::error('Không tìm thấy thông tin');
 
             return redirect(route('duAnKhacs.index'));
         }
 
         $this->duAnKhacRepository->delete($id);
 
-        Flash::success('Du An Khac deleted successfully.');
+        Flash::success('Xóa thành công');
 
         return redirect(route('duAnKhacs.index'));
     }

@@ -6,6 +6,8 @@ namespace App\Models;
 
 class Constants
 {
+    const DEFAULT_PASSWORD = '12345678';
+
     const GENDER_FEMALE = 0;
     const GENDER_MALE = 1;
     const GENDER_LABEL = [

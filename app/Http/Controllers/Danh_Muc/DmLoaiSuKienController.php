@@ -55,7 +55,7 @@ class DmLoaiSuKienController extends AppBaseController
 
         $dmLoaiSuKien = $this->dmLoaiSuKienRepository->create($input);
 
-        Flash::success('Dm Loai Su Kien saved successfully.');
+        Flash::success('Thêm mới thành công');
 
         return redirect(route('danhMuc.loaiSuKien.index'));
     }
@@ -72,7 +72,7 @@ class DmLoaiSuKienController extends AppBaseController
         $dmLoaiSuKien = $this->dmLoaiSuKienRepository->find($id);
 
         if (empty($dmLoaiSuKien)) {
-            Flash::error('Dm Loai Su Kien not found');
+            Flash::error('Không tìm thấy thông tin');
 
             return redirect(route('danhMuc.loaiSuKien.index'));
         }
@@ -92,7 +92,7 @@ class DmLoaiSuKienController extends AppBaseController
         $dmLoaiSuKien = $this->dmLoaiSuKienRepository->find($id);
 
         if (empty($dmLoaiSuKien)) {
-            Flash::error('Dm Loai Su Kien not found');
+            Flash::error('Không tìm thấy thông tin');
 
             return redirect(route('danhMuc.loaiSuKien.index'));
         }
@@ -113,14 +113,14 @@ class DmLoaiSuKienController extends AppBaseController
         $dmLoaiSuKien = $this->dmLoaiSuKienRepository->find($id);
 
         if (empty($dmLoaiSuKien)) {
-            Flash::error('Dm Loai Su Kien not found');
+            Flash::error('Không tìm thấy thông tin');
 
             return redirect(route('danhMuc.loaiSuKien.index'));
         }
 
         $dmLoaiSuKien = $this->dmLoaiSuKienRepository->update($request->all(), $id);
 
-        Flash::success('Dm Loai Su Kien updated successfully.');
+        Flash::success('Cập nhật thông tin thành công');
 
         return redirect(route('danhMuc.loaiSuKien.index'));
     }
@@ -137,14 +137,14 @@ class DmLoaiSuKienController extends AppBaseController
         $dmLoaiSuKien = $this->dmLoaiSuKienRepository->find($id);
 
         if (empty($dmLoaiSuKien)) {
-            Flash::error('Dm Loai Su Kien not found');
+            Flash::error('Không tìm thấy thông tin');
 
             return redirect(route('danhMuc.loaiSuKien.index'));
         }
 
         $this->dmLoaiSuKienRepository->delete($id);
 
-        Flash::success('Dm Loai Su Kien deleted successfully.');
+        Flash::success('Xóa thành công');
 
         return redirect(route('danhMuc.loaiSuKien.index'));
     }

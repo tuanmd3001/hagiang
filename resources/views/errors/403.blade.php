@@ -1,5 +1,5 @@
-@extends('errors::minimal')
+@extends('errors::illustrated-layout')
 
 @section('title', __('Forbidden'))
 @section('code', '403')
-@section('message', __($exception->getMessage() ?: 'Không có quyền truy cập trang này'))
+@section('message', 'Không có quyền truy cập trang này')

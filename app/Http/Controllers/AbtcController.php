@@ -57,7 +57,7 @@ class AbtcController extends AppBaseController
 
         $abtc = $this->abtcRepository->create($input);
 
-        Flash::success('Abtc saved successfully.');
+        Flash::success('Thêm mới thành công.');
 
         return redirect(route('abtcs.index'));
     }
@@ -74,7 +74,7 @@ class AbtcController extends AppBaseController
         $abtc = $this->abtcRepository->find($id);
 
         if (empty($abtc)) {
-            Flash::error('Abtc not found');
+            Flash::error('Không tìm thấy thông tin');
 
             return redirect(route('abtcs.index'));
         }
@@ -94,7 +94,7 @@ class AbtcController extends AppBaseController
         $abtc = $this->abtcRepository->find($id);
 
         if (empty($abtc)) {
-            Flash::error('Abtc not found');
+            Flash::error('Không tìm thấy thông tin');
 
             return redirect(route('abtcs.index'));
         }
@@ -116,7 +116,7 @@ class AbtcController extends AppBaseController
         $abtc = $this->abtcRepository->find($id);
 
         if (empty($abtc)) {
-            Flash::error('Abtc not found');
+            Flash::error('Không tìm thấy thông tin');
 
             return redirect(route('abtcs.index'));
         }
@@ -126,7 +126,7 @@ class AbtcController extends AppBaseController
 
         $abtc = $this->abtcRepository->update($input, $id);
 
-        Flash::success('Abtc updated successfully.');
+        Flash::success('Cập nhật thông tin thành công');
 
         return redirect(route('abtcs.index'));
     }
@@ -143,14 +143,14 @@ class AbtcController extends AppBaseController
         $abtc = $this->abtcRepository->find($id);
 
         if (empty($abtc)) {
-            Flash::error('Abtc not found');
+            Flash::error('Không tìm thấy thông tin');
 
             return redirect(route('abtcs.index'));
         }
 
         $this->abtcRepository->delete($id);
 
-        Flash::success('Abtc deleted successfully.');
+        Flash::success('Xóa thành công.');
 
         return redirect(route('abtcs.index'));
     }

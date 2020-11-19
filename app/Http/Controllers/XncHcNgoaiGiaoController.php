@@ -60,7 +60,7 @@ class XncHcNgoaiGiaoController extends AppBaseController
 
         $xncHcNgoaiGiao = $this->xncHcNgoaiGiaoRepository->create($input);
 
-        Flash::success('Xnc Hc Ngoai Giao saved successfully.');
+        Flash::success('Thêm mới thành công');
 
         return redirect(route('xncHcNgoaiGiaos.index'));
     }
@@ -77,7 +77,7 @@ class XncHcNgoaiGiaoController extends AppBaseController
         $xncHcNgoaiGiao = $this->xncHcNgoaiGiaoRepository->find($id);
 
         if (empty($xncHcNgoaiGiao)) {
-            Flash::error('Xnc Hc Ngoai Giao not found');
+            Flash::error('Không tìm thấy thông tin');
 
             return redirect(route('xncHcNgoaiGiaos.index'));
         }
@@ -97,7 +97,7 @@ class XncHcNgoaiGiaoController extends AppBaseController
         $xncHcNgoaiGiao = $this->xncHcNgoaiGiaoRepository->find($id);
 
         if (empty($xncHcNgoaiGiao)) {
-            Flash::error('Xnc Hc Ngoai Giao not found');
+            Flash::error('Không tìm thấy thông tin');
 
             return redirect(route('xncHcNgoaiGiaos.index'));
         }
@@ -120,7 +120,7 @@ class XncHcNgoaiGiaoController extends AppBaseController
         $xncHcNgoaiGiao = $this->xncHcNgoaiGiaoRepository->find($id);
 
         if (empty($xncHcNgoaiGiao)) {
-            Flash::error('Xnc Hc Ngoai Giao not found');
+            Flash::error('Không tìm thấy thông tin');
 
             return redirect(route('xncHcNgoaiGiaos.index'));
         }
@@ -130,7 +130,7 @@ class XncHcNgoaiGiaoController extends AppBaseController
 
         $xncHcNgoaiGiao = $this->xncHcNgoaiGiaoRepository->update($input, $id);
 
-        Flash::success('Xnc Hc Ngoai Giao updated successfully.');
+        Flash::success('Cập nhật thông tin thành công');
 
         return redirect(route('xncHcNgoaiGiaos.index'));
     }
@@ -147,14 +147,14 @@ class XncHcNgoaiGiaoController extends AppBaseController
         $xncHcNgoaiGiao = $this->xncHcNgoaiGiaoRepository->find($id);
 
         if (empty($xncHcNgoaiGiao)) {
-            Flash::error('Xnc Hc Ngoai Giao not found');
+            Flash::error('Không tìm thấy thông tin');
 
             return redirect(route('xncHcNgoaiGiaos.index'));
         }
 
         $this->xncHcNgoaiGiaoRepository->delete($id);
 
-        Flash::success('Xnc Hc Ngoai Giao deleted successfully.');
+        Flash::success('Xóa thành công');
 
         return redirect(route('xncHcNgoaiGiaos.index'));
     }

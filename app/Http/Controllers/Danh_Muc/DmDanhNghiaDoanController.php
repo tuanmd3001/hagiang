@@ -55,7 +55,7 @@ class DmDanhNghiaDoanController extends AppBaseController
 
         $dmDanhNghiaDoan = $this->dmDanhNghiaDoanRepository->create($input);
 
-        Flash::success('Dm Danh Nghia Doan saved successfully.');
+        Flash::success('Thêm mới thành công');
 
         return redirect(route('danhMuc.danhNghiaDoan.index'));
     }
@@ -72,7 +72,7 @@ class DmDanhNghiaDoanController extends AppBaseController
         $dmDanhNghiaDoan = $this->dmDanhNghiaDoanRepository->find($id);
 
         if (empty($dmDanhNghiaDoan)) {
-            Flash::error('Dm Danh Nghia Doan not found');
+            Flash::error('Không tìm thấy thông tin');
 
             return redirect(route('danhMuc.danhNghiaDoan.index'));
         }
@@ -92,7 +92,7 @@ class DmDanhNghiaDoanController extends AppBaseController
         $dmDanhNghiaDoan = $this->dmDanhNghiaDoanRepository->find($id);
 
         if (empty($dmDanhNghiaDoan)) {
-            Flash::error('Dm Danh Nghia Doan not found');
+            Flash::error('Không tìm thấy thông tin');
 
             return redirect(route('danhMuc.danhNghiaDoan.index'));
         }
@@ -113,14 +113,14 @@ class DmDanhNghiaDoanController extends AppBaseController
         $dmDanhNghiaDoan = $this->dmDanhNghiaDoanRepository->find($id);
 
         if (empty($dmDanhNghiaDoan)) {
-            Flash::error('Dm Danh Nghia Doan not found');
+            Flash::error('Không tìm thấy thông tin');
 
             return redirect(route('danhMuc.danhNghiaDoan.index'));
         }
 
         $dmDanhNghiaDoan = $this->dmDanhNghiaDoanRepository->update($request->all(), $id);
 
-        Flash::success('Dm Danh Nghia Doan updated successfully.');
+        Flash::success('Cập nhật thông tin thành công');
 
         return redirect(route('danhMuc.danhNghiaDoan.index'));
     }
@@ -137,14 +137,14 @@ class DmDanhNghiaDoanController extends AppBaseController
         $dmDanhNghiaDoan = $this->dmDanhNghiaDoanRepository->find($id);
 
         if (empty($dmDanhNghiaDoan)) {
-            Flash::error('Dm Danh Nghia Doan not found');
+            Flash::error('Không tìm thấy thông tin');
 
             return redirect(route('danhMuc.danhNghiaDoan.index'));
         }
 
         $this->dmDanhNghiaDoanRepository->delete($id);
 
-        Flash::success('Dm Danh Nghia Doan deleted successfully.');
+        Flash::success('Xóa thành công');
 
         return redirect(route('danhMuc.danhNghiaDoan.index'));
     }

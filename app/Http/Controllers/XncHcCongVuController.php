@@ -59,7 +59,7 @@ class XncHcCongVuController extends AppBaseController
 
         $xncHcCongVu = $this->xncHcCongVuRepository->create($input);
 
-        Flash::success('Xnc Hc Cong Vu saved successfully.');
+        Flash::success('Thêm mới thành công');
 
         return redirect(route('xncHcCongVus.index'));
     }
@@ -76,7 +76,7 @@ class XncHcCongVuController extends AppBaseController
         $xncHcCongVu = $this->xncHcCongVuRepository->find($id);
 
         if (empty($xncHcCongVu)) {
-            Flash::error('Xnc Hc Cong Vu not found');
+            Flash::error('Không tìm thấy thông tin');
 
             return redirect(route('xncHcCongVus.index'));
         }
@@ -96,7 +96,7 @@ class XncHcCongVuController extends AppBaseController
         $xncHcCongVu = $this->xncHcCongVuRepository->find($id);
 
         if (empty($xncHcCongVu)) {
-            Flash::error('Xnc Hc Cong Vu not found');
+            Flash::error('Không tìm thấy thông tin');
 
             return redirect(route('xncHcCongVus.index'));
         }
@@ -119,7 +119,7 @@ class XncHcCongVuController extends AppBaseController
         $xncHcCongVu = $this->xncHcCongVuRepository->find($id);
 
         if (empty($xncHcCongVu)) {
-            Flash::error('Xnc Hc Cong Vu not found');
+            Flash::error('Không tìm thấy thông tin');
 
             return redirect(route('xncHcCongVus.index'));
         }
@@ -129,7 +129,7 @@ class XncHcCongVuController extends AppBaseController
 
         $xncHcCongVu = $this->xncHcCongVuRepository->update($input, $id);
 
-        Flash::success('Xnc Hc Cong Vu updated successfully.');
+        Flash::success('Cập nhật thông tin thành công');
 
         return redirect(route('xncHcCongVus.index'));
     }
@@ -146,14 +146,14 @@ class XncHcCongVuController extends AppBaseController
         $xncHcCongVu = $this->xncHcCongVuRepository->find($id);
 
         if (empty($xncHcCongVu)) {
-            Flash::error('Xnc Hc Cong Vu not found');
+            Flash::error('Không tìm thấy thông tin');
 
             return redirect(route('xncHcCongVus.index'));
         }
 
         $this->xncHcCongVuRepository->delete($id);
 
-        Flash::success('Xnc Hc Cong Vu deleted successfully.');
+        Flash::success('Xóa thành công');
 
         return redirect(route('xncHcCongVus.index'));
     }

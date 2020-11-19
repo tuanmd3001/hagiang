@@ -55,7 +55,7 @@ class DmLoaiVanBanController extends AppBaseController
 
         $dmLoaiVanBan = $this->dmLoaiVanBanRepository->create($input);
 
-        Flash::success('Dm Loai Van Ban saved successfully.');
+        Flash::success('Thêm mới thành công');
 
         return redirect(route('danhMuc.loaiVanBan.index'));
     }
@@ -72,7 +72,7 @@ class DmLoaiVanBanController extends AppBaseController
         $dmLoaiVanBan = $this->dmLoaiVanBanRepository->find($id);
 
         if (empty($dmLoaiVanBan)) {
-            Flash::error('Dm Loai Van Ban not found');
+            Flash::error('Không tìm thấy thông tin');
 
             return redirect(route('danhMuc.loaiVanBan.index'));
         }
@@ -92,7 +92,7 @@ class DmLoaiVanBanController extends AppBaseController
         $dmLoaiVanBan = $this->dmLoaiVanBanRepository->find($id);
 
         if (empty($dmLoaiVanBan)) {
-            Flash::error('Dm Loai Van Ban not found');
+            Flash::error('Không tìm thấy thông tin');
 
             return redirect(route('danhMuc.loaiVanBan.index'));
         }
@@ -113,14 +113,14 @@ class DmLoaiVanBanController extends AppBaseController
         $dmLoaiVanBan = $this->dmLoaiVanBanRepository->find($id);
 
         if (empty($dmLoaiVanBan)) {
-            Flash::error('Dm Loai Van Ban not found');
+            Flash::error('Không tìm thấy thông tin');
 
             return redirect(route('danhMuc.loaiVanBan.index'));
         }
 
         $dmLoaiVanBan = $this->dmLoaiVanBanRepository->update($request->all(), $id);
 
-        Flash::success('Dm Loai Van Ban updated successfully.');
+        Flash::success('Cập nhật thông tin thành công');
 
         return redirect(route('danhMuc.loaiVanBan.index'));
     }
@@ -137,14 +137,14 @@ class DmLoaiVanBanController extends AppBaseController
         $dmLoaiVanBan = $this->dmLoaiVanBanRepository->find($id);
 
         if (empty($dmLoaiVanBan)) {
-            Flash::error('Dm Loai Van Ban not found');
+            Flash::error('Không tìm thấy thông tin');
 
             return redirect(route('danhMuc.loaiVanBan.index'));
         }
 
         $this->dmLoaiVanBanRepository->delete($id);
 
-        Flash::success('Dm Loai Van Ban deleted successfully.');
+        Flash::success('Xóa thành công');
 
         return redirect(route('danhMuc.loaiVanBan.index'));
     }

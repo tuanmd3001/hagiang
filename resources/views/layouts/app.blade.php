@@ -74,8 +74,13 @@
                                 </li>
                                 <!-- Menu Footer-->
                                 <li class="user-footer">
+                                    <div class="pull-left">
+                                        <a href="{{ route('change_password') }}" class="btn btn-default btn-flat">
+                                            Đổi mật khẩu
+                                        </a>
+                                    </div>
                                     <div class="pull-right">
-                                        <a href="{{ url('/logout') }}" class="btn btn-default btn-flat"
+                                        <a href="{{ url('/logout') }}" class="btn btn-danger btn-flat"
                                             onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
                                             Đăng xuất
                                         </a>

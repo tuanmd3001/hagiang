@@ -55,7 +55,7 @@ class DmQuocGiaController extends AppBaseController
 
         $dmQuocGia = $this->dmQuocGiaRepository->create($input);
 
-        Flash::success('Dm Quoc Gia saved successfully.');
+        Flash::success('Thêm mới thành công');
 
         return redirect(route('danhMuc.quocGia.index'));
     }
@@ -72,7 +72,7 @@ class DmQuocGiaController extends AppBaseController
         $dmQuocGia = $this->dmQuocGiaRepository->find($id);
 
         if (empty($dmQuocGia)) {
-            Flash::error('Dm Quoc Gia not found');
+            Flash::error('Không tìm thấy thông tin');
 
             return redirect(route('danhMuc.quocGia.index'));
         }
@@ -92,7 +92,7 @@ class DmQuocGiaController extends AppBaseController
         $dmQuocGia = $this->dmQuocGiaRepository->find($id);
 
         if (empty($dmQuocGia)) {
-            Flash::error('Dm Quoc Gia not found');
+            Flash::error('Không tìm thấy thông tin');
 
             return redirect(route('danhMuc.quocGia.index'));
         }
@@ -113,14 +113,14 @@ class DmQuocGiaController extends AppBaseController
         $dmQuocGia = $this->dmQuocGiaRepository->find($id);
 
         if (empty($dmQuocGia)) {
-            Flash::error('Dm Quoc Gia not found');
+            Flash::error('Không tìm thấy thông tin');
 
             return redirect(route('danhMuc.quocGia.index'));
         }
 
         $dmQuocGia = $this->dmQuocGiaRepository->update($request->all(), $id);
 
-        Flash::success('Dm Quoc Gia updated successfully.');
+        Flash::success('Cập nhật thông tin thành công');
 
         return redirect(route('danhMuc.quocGia.index'));
     }
@@ -137,14 +137,14 @@ class DmQuocGiaController extends AppBaseController
         $dmQuocGia = $this->dmQuocGiaRepository->find($id);
 
         if (empty($dmQuocGia)) {
-            Flash::error('Dm Quoc Gia not found');
+            Flash::error('Không tìm thấy thông tin');
 
             return redirect(route('danhMuc.quocGia.index'));
         }
 
         $this->dmQuocGiaRepository->delete($id);
 
-        Flash::success('Dm Quoc Gia deleted successfully.');
+        Flash::success('Xóa thành công');
 
         return redirect(route('danhMuc.quocGia.index'));
     }

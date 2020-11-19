@@ -55,7 +55,7 @@ class DmDonViController extends AppBaseController
 
         $dmDonVi = $this->dmDonViRepository->create($input);
 
-        Flash::success('Dm Don Vi saved successfully.');
+        Flash::success('Thêm mới thành công');
 
         return redirect(route('danhMuc.donVi.index'));
     }
@@ -72,7 +72,7 @@ class DmDonViController extends AppBaseController
         $dmDonVi = $this->dmDonViRepository->find($id);
 
         if (empty($dmDonVi)) {
-            Flash::error('Dm Don Vi not found');
+            Flash::error('Không tìm thấy thông tin');
 
             return redirect(route('danhMuc.donVi.index'));
         }
@@ -92,7 +92,7 @@ class DmDonViController extends AppBaseController
         $dmDonVi = $this->dmDonViRepository->find($id);
 
         if (empty($dmDonVi)) {
-            Flash::error('Dm Don Vi not found');
+            Flash::error('Không tìm thấy thông tin');
 
             return redirect(route('danhMuc.donVi.index'));
         }
@@ -113,14 +113,14 @@ class DmDonViController extends AppBaseController
         $dmDonVi = $this->dmDonViRepository->find($id);
 
         if (empty($dmDonVi)) {
-            Flash::error('Dm Don Vi not found');
+            Flash::error('Không tìm thấy thông tin');
 
             return redirect(route('danhMuc.donVi.index'));
         }
 
         $dmDonVi = $this->dmDonViRepository->update($request->all(), $id);
 
-        Flash::success('Dm Don Vi updated successfully.');
+        Flash::success('Cập nhật thông tin thành công');
 
         return redirect(route('danhMuc.donVi.index'));
     }
@@ -137,14 +137,14 @@ class DmDonViController extends AppBaseController
         $dmDonVi = $this->dmDonViRepository->find($id);
 
         if (empty($dmDonVi)) {
-            Flash::error('Dm Don Vi not found');
+            Flash::error('Không tìm thấy thông tin');
 
             return redirect(route('danhMuc.donVi.index'));
         }
 
         $this->dmDonViRepository->delete($id);
 
-        Flash::success('Dm Don Vi deleted successfully.');
+        Flash::success('Xóa thành công');
 
         return redirect(route('danhMuc.donVi.index'));
     }

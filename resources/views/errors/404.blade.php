@@ -1,5 +1,5 @@
-@extends('errors::minimal')
+@extends('errors::illustrated-layout')
 
 @section('title', __('Not Found'))
 @section('code', '404')
-@section('message', __('Không tìm thấy trang'))
+@section('message', 'Không tìm thấy trang')

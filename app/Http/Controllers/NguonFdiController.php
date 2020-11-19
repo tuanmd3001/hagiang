@@ -55,7 +55,7 @@ class NguonFdiController extends AppBaseController
 
         $nguonFdi = $this->nguonFdiRepository->create($input);
 
-        Flash::success('Nguon Fdi saved successfully.');
+        Flash::success('Thêm mới thành công');
 
         return redirect(route('nguonFdis.index'));
     }
@@ -72,7 +72,7 @@ class NguonFdiController extends AppBaseController
         $nguonFdi = $this->nguonFdiRepository->find($id);
 
         if (empty($nguonFdi)) {
-            Flash::error('Nguon Fdi not found');
+            Flash::error('Không tìm thấy thông tin');
 
             return redirect(route('nguonFdis.index'));
         }
@@ -92,7 +92,7 @@ class NguonFdiController extends AppBaseController
         $nguonFdi = $this->nguonFdiRepository->find($id);
 
         if (empty($nguonFdi)) {
-            Flash::error('Nguon Fdi not found');
+            Flash::error('Không tìm thấy thông tin');
 
             return redirect(route('nguonFdis.index'));
         }
@@ -113,14 +113,14 @@ class NguonFdiController extends AppBaseController
         $nguonFdi = $this->nguonFdiRepository->find($id);
 
         if (empty($nguonFdi)) {
-            Flash::error('Nguon Fdi not found');
+            Flash::error('Không tìm thấy thông tin');
 
             return redirect(route('nguonFdis.index'));
         }
 
         $nguonFdi = $this->nguonFdiRepository->update($request->all(), $id);
 
-        Flash::success('Nguon Fdi updated successfully.');
+        Flash::success('Cập nhật thông tin thành công');
 
         return redirect(route('nguonFdis.index'));
     }
@@ -137,14 +137,14 @@ class NguonFdiController extends AppBaseController
         $nguonFdi = $this->nguonFdiRepository->find($id);
 
         if (empty($nguonFdi)) {
-            Flash::error('Nguon Fdi not found');
+            Flash::error('Không tìm thấy thông tin');
 
             return redirect(route('nguonFdis.index'));
         }
 
         $this->nguonFdiRepository->delete($id);
 
-        Flash::success('Nguon Fdi deleted successfully.');
+        Flash::success('Xóa thành công');
 
         return redirect(route('nguonFdis.index'));
     }

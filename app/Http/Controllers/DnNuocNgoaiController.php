@@ -55,7 +55,7 @@ class DnNuocNgoaiController extends AppBaseController
 
         $dnNuocNgoai = $this->dnNuocNgoaiRepository->create($input);
 
-        Flash::success('Dn Nuoc Ngoai saved successfully.');
+        Flash::success('Thêm mới thành công');
 
         return redirect(route('dnNuocNgoais.index'));
     }
@@ -72,7 +72,7 @@ class DnNuocNgoaiController extends AppBaseController
         $dnNuocNgoai = $this->dnNuocNgoaiRepository->find($id);
 
         if (empty($dnNuocNgoai)) {
-            Flash::error('Dn Nuoc Ngoai not found');
+            Flash::error('Không tìm thấy thông tin');
 
             return redirect(route('dnNuocNgoais.index'));
         }
@@ -92,7 +92,7 @@ class DnNuocNgoaiController extends AppBaseController
         $dnNuocNgoai = $this->dnNuocNgoaiRepository->find($id);
 
         if (empty($dnNuocNgoai)) {
-            Flash::error('Dn Nuoc Ngoai not found');
+            Flash::error('Không tìm thấy thông tin');
 
             return redirect(route('dnNuocNgoais.index'));
         }
@@ -113,14 +113,14 @@ class DnNuocNgoaiController extends AppBaseController
         $dnNuocNgoai = $this->dnNuocNgoaiRepository->find($id);
 
         if (empty($dnNuocNgoai)) {
-            Flash::error('Dn Nuoc Ngoai not found');
+            Flash::error('Không tìm thấy thông tin');
 
             return redirect(route('dnNuocNgoais.index'));
         }
 
         $dnNuocNgoai = $this->dnNuocNgoaiRepository->update($request->all(), $id);
 
-        Flash::success('Dn Nuoc Ngoai updated successfully.');
+        Flash::success('Cập nhật thông tin thành công');
 
         return redirect(route('dnNuocNgoais.index'));
     }
@@ -137,14 +137,14 @@ class DnNuocNgoaiController extends AppBaseController
         $dnNuocNgoai = $this->dnNuocNgoaiRepository->find($id);
 
         if (empty($dnNuocNgoai)) {
-            Flash::error('Dn Nuoc Ngoai not found');
+            Flash::error('Không tìm thấy thông tin');
 
             return redirect(route('dnNuocNgoais.index'));
         }
 
         $this->dnNuocNgoaiRepository->delete($id);
 
-        Flash::success('Dn Nuoc Ngoai deleted successfully.');
+        Flash::success('Xóa thành công');
 
         return redirect(route('dnNuocNgoais.index'));
     }

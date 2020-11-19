@@ -55,7 +55,7 @@ class CanBoNgoaiGiaoTinhController extends AppBaseController
 
         $canBoNgoaiGiaoTinh = $this->canBoNgoaiGiaoTinhRepository->create($input);
 
-        Flash::success('Can Bo Ngoai Giao Tinh saved successfully.');
+        Flash::success('Thêm mới thành công');
 
         return redirect(route('canBoNgoaiGiaoTinhs.index'));
     }
@@ -72,7 +72,7 @@ class CanBoNgoaiGiaoTinhController extends AppBaseController
         $canBoNgoaiGiaoTinh = $this->canBoNgoaiGiaoTinhRepository->find($id);
 
         if (empty($canBoNgoaiGiaoTinh)) {
-            Flash::error('Can Bo Ngoai Giao Tinh not found');
+            Flash::error('Không tìm thấy thông tin');
 
             return redirect(route('canBoNgoaiGiaoTinhs.index'));
         }
@@ -92,7 +92,7 @@ class CanBoNgoaiGiaoTinhController extends AppBaseController
         $canBoNgoaiGiaoTinh = $this->canBoNgoaiGiaoTinhRepository->find($id);
 
         if (empty($canBoNgoaiGiaoTinh)) {
-            Flash::error('Can Bo Ngoai Giao Tinh not found');
+            Flash::error('Không tìm thấy thông tin');
 
             return redirect(route('canBoNgoaiGiaoTinhs.index'));
         }
@@ -113,14 +113,14 @@ class CanBoNgoaiGiaoTinhController extends AppBaseController
         $canBoNgoaiGiaoTinh = $this->canBoNgoaiGiaoTinhRepository->find($id);
 
         if (empty($canBoNgoaiGiaoTinh)) {
-            Flash::error('Can Bo Ngoai Giao Tinh not found');
+            Flash::error('Không tìm thấy thông tin');
 
             return redirect(route('canBoNgoaiGiaoTinhs.index'));
         }
 
         $canBoNgoaiGiaoTinh = $this->canBoNgoaiGiaoTinhRepository->update($request->all(), $id);
 
-        Flash::success('Can Bo Ngoai Giao Tinh updated successfully.');
+        Flash::success('Cập nhật thông tin thành công');
 
         return redirect(route('canBoNgoaiGiaoTinhs.index'));
     }
@@ -137,14 +137,14 @@ class CanBoNgoaiGiaoTinhController extends AppBaseController
         $canBoNgoaiGiaoTinh = $this->canBoNgoaiGiaoTinhRepository->find($id);
 
         if (empty($canBoNgoaiGiaoTinh)) {
-            Flash::error('Can Bo Ngoai Giao Tinh not found');
+            Flash::error('Không tìm thấy thông tin');
 
             return redirect(route('canBoNgoaiGiaoTinhs.index'));
         }
 
         $this->canBoNgoaiGiaoTinhRepository->delete($id);
 
-        Flash::success('Can Bo Ngoai Giao Tinh deleted successfully.');
+        Flash::success('Xóa thành công');
 
         return redirect(route('canBoNgoaiGiaoTinhs.index'));
     }

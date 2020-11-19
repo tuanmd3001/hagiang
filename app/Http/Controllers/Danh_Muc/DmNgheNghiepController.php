@@ -55,7 +55,7 @@ class DmNgheNghiepController extends AppBaseController
 
         $dmNgheNghiep = $this->dmNgheNghiepRepository->create($input);
 
-        Flash::success('Dm Nghe Nghiep saved successfully.');
+        Flash::success('Thêm mới thành công');
 
         return redirect(route('danhMuc.ngheNghiep.index'));
     }
@@ -72,7 +72,7 @@ class DmNgheNghiepController extends AppBaseController
         $dmNgheNghiep = $this->dmNgheNghiepRepository->find($id);
 
         if (empty($dmNgheNghiep)) {
-            Flash::error('Dm Nghe Nghiep not found');
+            Flash::error('Không tìm thấy thông tin');
 
             return redirect(route('danhMuc.ngheNghiep.index'));
         }
@@ -92,7 +92,7 @@ class DmNgheNghiepController extends AppBaseController
         $dmNgheNghiep = $this->dmNgheNghiepRepository->find($id);
 
         if (empty($dmNgheNghiep)) {
-            Flash::error('Dm Nghe Nghiep not found');
+            Flash::error('Không tìm thấy thông tin');
 
             return redirect(route('danhMuc.ngheNghiep.index'));
         }
@@ -113,14 +113,14 @@ class DmNgheNghiepController extends AppBaseController
         $dmNgheNghiep = $this->dmNgheNghiepRepository->find($id);
 
         if (empty($dmNgheNghiep)) {
-            Flash::error('Dm Nghe Nghiep not found');
+            Flash::error('Không tìm thấy thông tin');
 
             return redirect(route('danhMuc.ngheNghiep.index'));
         }
 
         $dmNgheNghiep = $this->dmNgheNghiepRepository->update($request->all(), $id);
 
-        Flash::success('Dm Nghe Nghiep updated successfully.');
+        Flash::success('Cập nhật thông tin thành công');
 
         return redirect(route('danhMuc.ngheNghiep.index'));
     }
@@ -137,14 +137,14 @@ class DmNgheNghiepController extends AppBaseController
         $dmNgheNghiep = $this->dmNgheNghiepRepository->find($id);
 
         if (empty($dmNgheNghiep)) {
-            Flash::error('Dm Nghe Nghiep not found');
+            Flash::error('Không tìm thấy thông tin');
 
             return redirect(route('danhMuc.ngheNghiep.index'));
         }
 
         $this->dmNgheNghiepRepository->delete($id);
 
-        Flash::success('Dm Nghe Nghiep deleted successfully.');
+        Flash::success('Xóa thành công');
 
         return redirect(route('danhMuc.ngheNghiep.index'));
     }

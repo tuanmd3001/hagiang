@@ -55,7 +55,7 @@ class LanhSuTinhController extends AppBaseController
 
         $lanhSuTinh = $this->lanhSuTinhRepository->create($input);
 
-        Flash::success('Lanh Su Tinh saved successfully.');
+        Flash::success('Thêm mới thành công');
 
         return redirect(route('lanhSuTinhs.index'));
     }
@@ -72,7 +72,7 @@ class LanhSuTinhController extends AppBaseController
         $lanhSuTinh = $this->lanhSuTinhRepository->find($id);
 
         if (empty($lanhSuTinh)) {
-            Flash::error('Lanh Su Tinh not found');
+            Flash::error('Không tìm thấy thông tin');
 
             return redirect(route('lanhSuTinhs.index'));
         }
@@ -92,7 +92,7 @@ class LanhSuTinhController extends AppBaseController
         $lanhSuTinh = $this->lanhSuTinhRepository->find($id);
 
         if (empty($lanhSuTinh)) {
-            Flash::error('Lanh Su Tinh not found');
+            Flash::error('Không tìm thấy thông tin');
 
             return redirect(route('lanhSuTinhs.index'));
         }
@@ -113,14 +113,14 @@ class LanhSuTinhController extends AppBaseController
         $lanhSuTinh = $this->lanhSuTinhRepository->find($id);
 
         if (empty($lanhSuTinh)) {
-            Flash::error('Lanh Su Tinh not found');
+            Flash::error('Không tìm thấy thông tin');
 
             return redirect(route('lanhSuTinhs.index'));
         }
 
         $lanhSuTinh = $this->lanhSuTinhRepository->update($request->all(), $id);
 
-        Flash::success('Lanh Su Tinh updated successfully.');
+        Flash::success('Cập nhật thông tin thành công');
 
         return redirect(route('lanhSuTinhs.index'));
     }
@@ -137,14 +137,14 @@ class LanhSuTinhController extends AppBaseController
         $lanhSuTinh = $this->lanhSuTinhRepository->find($id);
 
         if (empty($lanhSuTinh)) {
-            Flash::error('Lanh Su Tinh not found');
+            Flash::error('Không tìm thấy thông tin');
 
             return redirect(route('lanhSuTinhs.index'));
         }
 
         $this->lanhSuTinhRepository->delete($id);
 
-        Flash::success('Lanh Su Tinh deleted successfully.');
+        Flash::success('Xóa thành công');
 
         return redirect(route('lanhSuTinhs.index'));
     }

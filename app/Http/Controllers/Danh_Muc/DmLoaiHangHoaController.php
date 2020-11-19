@@ -55,7 +55,7 @@ class DmLoaiHangHoaController extends AppBaseController
 
         $dmLoaiHangHoa = $this->dmLoaiHangHoaRepository->create($input);
 
-        Flash::success('Dm Loai Hang Hoa saved successfully.');
+        Flash::success('Thêm mới thành công');
 
         return redirect(route('danhMuc.loaiHangHoa.index'));
     }
@@ -72,7 +72,7 @@ class DmLoaiHangHoaController extends AppBaseController
         $dmLoaiHangHoa = $this->dmLoaiHangHoaRepository->find($id);
 
         if (empty($dmLoaiHangHoa)) {
-            Flash::error('Dm Loai Hang Hoa not found');
+            Flash::error('Không tìm thấy thông tin');
 
             return redirect(route('danhMuc.loaiHangHoa.index'));
         }
@@ -92,7 +92,7 @@ class DmLoaiHangHoaController extends AppBaseController
         $dmLoaiHangHoa = $this->dmLoaiHangHoaRepository->find($id);
 
         if (empty($dmLoaiHangHoa)) {
-            Flash::error('Dm Loai Hang Hoa not found');
+            Flash::error('Không tìm thấy thông tin');
 
             return redirect(route('danhMuc.loaiHangHoa.index'));
         }
@@ -113,14 +113,14 @@ class DmLoaiHangHoaController extends AppBaseController
         $dmLoaiHangHoa = $this->dmLoaiHangHoaRepository->find($id);
 
         if (empty($dmLoaiHangHoa)) {
-            Flash::error('Dm Loai Hang Hoa not found');
+            Flash::error('Không tìm thấy thông tin');
 
             return redirect(route('danhMuc.loaiHangHoa.index'));
         }
 
         $dmLoaiHangHoa = $this->dmLoaiHangHoaRepository->update($request->all(), $id);
 
-        Flash::success('Dm Loai Hang Hoa updated successfully.');
+        Flash::success('Cập nhật thông tin thành công');
 
         return redirect(route('danhMuc.loaiHangHoa.index'));
     }
@@ -137,14 +137,14 @@ class DmLoaiHangHoaController extends AppBaseController
         $dmLoaiHangHoa = $this->dmLoaiHangHoaRepository->find($id);
 
         if (empty($dmLoaiHangHoa)) {
-            Flash::error('Dm Loai Hang Hoa not found');
+            Flash::error('Không tìm thấy thông tin');
 
             return redirect(route('danhMuc.loaiHangHoa.index'));
         }
 
         $this->dmLoaiHangHoaRepository->delete($id);
 
-        Flash::success('Dm Loai Hang Hoa deleted successfully.');
+        Flash::success('Xóa thành công');
 
         return redirect(route('danhMuc.loaiHangHoa.index'));
     }

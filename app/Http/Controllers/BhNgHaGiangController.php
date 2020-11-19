@@ -58,7 +58,7 @@ class BhNgHaGiangController extends AppBaseController
         $input['thoi_han'] =  $thoi_han->format('Y-m-d');
         $bhNgHaGiang = $this->bhNgHaGiangRepository->create($input);
 
-        Flash::success('Bh Ng Ha Giang saved successfully.');
+        Flash::success('Thêm mới thành công.');
 
         return redirect(route('bhNgHaGiangs.index'));
     }
@@ -75,7 +75,7 @@ class BhNgHaGiangController extends AppBaseController
         $bhNgHaGiang = $this->bhNgHaGiangRepository->find($id);
 
         if (empty($bhNgHaGiang)) {
-            Flash::error('Bh Ng Ha Giang not found');
+            Flash::error('Không tìm thấy thông tin');
 
             return redirect(route('bhNgHaGiangs.index'));
         }
@@ -95,7 +95,7 @@ class BhNgHaGiangController extends AppBaseController
         $bhNgHaGiang = $this->bhNgHaGiangRepository->find($id);
 
         if (empty($bhNgHaGiang)) {
-            Flash::error('Bh Ng Ha Giang not found');
+            Flash::error('Không tìm thấy thông tin');
 
             return redirect(route('bhNgHaGiangs.index'));
         }
@@ -118,7 +118,7 @@ class BhNgHaGiangController extends AppBaseController
         $bhNgHaGiang = $this->bhNgHaGiangRepository->find($id);
 
         if (empty($bhNgHaGiang)) {
-            Flash::error('Bh Ng Ha Giang not found');
+            Flash::error('Không tìm thấy thông tin');
 
             return redirect(route('bhNgHaGiangs.index'));
         }
@@ -128,7 +128,7 @@ class BhNgHaGiangController extends AppBaseController
 
         $bhNgHaGiang = $this->bhNgHaGiangRepository->update($input, $id);
 
-        Flash::success('Bh Ng Ha Giang updated successfully.');
+        Flash::success('Cập nhật thông tin thành công.');
 
         return redirect(route('bhNgHaGiangs.index'));
     }
@@ -145,14 +145,14 @@ class BhNgHaGiangController extends AppBaseController
         $bhNgHaGiang = $this->bhNgHaGiangRepository->find($id);
 
         if (empty($bhNgHaGiang)) {
-            Flash::error('Bh Ng Ha Giang not found');
+            Flash::error('Không tìm thấy thông tin');
 
             return redirect(route('bhNgHaGiangs.index'));
         }
 
         $this->bhNgHaGiangRepository->delete($id);
 
-        Flash::success('Bh Ng Ha Giang deleted successfully.');
+        Flash::success('Xóa thành công.');
 
         return redirect(route('bhNgHaGiangs.index'));
     }

@@ -55,7 +55,7 @@ class XuatNhapKhauController extends AppBaseController
 
         $xuatNhapKhau = $this->xuatNhapKhauRepository->create($input);
 
-        Flash::success('Xuat Nhap Khau saved successfully.');
+        Flash::success('Thêm mới thành công');
 
         return redirect(route('xuatNhapKhaus.index'));
     }
@@ -72,7 +72,7 @@ class XuatNhapKhauController extends AppBaseController
         $xuatNhapKhau = $this->xuatNhapKhauRepository->find($id);
 
         if (empty($xuatNhapKhau)) {
-            Flash::error('Xuat Nhap Khau not found');
+            Flash::error('Không tìm thấy thông tin');
 
             return redirect(route('xuatNhapKhaus.index'));
         }
@@ -92,7 +92,7 @@ class XuatNhapKhauController extends AppBaseController
         $xuatNhapKhau = $this->xuatNhapKhauRepository->find($id);
 
         if (empty($xuatNhapKhau)) {
-            Flash::error('Xuat Nhap Khau not found');
+            Flash::error('Không tìm thấy thông tin');
 
             return redirect(route('xuatNhapKhaus.index'));
         }
@@ -113,14 +113,14 @@ class XuatNhapKhauController extends AppBaseController
         $xuatNhapKhau = $this->xuatNhapKhauRepository->find($id);
 
         if (empty($xuatNhapKhau)) {
-            Flash::error('Xuat Nhap Khau not found');
+            Flash::error('Không tìm thấy thông tin');
 
             return redirect(route('xuatNhapKhaus.index'));
         }
 
         $xuatNhapKhau = $this->xuatNhapKhauRepository->update($request->all(), $id);
 
-        Flash::success('Xuat Nhap Khau updated successfully.');
+        Flash::success('Cập nhật thông tin thành công');
 
         return redirect(route('xuatNhapKhaus.index'));
     }
@@ -137,14 +137,14 @@ class XuatNhapKhauController extends AppBaseController
         $xuatNhapKhau = $this->xuatNhapKhauRepository->find($id);
 
         if (empty($xuatNhapKhau)) {
-            Flash::error('Xuat Nhap Khau not found');
+            Flash::error('Không tìm thấy thông tin');
 
             return redirect(route('xuatNhapKhaus.index'));
         }
 
         $this->xuatNhapKhauRepository->delete($id);
 
-        Flash::success('Xuat Nhap Khau deleted successfully.');
+        Flash::success('Xóa thành công');
 
         return redirect(route('xuatNhapKhaus.index'));
     }

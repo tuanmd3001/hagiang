@@ -55,7 +55,7 @@ class DmLoaiHinhToChucController extends AppBaseController
 
         $dmLoaiHinhToChuc = $this->dmLoaiHinhToChucRepository->create($input);
 
-        Flash::success('Dm Loai Hinh To Chuc saved successfully.');
+        Flash::success('Thêm mới thành công');
 
         return redirect(route('danhMuc.loaiHinhToChuc.index'));
     }
@@ -72,7 +72,7 @@ class DmLoaiHinhToChucController extends AppBaseController
         $dmLoaiHinhToChuc = $this->dmLoaiHinhToChucRepository->find($id);
 
         if (empty($dmLoaiHinhToChuc)) {
-            Flash::error('Dm Loai Hinh To Chuc not found');
+            Flash::error('Không tìm thấy thông tin');
 
             return redirect(route('danhMuc.loaiHinhToChuc.index'));
         }
@@ -92,7 +92,7 @@ class DmLoaiHinhToChucController extends AppBaseController
         $dmLoaiHinhToChuc = $this->dmLoaiHinhToChucRepository->find($id);
 
         if (empty($dmLoaiHinhToChuc)) {
-            Flash::error('Dm Loai Hinh To Chuc not found');
+            Flash::error('Không tìm thấy thông tin');
 
             return redirect(route('danhMuc.loaiHinhToChuc.index'));
         }
@@ -113,14 +113,14 @@ class DmLoaiHinhToChucController extends AppBaseController
         $dmLoaiHinhToChuc = $this->dmLoaiHinhToChucRepository->find($id);
 
         if (empty($dmLoaiHinhToChuc)) {
-            Flash::error('Dm Loai Hinh To Chuc not found');
+            Flash::error('Không tìm thấy thông tin');
 
             return redirect(route('danhMuc.loaiHinhToChuc.index'));
         }
 
         $dmLoaiHinhToChuc = $this->dmLoaiHinhToChucRepository->update($request->all(), $id);
 
-        Flash::success('Dm Loai Hinh To Chuc updated successfully.');
+        Flash::success('Cập nhật thông tin thành công');
 
         return redirect(route('danhMuc.loaiHinhToChuc.index'));
     }
@@ -137,14 +137,14 @@ class DmLoaiHinhToChucController extends AppBaseController
         $dmLoaiHinhToChuc = $this->dmLoaiHinhToChucRepository->find($id);
 
         if (empty($dmLoaiHinhToChuc)) {
-            Flash::error('Dm Loai Hinh To Chuc not found');
+            Flash::error('Không tìm thấy thông tin');
 
             return redirect(route('danhMuc.loaiHinhToChuc.index'));
         }
 
         $this->dmLoaiHinhToChucRepository->delete($id);
 
-        Flash::success('Dm Loai Hinh To Chuc deleted successfully.');
+        Flash::success('Xóa thành công');
 
         return redirect(route('danhMuc.loaiHinhToChuc.index'));
     }

@@ -20,7 +20,7 @@ class DatabaseSeeder extends Seeder
             $admin = User::create([
                 'name' => 'admin',
                 'email' => 'admin@admin.com',
-                'password' => Hash::make('12345678'),
+                'password' => Hash::make(\App\Models\Constants::DEFAULT_PASSWORD),
             ]);
         }
         $super_admin = Role::where('name', 'SuperAdmin')->first();

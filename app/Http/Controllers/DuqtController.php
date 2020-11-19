@@ -72,7 +72,7 @@ class DuqtController extends AppBaseController
 
         $duqt = $this->duqtRepository->create($input);
 
-        Flash::success('Duqt saved successfully.');
+        Flash::success('Thêm mới thành công');
 
         return redirect(route('duqts.index'));
     }
@@ -89,7 +89,7 @@ class DuqtController extends AppBaseController
         $duqt = $this->duqtRepository->find($id);
 
         if (empty($duqt)) {
-            Flash::error('Duqt not found');
+            Flash::error('Không tìm thấy thông tin');
 
             return redirect(route('duqts.index'));
         }
@@ -109,7 +109,7 @@ class DuqtController extends AppBaseController
         $duqt = $this->duqtRepository->find($id);
 
         if (empty($duqt)) {
-            Flash::error('Duqt not found');
+            Flash::error('Không tìm thấy thông tin');
 
             return redirect(route('duqts.index'));
         }
@@ -134,7 +134,7 @@ class DuqtController extends AppBaseController
         $duqt = $this->duqtRepository->find($id);
 
         if (empty($duqt)) {
-            Flash::error('Duqt not found');
+            Flash::error('Không tìm thấy thông tin');
 
             return redirect(route('duqts.index'));
         }
@@ -154,7 +154,7 @@ class DuqtController extends AppBaseController
 
         $duqt = $this->duqtRepository->update($input, $id);
 
-        Flash::success('Duqt updated successfully.');
+        Flash::success('Cập nhật thông tin thành công');
 
         return redirect(route('duqts.index'));
     }
@@ -171,14 +171,14 @@ class DuqtController extends AppBaseController
         $duqt = $this->duqtRepository->find($id);
 
         if (empty($duqt)) {
-            Flash::error('Duqt not found');
+            Flash::error('Không tìm thấy thông tin');
 
             return redirect(route('duqts.index'));
         }
 
         $this->duqtRepository->delete($id);
 
-        Flash::success('Duqt deleted successfully.');
+        Flash::success('Xóa thành công');
 
         return redirect(route('duqts.index'));
     }

@@ -400,7 +400,6 @@
 
             $('#selected_members tbody').on( 'click', '.glyphicon.glyphicon-trash', function () {
                 if (confirm("Chắc chắn xóa?")){
-                    alert($(this).data("id"));
                     var idx = oldMembers.indexOf(($(this).data("id")).toString())
                     if (idx >= 0){
                         oldMembers.splice(idx, 1);
@@ -419,17 +418,26 @@
                     errors[required_field[i]] = "Thông tin này là bắt buộc";
                 }
             }
+            if (!errors['email'] && new_mem['email'] && new_mem['email'] !== "" && !ValidateEmail(new_mem['email'])){
+                has_error = true;
+                errors['email'] = "Email không hợp lệ";
+            }
             if (has_error){
                 return errors
             }
             return true;
         }
+        function ValidateEmail(text)
+        {
+            var mailformat = /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/;
+            return !!text.match(mailformat);
+        }
         function showNewMemErrors(errors){
-            for (let i in required_field){
-                const parent = $('#' + "new_" + required_field[i]).parents('.form-group');
+            for (let i in errors){
+                const parent = $('#' + "new_" + i).parents('.form-group');
                 parent.find('.help-block').remove();
-                if (errors[required_field[i]] !== undefined){
-                    parent.addClass('has-error').append('<div class="help-block">'+errors[required_field[i]]+'</div>');
+                if (errors[i] !== undefined){
+                    parent.addClass('has-error').append('<div class="help-block">'+errors[i]+'</div>');
                 }
             }
         }

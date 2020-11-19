@@ -58,7 +58,7 @@ class KyKetHuuNghiController extends AppBaseController
 
         $kyKetHuuNghi = $this->kyKetHuuNghiRepository->create($input);
 
-        Flash::success('Ky Ket Huu Nghi saved successfully.');
+        Flash::success('Thêm mới thành công');
 
         return redirect(route('kyKetHuuNghis.index'));
     }
@@ -75,7 +75,7 @@ class KyKetHuuNghiController extends AppBaseController
         $kyKetHuuNghi = $this->kyKetHuuNghiRepository->find($id);
 
         if (empty($kyKetHuuNghi)) {
-            Flash::error('Ky Ket Huu Nghi not found');
+            Flash::error('Không tìm thấy thông tin');
 
             return redirect(route('kyKetHuuNghis.index'));
         }
@@ -95,7 +95,7 @@ class KyKetHuuNghiController extends AppBaseController
         $kyKetHuuNghi = $this->kyKetHuuNghiRepository->find($id);
 
         if (empty($kyKetHuuNghi)) {
-            Flash::error('Ky Ket Huu Nghi not found');
+            Flash::error('Không tìm thấy thông tin');
 
             return redirect(route('kyKetHuuNghis.index'));
         }
@@ -117,7 +117,7 @@ class KyKetHuuNghiController extends AppBaseController
         $kyKetHuuNghi = $this->kyKetHuuNghiRepository->find($id);
 
         if (empty($kyKetHuuNghi)) {
-            Flash::error('Ky Ket Huu Nghi not found');
+            Flash::error('Không tìm thấy thông tin');
 
             return redirect(route('kyKetHuuNghis.index'));
         }
@@ -128,7 +128,7 @@ class KyKetHuuNghiController extends AppBaseController
 
         $kyKetHuuNghi = $this->kyKetHuuNghiRepository->update($input, $id);
 
-        Flash::success('Ky Ket Huu Nghi updated successfully.');
+        Flash::success('Cập nhật thông tin thành công');
 
         return redirect(route('kyKetHuuNghis.index'));
     }
@@ -145,14 +145,14 @@ class KyKetHuuNghiController extends AppBaseController
         $kyKetHuuNghi = $this->kyKetHuuNghiRepository->find($id);
 
         if (empty($kyKetHuuNghi)) {
-            Flash::error('Ky Ket Huu Nghi not found');
+            Flash::error('Không tìm thấy thông tin');
 
             return redirect(route('kyKetHuuNghis.index'));
         }
 
         $this->kyKetHuuNghiRepository->delete($id);
 
-        Flash::success('Ky Ket Huu Nghi deleted successfully.');
+        Flash::success('Xóa thành công');
 
         return redirect(route('kyKetHuuNghis.index'));
     }

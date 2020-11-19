@@ -57,7 +57,7 @@ class NgHgVeNuocController extends AppBaseController
 
         $ngHgVeNuoc = $this->ngHgVeNuocRepository->create($input);
 
-        Flash::success('Ng Hg Ve Nuoc saved successfully.');
+        Flash::success('Thêm mới thành công');
 
         return redirect(route('ngHgVeNuocs.index'));
     }
@@ -74,7 +74,7 @@ class NgHgVeNuocController extends AppBaseController
         $ngHgVeNuoc = $this->ngHgVeNuocRepository->find($id);
 
         if (empty($ngHgVeNuoc)) {
-            Flash::error('Ng Hg Ve Nuoc not found');
+            Flash::error('Không tìm thấy thông tin');
 
             return redirect(route('ngHgVeNuocs.index'));
         }
@@ -94,7 +94,7 @@ class NgHgVeNuocController extends AppBaseController
         $ngHgVeNuoc = $this->ngHgVeNuocRepository->find($id);
 
         if (empty($ngHgVeNuoc)) {
-            Flash::error('Ng Hg Ve Nuoc not found');
+            Flash::error('Không tìm thấy thông tin');
 
             return redirect(route('ngHgVeNuocs.index'));
         }
@@ -116,7 +116,7 @@ class NgHgVeNuocController extends AppBaseController
         $ngHgVeNuoc = $this->ngHgVeNuocRepository->find($id);
 
         if (empty($ngHgVeNuoc)) {
-            Flash::error('Ng Hg Ve Nuoc not found');
+            Flash::error('Không tìm thấy thông tin');
 
             return redirect(route('ngHgVeNuocs.index'));
         }
@@ -126,7 +126,7 @@ class NgHgVeNuocController extends AppBaseController
 
         $ngHgVeNuoc = $this->ngHgVeNuocRepository->update($input, $id);
 
-        Flash::success('Ng Hg Ve Nuoc updated successfully.');
+        Flash::success('Cập nhật thông tin thành công');
 
         return redirect(route('ngHgVeNuocs.index'));
     }
@@ -143,14 +143,14 @@ class NgHgVeNuocController extends AppBaseController
         $ngHgVeNuoc = $this->ngHgVeNuocRepository->find($id);
 
         if (empty($ngHgVeNuoc)) {
-            Flash::error('Ng Hg Ve Nuoc not found');
+            Flash::error('Không tìm thấy thông tin');
 
             return redirect(route('ngHgVeNuocs.index'));
         }
 
         $this->ngHgVeNuocRepository->delete($id);
 
-        Flash::success('Ng Hg Ve Nuoc deleted successfully.');
+        Flash::success('Xóa thành công');
 
         return redirect(route('ngHgVeNuocs.index'));
     }

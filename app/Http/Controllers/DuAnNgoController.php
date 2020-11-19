@@ -55,7 +55,7 @@ class DuAnNgoController extends AppBaseController
 
         $duAnNgo = $this->duAnNgoRepository->create($input);
 
-        Flash::success('Du An Ngo saved successfully.');
+        Flash::success('Thêm mới thành công');
 
         return redirect(route('duAnNgos.index'));
     }
@@ -72,7 +72,7 @@ class DuAnNgoController extends AppBaseController
         $duAnNgo = $this->duAnNgoRepository->find($id);
 
         if (empty($duAnNgo)) {
-            Flash::error('Du An Ngo not found');
+            Flash::error('Không tìm thấy thông tin');
 
             return redirect(route('duAnNgos.index'));
         }
@@ -92,7 +92,7 @@ class DuAnNgoController extends AppBaseController
         $duAnNgo = $this->duAnNgoRepository->find($id);
 
         if (empty($duAnNgo)) {
-            Flash::error('Du An Ngo not found');
+            Flash::error('Không tìm thấy thông tin');
 
             return redirect(route('duAnNgos.index'));
         }
@@ -113,14 +113,14 @@ class DuAnNgoController extends AppBaseController
         $duAnNgo = $this->duAnNgoRepository->find($id);
 
         if (empty($duAnNgo)) {
-            Flash::error('Du An Ngo not found');
+            Flash::error('Không tìm thấy thông tin');
 
             return redirect(route('duAnNgos.index'));
         }
 
         $duAnNgo = $this->duAnNgoRepository->update($request->all(), $id);
 
-        Flash::success('Du An Ngo updated successfully.');
+        Flash::success('Cập nhật thông tin thành công');
 
         return redirect(route('duAnNgos.index'));
     }
@@ -137,14 +137,14 @@ class DuAnNgoController extends AppBaseController
         $duAnNgo = $this->duAnNgoRepository->find($id);
 
         if (empty($duAnNgo)) {
-            Flash::error('Du An Ngo not found');
+            Flash::error('Không tìm thấy thông tin');
 
             return redirect(route('duAnNgos.index'));
         }
 
         $this->duAnNgoRepository->delete($id);
 
-        Flash::success('Du An Ngo deleted successfully.');
+        Flash::success('Xóa thành công');
 
         return redirect(route('duAnNgos.index'));
     }

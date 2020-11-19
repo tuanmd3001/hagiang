@@ -55,7 +55,7 @@ class SuVuBienGioiController extends AppBaseController
 
         $suVuBienGioi = $this->suVuBienGioiRepository->create($input);
 
-        Flash::success('Su Vu Bien Gioi saved successfully.');
+        Flash::success('Thêm mới thành công');
 
         return redirect(route('suVuBienGiois.index'));
     }
@@ -72,7 +72,7 @@ class SuVuBienGioiController extends AppBaseController
         $suVuBienGioi = $this->suVuBienGioiRepository->find($id);
 
         if (empty($suVuBienGioi)) {
-            Flash::error('Su Vu Bien Gioi not found');
+            Flash::error('Không tìm thấy thông tin');
 
             return redirect(route('suVuBienGiois.index'));
         }
@@ -92,7 +92,7 @@ class SuVuBienGioiController extends AppBaseController
         $suVuBienGioi = $this->suVuBienGioiRepository->find($id);
 
         if (empty($suVuBienGioi)) {
-            Flash::error('Su Vu Bien Gioi not found');
+            Flash::error('Không tìm thấy thông tin');
 
             return redirect(route('suVuBienGiois.index'));
         }
@@ -113,14 +113,14 @@ class SuVuBienGioiController extends AppBaseController
         $suVuBienGioi = $this->suVuBienGioiRepository->find($id);
 
         if (empty($suVuBienGioi)) {
-            Flash::error('Su Vu Bien Gioi not found');
+            Flash::error('Không tìm thấy thông tin');
 
             return redirect(route('suVuBienGiois.index'));
         }
 
         $suVuBienGioi = $this->suVuBienGioiRepository->update($request->all(), $id);
 
-        Flash::success('Su Vu Bien Gioi updated successfully.');
+        Flash::success('Cập nhật thông tin thành công');
 
         return redirect(route('suVuBienGiois.index'));
     }
@@ -137,14 +137,14 @@ class SuVuBienGioiController extends AppBaseController
         $suVuBienGioi = $this->suVuBienGioiRepository->find($id);
 
         if (empty($suVuBienGioi)) {
-            Flash::error('Su Vu Bien Gioi not found');
+            Flash::error('Không tìm thấy thông tin');
 
             return redirect(route('suVuBienGiois.index'));
         }
 
         $this->suVuBienGioiRepository->delete($id);
 
-        Flash::success('Su Vu Bien Gioi deleted successfully.');
+        Flash::success('Xóa thành công');
 
         return redirect(route('suVuBienGiois.index'));
     }

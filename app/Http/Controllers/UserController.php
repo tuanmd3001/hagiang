@@ -3,11 +3,15 @@
 namespace App\Http\Controllers;
 
 use App\DataTables\UserDataTable;
-use App\Http\Requests;
 use App\Http\Requests\CreateUserRequest;
 use App\Http\Requests\UpdateUserRequest;
+use App\Models\Constants;
+use App\Models\User;
+use App\Rules\MatchOldPassword;
+use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Validator;
 use Spatie\Permission\Models\Permission;
 use Spatie\Permission\Models\Role;
 use App\Repositories\UserRepository;
@@ -23,7 +27,6 @@ class UserController extends AppBaseController
     public function __construct(UserRepository $userRepo)
     {
         $this->userRepository = $userRepo;
-        $this->defaultPassword = '12345678';
     }
 
     /**
@@ -59,11 +62,11 @@ class UserController extends AppBaseController
     public function store(CreateUserRequest $request)
     {
         $input = $request->all();
-        $input['password'] = Hash::make($this->defaultPassword);
+        $input['password'] = Hash::make(Constants::DEFAULT_PASSWORD);
 
         $user = $this->userRepository->create($input);
 
-        Flash::success('User saved successfully.');
+        Flash::success('Thêm mới thành công');
 
         return redirect(route('users.index'));
     }
@@ -82,7 +85,7 @@ class UserController extends AppBaseController
             return redirect(route('users.index'));
         }
         if (empty($user)) {
-            Flash::error('User not found');
+            Flash::error('Không tìm thấy thông tin');
 
             return redirect(route('users.index'));
         }
@@ -106,7 +109,7 @@ class UserController extends AppBaseController
             return redirect(route('users.index'));
         }
         if (empty($user)) {
-            Flash::error('User not found');
+            Flash::error('Không tìm thấy thông tin');
 
             return redirect(route('users.index'));
         }
@@ -132,7 +135,7 @@ class UserController extends AppBaseController
             return redirect(route('users.index'));
         }
         if (empty($user)) {
-            Flash::error('User not found');
+            Flash::error('Không tìm thấy thông tin');
 
             return redirect(route('users.index'));
         }
@@ -158,7 +161,7 @@ class UserController extends AppBaseController
             $user->syncPermissions([]);
         }
 
-        Flash::success('User updated successfully.');
+        Flash::success('Cập nhật thông tin thành công');
 
         return redirect(route('users.index'));
     }
@@ -177,14 +180,14 @@ class UserController extends AppBaseController
             return redirect(route('users.index'));
         }
         if (empty($user)) {
-            Flash::error('User not found');
+            Flash::error('Không tìm thấy thông tin');
 
             return redirect(route('users.index'));
         }
 
         $this->userRepository->delete($id);
 
-        Flash::success('User deleted successfully.');
+        Flash::success('Xóa thành công');
 
         return redirect(route('users.index'));
     }
@@ -194,13 +197,35 @@ class UserController extends AppBaseController
         $user = $this->userRepository->find($id);
 
         if (empty($user)) {
-            Flash::error('User not found');
+            Flash::error('Không tìm thấy thông tin');
 
             return redirect(route('users.index'));
         }
-        $user->password = Hash::make($this->defaultPassword);
+        $user->password = Hash::make(Constants::DEFAULT_PASSWORD);
         $this->userRepository->update($user->toArray(), $id);
         Flash::success('Mật khẩu đã được đặt về mặc định.');
         return redirect(route('users.show', $id));
+    }
+
+    public function change_password(Request $request){
+        if($request->isMethod('get')){
+            return view('users.change_password');
+        }
+        elseif($request->isMethod('post')) {
+            $request->validate( [
+                'old_password' => ['required', new MatchOldPassword],
+                'new_password' => ['required'],
+                're_new_password' => ['same:new_password']
+            ]);
+
+            User::find(auth()->user()->id)->update(['password'=> Hash::make($request->new_password)]);
+
+            Flash::success('Đổi mật khẩu thành công.');
+            return redirect(route('home'));
+        }
+        else {
+            return redirect(route('home'));
+        }
+
     }
 }

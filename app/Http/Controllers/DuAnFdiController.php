@@ -55,7 +55,7 @@ class DuAnFdiController extends AppBaseController
 
         $duAnFdi = $this->duAnFdiRepository->create($input);
 
-        Flash::success('Du An Fdi saved successfully.');
+        Flash::success('Thêm mới thành công');
 
         return redirect(route('duAnFdis.index'));
     }
@@ -72,7 +72,7 @@ class DuAnFdiController extends AppBaseController
         $duAnFdi = $this->duAnFdiRepository->find($id);
 
         if (empty($duAnFdi)) {
-            Flash::error('Du An Fdi not found');
+            Flash::error('Không tìm thấy thông tin');
 
             return redirect(route('duAnFdis.index'));
         }
@@ -92,7 +92,7 @@ class DuAnFdiController extends AppBaseController
         $duAnFdi = $this->duAnFdiRepository->find($id);
 
         if (empty($duAnFdi)) {
-            Flash::error('Du An Fdi not found');
+            Flash::error('Không tìm thấy thông tin');
 
             return redirect(route('duAnFdis.index'));
         }
@@ -113,14 +113,14 @@ class DuAnFdiController extends AppBaseController
         $duAnFdi = $this->duAnFdiRepository->find($id);
 
         if (empty($duAnFdi)) {
-            Flash::error('Du An Fdi not found');
+            Flash::error('Không tìm thấy thông tin');
 
             return redirect(route('duAnFdis.index'));
         }
 
         $duAnFdi = $this->duAnFdiRepository->update($request->all(), $id);
 
-        Flash::success('Du An Fdi updated successfully.');
+        Flash::success('Cập nhật thông tin thành công');
 
         return redirect(route('duAnFdis.index'));
     }
@@ -137,14 +137,14 @@ class DuAnFdiController extends AppBaseController
         $duAnFdi = $this->duAnFdiRepository->find($id);
 
         if (empty($duAnFdi)) {
-            Flash::error('Du An Fdi not found');
+            Flash::error('Không tìm thấy thông tin');
 
             return redirect(route('duAnFdis.index'));
         }
 
         $this->duAnFdiRepository->delete($id);
 
-        Flash::success('Du An Fdi deleted successfully.');
+        Flash::success('Xóa thành công');
 
         return redirect(route('duAnFdis.index'));
     }

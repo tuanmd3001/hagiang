@@ -55,7 +55,7 @@ class DmCapDonViController extends AppBaseController
 
         $dmCapDonVi = $this->dmCapDonViRepository->create($input);
 
-        Flash::success('Dm Cap Don Vi saved successfully.');
+        Flash::success('Thêm mới thành công');
 
         return redirect(route('danhMuc.capDonVi.index'));
     }
@@ -72,7 +72,7 @@ class DmCapDonViController extends AppBaseController
         $dmCapDonVi = $this->dmCapDonViRepository->find($id);
 
         if (empty($dmCapDonVi)) {
-            Flash::error('Dm Cap Don Vi not found');
+            Flash::error('Không tìm thấy thông tin');
 
             return redirect(route('danhMuc.capDonVi.index'));
         }
@@ -92,7 +92,7 @@ class DmCapDonViController extends AppBaseController
         $dmCapDonVi = $this->dmCapDonViRepository->find($id);
 
         if (empty($dmCapDonVi)) {
-            Flash::error('Dm Cap Don Vi not found');
+            Flash::error('Không tìm thấy thông tin');
 
             return redirect(route('danhMuc.capDonVi.index'));
         }
@@ -113,14 +113,14 @@ class DmCapDonViController extends AppBaseController
         $dmCapDonVi = $this->dmCapDonViRepository->find($id);
 
         if (empty($dmCapDonVi)) {
-            Flash::error('Dm Cap Don Vi not found');
+            Flash::error('Không tìm thấy thông tin');
 
             return redirect(route('danhMuc.capDonVi.index'));
         }
 
         $dmCapDonVi = $this->dmCapDonViRepository->update($request->all(), $id);
 
-        Flash::success('Dm Cap Don Vi updated successfully.');
+        Flash::success('Cập nhật thông tin thành công');
 
         return redirect(route('danhMuc.capDonVi.index'));
     }
@@ -137,14 +137,14 @@ class DmCapDonViController extends AppBaseController
         $dmCapDonVi = $this->dmCapDonViRepository->find($id);
 
         if (empty($dmCapDonVi)) {
-            Flash::error('Dm Cap Don Vi not found');
+            Flash::error('Không tìm thấy thông tin');
 
             return redirect(route('danhMuc.capDonVi.index'));
         }
 
         $this->dmCapDonViRepository->delete($id);
 
-        Flash::success('Dm Cap Don Vi deleted successfully.');
+        Flash::success('Xóa thành công');
 
         return redirect(route('danhMuc.capDonVi.index'));
     }

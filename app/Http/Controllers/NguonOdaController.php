@@ -55,7 +55,7 @@ class NguonOdaController extends AppBaseController
 
         $nguonOda = $this->nguonOdaRepository->create($input);
 
-        Flash::success('Nguon Oda saved successfully.');
+        Flash::success('Thêm mới thành công');
 
         return redirect(route('nguonOdas.index'));
     }
@@ -72,7 +72,7 @@ class NguonOdaController extends AppBaseController
         $nguonOda = $this->nguonOdaRepository->find($id);
 
         if (empty($nguonOda)) {
-            Flash::error('Nguon Oda not found');
+            Flash::error('Không tìm thấy thông tin');
 
             return redirect(route('nguonOdas.index'));
         }
@@ -92,7 +92,7 @@ class NguonOdaController extends AppBaseController
         $nguonOda = $this->nguonOdaRepository->find($id);
 
         if (empty($nguonOda)) {
-            Flash::error('Nguon Oda not found');
+            Flash::error('Không tìm thấy thông tin');
 
             return redirect(route('nguonOdas.index'));
         }
@@ -113,14 +113,14 @@ class NguonOdaController extends AppBaseController
         $nguonOda = $this->nguonOdaRepository->find($id);
 
         if (empty($nguonOda)) {
-            Flash::error('Nguon Oda not found');
+            Flash::error('Không tìm thấy thông tin');
 
             return redirect(route('nguonOdas.index'));
         }
 
         $nguonOda = $this->nguonOdaRepository->update($request->all(), $id);
 
-        Flash::success('Nguon Oda updated successfully.');
+        Flash::success('Cập nhật thông tin thành công');
 
         return redirect(route('nguonOdas.index'));
     }
@@ -137,14 +137,14 @@ class NguonOdaController extends AppBaseController
         $nguonOda = $this->nguonOdaRepository->find($id);
 
         if (empty($nguonOda)) {
-            Flash::error('Nguon Oda not found');
+            Flash::error('Không tìm thấy thông tin');
 
             return redirect(route('nguonOdas.index'));
         }
 
         $this->nguonOdaRepository->delete($id);
 
-        Flash::success('Nguon Oda deleted successfully.');
+        Flash::success('Xóa thành công');
 
         return redirect(route('nguonOdas.index'));
     }

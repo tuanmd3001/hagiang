@@ -55,7 +55,7 @@ class DmChucVuController extends AppBaseController
 
         $dmChucVu = $this->dmChucVuRepository->create($input);
 
-        Flash::success('Dm Chuc Vu saved successfully.');
+        Flash::success('Thêm mới thành công');
 
         return redirect(route('danhMuc.chucVu.index'));
     }
@@ -72,7 +72,7 @@ class DmChucVuController extends AppBaseController
         $dmChucVu = $this->dmChucVuRepository->find($id);
 
         if (empty($dmChucVu)) {
-            Flash::error('Dm Chuc Vu not found');
+            Flash::error('Không tìm thấy thông tin');
 
             return redirect(route('danhMuc.chucVu.index'));
         }
@@ -92,7 +92,7 @@ class DmChucVuController extends AppBaseController
         $dmChucVu = $this->dmChucVuRepository->find($id);
 
         if (empty($dmChucVu)) {
-            Flash::error('Dm Chuc Vu not found');
+            Flash::error('Không tìm thấy thông tin');
 
             return redirect(route('danhMuc.chucVu.index'));
         }
@@ -113,14 +113,14 @@ class DmChucVuController extends AppBaseController
         $dmChucVu = $this->dmChucVuRepository->find($id);
 
         if (empty($dmChucVu)) {
-            Flash::error('Dm Chuc Vu not found');
+            Flash::error('Không tìm thấy thông tin');
 
             return redirect(route('danhMuc.chucVu.index'));
         }
 
         $dmChucVu = $this->dmChucVuRepository->update($request->all(), $id);
 
-        Flash::success('Dm Chuc Vu updated successfully.');
+        Flash::success('Cập nhật thông tin thành công');
 
         return redirect(route('danhMuc.chucVu.index'));
     }
@@ -137,14 +137,14 @@ class DmChucVuController extends AppBaseController
         $dmChucVu = $this->dmChucVuRepository->find($id);
 
         if (empty($dmChucVu)) {
-            Flash::error('Dm Chuc Vu not found');
+            Flash::error('Không tìm thấy thông tin');
 
             return redirect(route('danhMuc.chucVu.index'));
         }
 
         $this->dmChucVuRepository->delete($id);
 
-        Flash::success('Dm Chuc Vu deleted successfully.');
+        Flash::success('Xóa thành công');
 
         return redirect(route('danhMuc.chucVu.index'));
     }

@@ -25,10 +25,10 @@ class TtqtController extends AppBaseController
         $this->ttqtRepository = $ttqtRepo;
         $this->level = Ttqt::LEVEL_TINH;
 
-        if (\Request::is('ttqt_so_nganh')){
+        if (\Request::is(Ttqt::ROUTE_NAME[Ttqt::LEVEL_SO] . '*')){
             $this->level = Ttqt::LEVEL_SO;
         }
-        elseif (\Request::is('ttqt_huyen_tp')){
+        elseif (\Request::is(Ttqt::ROUTE_NAME[Ttqt::LEVEL_TP] . '*')){
             $this->level = Ttqt::LEVEL_TP;
         }
     }
@@ -85,7 +85,7 @@ class TtqtController extends AppBaseController
         }
         $ttqt = $this->ttqtRepository->create($input);
 
-        Flash::success('Ttqt saved successfully.');
+        Flash::success('Thêm mới thành công');
 
         return redirect(route(Ttqt::ROUTE_NAME[$this->level].'.index'));
     }
@@ -102,7 +102,7 @@ class TtqtController extends AppBaseController
         $ttqt = $this->ttqtRepository->find($id);
 
         if (empty($ttqt)) {
-            Flash::error('Ttqt not found');
+            Flash::error('Không tìm thấy thông tin');
 
             return redirect(route(Ttqt::ROUTE_NAME[$this->level].'.index'));
         }
@@ -122,7 +122,7 @@ class TtqtController extends AppBaseController
         $ttqt = $this->ttqtRepository->find($id);
 
         if (empty($ttqt)) {
-            Flash::error('Ttqt not found');
+            Flash::error('Không tìm thấy thông tin');
 
             return redirect(route(Ttqt::ROUTE_NAME[$this->level].'.index'));
         }
@@ -147,7 +147,7 @@ class TtqtController extends AppBaseController
         $ttqt = $this->ttqtRepository->find($id);
 
         if (empty($ttqt)) {
-            Flash::error('Ttqt not found');
+            Flash::error('Không tìm thấy thông tin');
 
             return redirect(route(Ttqt::ROUTE_NAME[$this->level].'.index'));
         }
@@ -167,7 +167,7 @@ class TtqtController extends AppBaseController
 
         $ttqt = $this->ttqtRepository->update($input, $id);
 
-        Flash::success('Ttqt updated successfully.');
+        Flash::success('Cập nhật thông tin thành công');
 
         return redirect(route(Ttqt::ROUTE_NAME[$this->level].'.index'));
     }
@@ -184,14 +184,14 @@ class TtqtController extends AppBaseController
         $ttqt = $this->ttqtRepository->find($id);
 
         if (empty($ttqt)) {
-            Flash::error('Ttqt not found');
+            Flash::error('Không tìm thấy thông tin');
 
             return redirect(route(Ttqt::ROUTE_NAME[$this->level].'.index'));
         }
 
         $this->ttqtRepository->delete($id);
 
-        Flash::success('Ttqt deleted successfully.');
+        Flash::success('Xóa thành công');
 
         return redirect(route(Ttqt::ROUTE_NAME[$this->level].'.index'));
     }

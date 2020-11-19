@@ -28,9 +28,10 @@ Route::group(['middleware' => ['role:SuperAdmin']], function () {
     Route::get('users/{user}/reset_password', 'UserController@reset_password')->name('reset_user_password');
 });
 
-
 Route::group(['middleware' => ['auth']], function (){
     Route::get('/', 'HomeController@index')->name('home');
+    Route::get('/change_password', 'UserController@change_password')->name('change_password');
+    Route::post('/change_password', 'UserController@change_password');
 
     Route::resource('users', 'UserController')->middleware('can:users');
 
@@ -118,11 +119,15 @@ Route::group(['middleware' => ['auth']], function (){
     Route::resource('doanVaoCapXa', 'DoanVaoController')->middleware('can:doanVaoCapXa');
 
 
-
     Route::resource('suVuBienGiois', 'SuVuBienGioiController')->middleware('can:suVuBienGiois');
 
     Route::resource('suVuBienGiois', 'SuVuBienGioiController')->middleware('can:suVuBienGiois');
 
     Route::resource('kyKetHuuNghis', 'KyKetHuuNghiController')->middleware('can:kyKetHuuNghis');
 
+    Route::resource('lopBoiDuongDoiNgoai', 'LopDaoTaoController')->middleware('can:lopBoiDuongDoiNgoai');
+    Route::resource('daoTaoNuocNgoai', 'LopDaoTaoController')->middleware('can:daoTaoNuocNgoai');
+    Route::resource('lopTuyenTruyen03', 'LopDaoTaoController')->middleware('can:lopTuyenTruyen03');
+
 });
+

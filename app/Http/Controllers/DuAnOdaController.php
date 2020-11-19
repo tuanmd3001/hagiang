@@ -55,7 +55,7 @@ class DuAnOdaController extends AppBaseController
 
         $duAnOda = $this->duAnOdaRepository->create($input);
 
-        Flash::success('Du An Oda saved successfully.');
+        Flash::success('Thêm mới thành công');
 
         return redirect(route('duAnOdas.index'));
     }
@@ -72,7 +72,7 @@ class DuAnOdaController extends AppBaseController
         $duAnOda = $this->duAnOdaRepository->find($id);
 
         if (empty($duAnOda)) {
-            Flash::error('Du An Oda not found');
+            Flash::error('Không tìm thấy thông tin');
 
             return redirect(route('duAnOdas.index'));
         }
@@ -92,7 +92,7 @@ class DuAnOdaController extends AppBaseController
         $duAnOda = $this->duAnOdaRepository->find($id);
 
         if (empty($duAnOda)) {
-            Flash::error('Du An Oda not found');
+            Flash::error('Không tìm thấy thông tin');
 
             return redirect(route('duAnOdas.index'));
         }
@@ -113,14 +113,14 @@ class DuAnOdaController extends AppBaseController
         $duAnOda = $this->duAnOdaRepository->find($id);
 
         if (empty($duAnOda)) {
-            Flash::error('Du An Oda not found');
+            Flash::error('Không tìm thấy thông tin');
 
             return redirect(route('duAnOdas.index'));
         }
 
         $duAnOda = $this->duAnOdaRepository->update($request->all(), $id);
 
-        Flash::success('Du An Oda updated successfully.');
+        Flash::success('Cập nhật thông tin thành công');
 
         return redirect(route('duAnOdas.index'));
     }
@@ -137,14 +137,14 @@ class DuAnOdaController extends AppBaseController
         $duAnOda = $this->duAnOdaRepository->find($id);
 
         if (empty($duAnOda)) {
-            Flash::error('Du An Oda not found');
+            Flash::error('Không tìm thấy thông tin');
 
             return redirect(route('duAnOdas.index'));
         }
 
         $this->duAnOdaRepository->delete($id);
 
-        Flash::success('Du An Oda deleted successfully.');
+        Flash::success('Xóa thành công');
 
         return redirect(route('duAnOdas.index'));
     }

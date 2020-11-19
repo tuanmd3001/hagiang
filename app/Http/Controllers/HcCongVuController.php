@@ -57,7 +57,7 @@ class HcCongVuController extends AppBaseController
 
         $hcCongVu = $this->hcCongVuRepository->create($input);
 
-        Flash::success('Hc Cong Vu saved successfully.');
+        Flash::success('Thêm mới thành công');
 
         return redirect(route('hcCongVus.index'));
     }
@@ -74,7 +74,7 @@ class HcCongVuController extends AppBaseController
         $hcCongVu = $this->hcCongVuRepository->find($id);
 
         if (empty($hcCongVu)) {
-            Flash::error('Hc Cong Vu not found');
+            Flash::error('Không tìm thấy thông tin');
 
             return redirect(route('hcCongVus.index'));
         }
@@ -94,7 +94,7 @@ class HcCongVuController extends AppBaseController
         $hcCongVu = $this->hcCongVuRepository->find($id);
 
         if (empty($hcCongVu)) {
-            Flash::error('Hc Cong Vu not found');
+            Flash::error('Không tìm thấy thông tin');
 
             return redirect(route('hcCongVus.index'));
         }
@@ -116,7 +116,7 @@ class HcCongVuController extends AppBaseController
         $hcCongVu = $this->hcCongVuRepository->find($id);
 
         if (empty($hcCongVu)) {
-            Flash::error('Hc Cong Vu not found');
+            Flash::error('Không tìm thấy thông tin');
 
             return redirect(route('hcCongVus.index'));
         }
@@ -126,7 +126,7 @@ class HcCongVuController extends AppBaseController
 
         $hcCongVu = $this->hcCongVuRepository->update($input, $id);
 
-        Flash::success('Hc Cong Vu updated successfully.');
+        Flash::success('Cập nhật thông tin thành công');
 
         return redirect(route('hcCongVus.index'));
     }
@@ -143,14 +143,14 @@ class HcCongVuController extends AppBaseController
         $hcCongVu = $this->hcCongVuRepository->find($id);
 
         if (empty($hcCongVu)) {
-            Flash::error('Hc Cong Vu not found');
+            Flash::error('Không tìm thấy thông tin');
 
             return redirect(route('hcCongVus.index'));
         }
 
         $this->hcCongVuRepository->delete($id);
 
-        Flash::success('Hc Cong Vu deleted successfully.');
+        Flash::success('Xóa thành công');
 
         return redirect(route('hcCongVus.index'));
     }

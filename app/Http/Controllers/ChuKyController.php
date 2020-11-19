@@ -63,7 +63,7 @@ class ChuKyController extends AppBaseController
 
         $chuKy = $this->chuKyRepository->create($input);
 
-        Flash::success('Chu Ky saved successfully.');
+        Flash::success('Thêm mới thành công');
 
         return redirect(route('chuKies.index'));
     }
@@ -80,7 +80,7 @@ class ChuKyController extends AppBaseController
         $chuKy = $this->chuKyRepository->find($id);
 
         if (empty($chuKy)) {
-            Flash::error('Chu Ky not found');
+            Flash::error('Không tìm thấy thông tin');
 
             return redirect(route('chuKies.index'));
         }
@@ -100,7 +100,7 @@ class ChuKyController extends AppBaseController
         $chuKy = $this->chuKyRepository->find($id);
 
         if (empty($chuKy)) {
-            Flash::error('Chu Ky not found');
+            Flash::error('Không tìm thấy thông tin');
 
             return redirect(route('chuKies.index'));
         }
@@ -121,7 +121,7 @@ class ChuKyController extends AppBaseController
         $chuKy = $this->chuKyRepository->find($id);
 
         if (empty($chuKy)) {
-            Flash::error('Chu Ky not found');
+            Flash::error('Không tìm thấy thông tin');
 
             return redirect(route('chuKies.index'));
         }
@@ -135,7 +135,7 @@ class ChuKyController extends AppBaseController
 
         $chuKy = $this->chuKyRepository->update($input, $id);
 
-        Flash::success('Chu Ky updated successfully.');
+        Flash::success('Cập nhật thông tin thành công');
 
         return redirect(route('chuKies.index'));
     }
@@ -152,14 +152,14 @@ class ChuKyController extends AppBaseController
         $chuKy = $this->chuKyRepository->find($id);
 
         if (empty($chuKy)) {
-            Flash::error('Chu Ky not found');
+            Flash::error('Không tìm thấy thông tin');
 
             return redirect(route('chuKies.index'));
         }
 
         $this->chuKyRepository->delete($id);
 
-        Flash::success('Chu Ky deleted successfully.');
+        Flash::success('Xóa thành công');
 
         return redirect(route('chuKies.index'));
     }

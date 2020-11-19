@@ -27,14 +27,13 @@ class DoanVaoController extends AppBaseController
     public function __construct(DoanVaoRepository $doanVaoRepo)
     {
         $this->doanVaoRepository = $doanVaoRepo;
-        $level = DoanVao::LEVEL_TINH;
-        if (\Request::is("doanVaoCapHuyen*")){
-            $level = DoanVao::LEVEL_HUYEN;
+        $this->level = DoanVao::LEVEL_TINH;
+        if (\Request::is(DoanVao::ROUTE_NAME[DoanVao::LEVEL_HUYEN] . "*")){
+            $this->level = DoanVao::LEVEL_HUYEN;
         }
-        elseif (\Request::is("doanVaoCapXa*")){
-            $level = DoanVao::LEVEL_XA;
+        elseif (\Request::is(DoanVao::ROUTE_NAME[DoanVao::LEVEL_XA] . "*")){
+            $this->level = DoanVao::LEVEL_XA;
         }
-        $this->level = $level;
     }
 
     /**

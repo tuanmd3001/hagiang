@@ -27,14 +27,13 @@ class DoanRaController extends AppBaseController
     public function __construct(DoanRaRepository $doanRaRepo)
     {
         $this->doanRaRepository = $doanRaRepo;
-        $level = DoanRa::LEVEL_TINH;
-        if (\Request::is("doanRaCapHuyen*")){
-            $level = DoanRa::LEVEL_HUYEN;
+        $this->level = DoanRa::LEVEL_TINH;
+        if (\Request::is(DoanRa::ROUTE_NAME[DoanRa::LEVEL_HUYEN] . "*")){
+            $this->level = DoanRa::LEVEL_HUYEN;
         }
-        elseif (\Request::is("doanRaCapXa*")){
-            $level = DoanRa::LEVEL_XA;
+        elseif (\Request::is(DoanRa::ROUTE_NAME[DoanRa::LEVEL_HUYEN] . "*")){
+            $this->level = DoanRa::LEVEL_XA;
         }
-        $this->level = $level;
     }
 
     /**

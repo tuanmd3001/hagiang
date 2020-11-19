@@ -55,7 +55,7 @@ class NgoController extends AppBaseController
 
         $ngo = $this->ngoRepository->create($input);
 
-        Flash::success('Ngo saved successfully.');
+        Flash::success('Thêm mới thành công');
 
         return redirect(route('ngos.index'));
     }
@@ -72,7 +72,7 @@ class NgoController extends AppBaseController
         $ngo = $this->ngoRepository->find($id);
 
         if (empty($ngo)) {
-            Flash::error('Ngo not found');
+            Flash::error('Không tìm thấy thông tin');
 
             return redirect(route('ngos.index'));
         }
@@ -92,7 +92,7 @@ class NgoController extends AppBaseController
         $ngo = $this->ngoRepository->find($id);
 
         if (empty($ngo)) {
-            Flash::error('Ngo not found');
+            Flash::error('Không tìm thấy thông tin');
 
             return redirect(route('ngos.index'));
         }
@@ -113,14 +113,14 @@ class NgoController extends AppBaseController
         $ngo = $this->ngoRepository->find($id);
 
         if (empty($ngo)) {
-            Flash::error('Ngo not found');
+            Flash::error('Không tìm thấy thông tin');
 
             return redirect(route('ngos.index'));
         }
 
         $ngo = $this->ngoRepository->update($request->all(), $id);
 
-        Flash::success('Ngo updated successfully.');
+        Flash::success('Cập nhật thông tin thành công');
 
         return redirect(route('ngos.index'));
     }
@@ -137,14 +137,14 @@ class NgoController extends AppBaseController
         $ngo = $this->ngoRepository->find($id);
 
         if (empty($ngo)) {
-            Flash::error('Ngo not found');
+            Flash::error('Không tìm thấy thông tin');
 
             return redirect(route('ngos.index'));
         }
 
         $this->ngoRepository->delete($id);
 
-        Flash::success('Ngo deleted successfully.');
+        Flash::success('Xóa thành công');
 
         return redirect(route('ngos.index'));
     }
