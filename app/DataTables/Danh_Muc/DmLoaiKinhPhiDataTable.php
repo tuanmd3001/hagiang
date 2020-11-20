@@ -46,6 +46,7 @@ class DmLoaiKinhPhiDataTable extends DataTable
             ->minifiedAjax()
             ->addAction(['width' => '120px', 'printable' => false, 'title' => 'Thao tác', 'className' => 'text-center'])
             ->parameters([
+                'responsive'=> true,
                 'dom' => '<"row"<"col-xs-12"f>><"row"<"col-xs-8 p-t-5"l><"col-xs-4 text-right hidden-print"B>>" +
                     "<"row m-t-10"<"col-sm-12"tr>>" +
                     "<"row"<"col-sm-6"i><"col-sm-6 hidden-print"p>>',

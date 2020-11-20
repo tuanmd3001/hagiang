@@ -211,3 +211,8 @@ div:has(table.table) {
     max-height: 450px;
     overflow-y: auto;
 }
+
+.dtr-details .text-center,
+.dtr-details .text-right {
+    text-align: unset;
+}

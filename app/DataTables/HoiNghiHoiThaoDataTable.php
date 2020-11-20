@@ -88,6 +88,7 @@ class HoiNghiHoiThaoDataTable extends DataTable
             ->minifiedAjax()
             ->addAction(['width' => '120px', 'printable' => false, 'title' => 'Thao tác', 'className' => 'text-center'])
             ->parameters([
+                'responsive'=> true,
                 "initComplete" => "function( settings, json) {
                     $(`{$header}`).prependTo('thead');
                     $('thead tr').last().remove();
