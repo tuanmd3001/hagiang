@@ -296,8 +296,14 @@
 
             $('#selected_members tbody').on( 'click', '.glyphicon.glyphicon-trash', function () {
                 if (confirm("Chắc chắn xóa?")){
-                    table.row($(this).parents('tr')).remove().draw();
-                    table.responsive.recalc();
+                    var row = $(this).parents('tr');
+                    if ($(row).hasClass('child')){
+                        table.row($(row).prev('tr')).remove().draw();
+                    }
+                    else {
+                        table.row($(this).parents('tr')).remove().draw();
+                    }
+                    table.columns.adjust().responsive.recalc();
                 }
             });
         });
@@ -348,7 +354,8 @@
             $( rowNode ).find('td').eq(2).addClass('text-center');
             $( rowNode ).find('td').eq(3).addClass('text-center');
             $( rowNode ).find('td').eq(5).addClass('text-center');
-            table.responsive.recalc();
+            table.columns.adjust()
+                .responsive.recalc();
             $('#add_member_modal').modal('hide');
         }
     </script>

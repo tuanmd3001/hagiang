@@ -130,7 +130,7 @@
                         <div class="col-md-12">
                             {!! Form::label('can_bo', 'Chọn thành viên từ danh sách cán bộ:') !!}
                         </div>
-                        <div class="col-md-6">
+                        <div class="col-md-6 form-group">
                             <select class="form-control select2 select2-multiple" name="can_bo" id="can_bo_select">
                                 <option></option>
                                 @foreach($can_bos as $can_bo)
@@ -405,8 +405,14 @@
                     if (idx >= 0){
                         oldMembers.splice(idx, 1);
                     }
-                    table.row($(this).parents('tr')).remove().draw();
-                    table.responsive.recalc();
+                    var row = $(this).parents('tr');
+                    if ($(row).hasClass('child')){
+                        table.row($(row).prev('tr')).remove().draw();
+                    }
+                    else {
+                        table.row($(this).parents('tr')).remove().draw();
+                    }
+                    table.columns.adjust().responsive.recalc();
                 }
             });
         })
@@ -460,7 +466,8 @@
             $( rowNode ).find('td').eq(2).addClass('text-center');
             $( rowNode ).find('td').eq(3).addClass('text-center');
             $( rowNode ).find('td').eq(6).addClass('text-center');
-            table.responsive.recalc();
+            table.columns.adjust()
+                .responsive.recalc();
             $('#add_canBo').modal('hide');
         }
         function makeId(length = 10) {
