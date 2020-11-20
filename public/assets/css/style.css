@@ -10,6 +10,9 @@ div.dataTables_wrapper div.dataTables_length
 {
     text-align: left;
 }
+.dataTable {
+    width: 100% !important;
+}
 
 .select2 {
     width: 100% !important;
