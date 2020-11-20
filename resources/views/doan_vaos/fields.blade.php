@@ -177,8 +177,8 @@
                                     <td>{{ $thanh_vien->sdt }}</td>
                                     <td>{{ $thanh_vien->email }}</td>
                                     <td class="text-center">
-                                        <button type="button" class="btn btn-danger btn-xs">
-                                            <i class="glyphicon glyphicon-trash" data-id="{{$thanh_vien->can_bo_id??$thanh_vien->id}}"></i>
+                                        <button type="button" class="btn btn-danger btn-xs delete_member" data-id="{{$thanh_vien->can_bo_id??$thanh_vien->id}}">
+                                            <i class="glyphicon glyphicon-trash"></i>
                                         </button>
                                     </td>
                                 </tr>
@@ -197,8 +197,8 @@
                                     <td>{{ $thanh_vien->sdt }}</td>
                                     <td>{{ $thanh_vien->email }}</td>
                                     <td class="text-center">
-                                        <button type="button" class="btn btn-danger btn-xs">
-                                            <i class="glyphicon glyphicon-trash" data-id="{{$thanh_vien->can_bo_id}}"></i>
+                                        <button type="button" class="btn btn-danger btn-xs delete_member" data-id="{{$thanh_vien->can_bo_id}}">
+                                            <i class="glyphicon glyphicon-trash"></i>
                                         </button>
                                     </td>
                                 </tr>
@@ -380,7 +380,7 @@
                 }
             });
 
-            $("#can_bo_select").on("change.select2", function(e) {
+            $("#can_bo_select").on("change", function(e) {
                 var value = $(this).val();
                 if(value) {
                     var canBo = JSON.parse($(this).val());
@@ -403,7 +403,7 @@
                 }
             })
 
-            $('#selected_members tbody').on( 'click', '.glyphicon.glyphicon-trash', function () {
+            $('#selected_members tbody').on( 'click', '.delete_member', function () {
                 if (confirm("Chắc chắn xóa?")){
                     var idx = oldMembers.indexOf(($(this).data("id")).toString())
                     if (idx >= 0){
@@ -464,7 +464,7 @@
                 new_mem.gioi_tinh ? "Nam" : 'Nữ',
                 new_mem.sdt,
                 new_mem.email,
-                '<button type="button" class="btn btn-danger btn-xs"><i class="glyphicon glyphicon-trash" data-id="'+new_mem["id"]+'"></i></button>',
+                '<button type="button" class="btn btn-danger btn-xs delete_member" data-id="'+new_mem["id"]+'"><i class="glyphicon glyphicon-trash"></i></button>',
             ]).draw().node();
             $( rowNode ).find('td').eq(0).addClass('text-center');
             $( rowNode ).find('td').eq(2).addClass('text-center');

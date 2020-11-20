@@ -131,7 +131,7 @@
                                     <td>{{ $thanh_vien->sdt }}</td>
                                     <td>{{ $thanh_vien->email }}</td>
                                     <td class="text-center">
-                                        <button type="button" class="btn btn-danger btn-xs">
+                                        <button type="button" class="btn btn-danger btn-xs delete_member">
                                             <i class="glyphicon glyphicon-trash"></i>
                                         </button>
                                     </td>
@@ -150,7 +150,7 @@
                                     <td>{{ $thanh_vien->sdt }}</td>
                                     <td>{{ $thanh_vien->email }}</td>
                                     <td class="text-center">
-                                        <button type="button" class="btn btn-danger btn-xs">
+                                        <button type="button" class="btn btn-danger btn-xs delete_member">
                                             <i class="glyphicon glyphicon-trash"></i>
                                         </button>
                                     </td>
@@ -298,7 +298,7 @@
                 }
             });
 
-            $('#selected_members tbody').on( 'click', '.glyphicon.glyphicon-trash', function () {
+            $('#selected_members tbody').on( 'click', '.delete_member', function () {
                 if (confirm("Chắc chắn xóa?")){
                     var row = $(this).parents('tr');
                     if ($(row).hasClass('child')){
@@ -352,7 +352,7 @@
                 new_mem.gioi_tinh ? "Nam" : 'Nữ',
                 new_mem.sdt,
                 new_mem.email,
-                '<button type="button" class="btn btn-danger btn-xs"><i class="glyphicon glyphicon-trash"></i></button>',
+                '<button type="button" class="btn btn-danger btn-xs delete_member"><i class="glyphicon glyphicon-trash"></i></button>',
             ]).draw().node();
             $( rowNode ).find('td').eq(1).addClass('text-center');
             $( rowNode ).find('td').eq(2).addClass('text-center');
