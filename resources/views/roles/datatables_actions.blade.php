@@ -10,7 +10,7 @@
         {!! Form::button('<i class="glyphicon glyphicon-trash"></i>', [
             'type' => 'submit',
             'class' => 'btn btn-danger btn-xs',
-            'onclick' => "return confirm('Are you sure?')"
+            'onclick' => "return confirm('Chắc chắn xóa?')"
         ]) !!}
     </div>
     {!! Form::close() !!}
