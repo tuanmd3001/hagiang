@@ -123,6 +123,7 @@
     <script>
         $(function (){
             $('#selected_members').DataTable({
+                responsive: true,
                 dom: '<"row"<"col-xs-12"f>><"row"<"col-xs-8 p-t-5"l>><"row m-t-10"<"col-sm-12"tr>><"row"<"col-sm-6"i><"col-sm-6 hidden-print"p>>',
                 "ordering": false,
                 'language' : {

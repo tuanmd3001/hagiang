@@ -244,6 +244,7 @@
                 }
             });
             table = $('#selected_members').DataTable({
+                responsive: true,
                 dom: 'Prtip',
                 "ordering": false,
                 'language' : {
@@ -296,6 +297,7 @@
             $('#selected_members tbody').on( 'click', '.glyphicon.glyphicon-trash', function () {
                 if (confirm("Chắc chắn xóa?")){
                     table.row($(this).parents('tr')).remove().draw();
+                    table.responsive.recalc();
                 }
             });
         });
@@ -341,11 +343,12 @@
                 new_mem.sdt,
                 new_mem.email,
                 '<button type="button" class="btn btn-danger btn-xs"><i class="glyphicon glyphicon-trash"></i></button>',
-            ]).draw(false).node();
+            ]).draw().node();
             $( rowNode ).find('td').eq(1).addClass('text-center');
             $( rowNode ).find('td').eq(2).addClass('text-center');
             $( rowNode ).find('td').eq(3).addClass('text-center');
             $( rowNode ).find('td').eq(5).addClass('text-center');
+            table.responsive.recalc();
             $('#add_member_modal').modal('hide');
         }
     </script>

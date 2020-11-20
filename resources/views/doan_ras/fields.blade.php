@@ -320,6 +320,7 @@
             });
 
             table = $('#selected_members').DataTable({
+                responsive: true,
                 dom: 'Prtip',
                 "ordering": false,
                 'language' : {
@@ -405,6 +406,7 @@
                         oldMembers.splice(idx, 1);
                     }
                     table.row($(this).parents('tr')).remove().draw();
+                    table.responsive.recalc();
                 }
             });
         })
@@ -453,11 +455,12 @@
                 new_mem.sdt,
                 new_mem.email,
                 '<button type="button" class="btn btn-danger btn-xs"><i class="glyphicon glyphicon-trash" data-id="'+new_mem["id"]+'"></i></button>',
-            ]).draw(false).node();
+            ]).draw().node();
             $( rowNode ).find('td').eq(0).addClass('text-center');
             $( rowNode ).find('td').eq(2).addClass('text-center');
             $( rowNode ).find('td').eq(3).addClass('text-center');
             $( rowNode ).find('td').eq(6).addClass('text-center');
+            table.responsive.recalc();
             $('#add_canBo').modal('hide');
         }
         function makeId(length = 10) {
