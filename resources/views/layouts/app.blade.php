@@ -39,9 +39,9 @@
             <!-- Logo -->
             <a href="{{url('/')}}" class="logo">
                 <!-- mini logo for sidebar mini 50x50 pixels -->
-                <span class="logo-mini"><b>HG</b></span>
+                <span class="logo-mini">HG</span>
                 <!-- logo for regular state and mobile devices -->
-                <span class="logo-lg"><b>Admin</b>LTE</span>
+                <span class="logo-lg">Hà Giang</span>
             </a>
 
             <!-- Header Navbar -->

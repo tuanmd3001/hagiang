@@ -5,7 +5,9 @@ body {
     font-size: 30px;
 }
 
-div.dataTables_wrapper div.dataTables_filter {
+div.dataTables_wrapper div.dataTables_filter,
+div.dataTables_wrapper div.dataTables_length
+{
     text-align: left;
 }
 
