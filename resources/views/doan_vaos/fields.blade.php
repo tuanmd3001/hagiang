@@ -344,6 +344,10 @@
                 },
             });
 
+            $(document).on('shown.bs.tab', 'a[data-toggle="tab"][href="#member"]', function (e) {
+                table.columns.adjust().responsive.recalc();
+            })
+
             $('#add_canBo').on('hidden.bs.modal', function () {
                 $('#new_ten').val("").parents('.form-group').removeClass('has-error').find('.help-block').remove();
                 $('#new_ngay_sinh').val("").parents('.form-group').removeClass('has-error').find('.help-block').remove();
