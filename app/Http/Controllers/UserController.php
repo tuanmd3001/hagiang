@@ -66,6 +66,21 @@ class UserController extends AppBaseController
 
         $user = $this->userRepository->create($input);
 
+        if (!empty($input['roles'])){
+            $user->syncRoles($input['roles']);
+        }
+        else {
+            $user->syncRoles([]);
+        }
+
+        if (!empty($input['permissions'])){
+            $user->syncPermissions($input['permissions']);
+        }
+        else {
+            $user->syncPermissions([]);
+        }
+
+
         Flash::success('Thêm mới thành công');
 
         return redirect(route('users.index'));
