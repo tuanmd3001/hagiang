@@ -56,6 +56,13 @@ class RoleController extends AppBaseController
 
         $role = $this->roleRepository->create($input);
 
+        if (!empty($input['permissions'])){
+            $role->syncPermissions($input['permissions']);
+        }
+        else {
+            $role->syncPermissions([]);
+        }
+
         Flash::success('Thêm mới thành công');
 
         return redirect(route('roles.index'));
