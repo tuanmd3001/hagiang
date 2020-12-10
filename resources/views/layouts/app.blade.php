@@ -29,6 +29,29 @@
     @yield('css')
 
     <link rel="stylesheet" href="{{url('assets/css/style.css')}}">
+    <style>
+        .logo-mini img{
+            width: 25px;
+            height: 25px;
+            margin-top: -5px;
+        }
+        .logo-lg img{
+            width: 35px;
+            height: 35px;
+        }
+        .logo-lg {
+            font-size: 16px;
+            text-transform: uppercase;
+            padding: 0 25px 0 0;
+        }
+        .logo-lg .pull-left {
+            margin-right: -10px;
+        }
+        .logo-lg .pull-right {
+            line-height: 18px;
+            margin-top: 10px;
+        }
+    </style>
 </head>
 
 <body class="skin-blue-light sidebar-mini">
@@ -39,9 +62,19 @@
             <!-- Logo -->
             <a href="{{url('/')}}" class="logo">
                 <!-- mini logo for sidebar mini 50x50 pixels -->
-                <span class="logo-mini">HG</span>
+                <span class="logo-mini">
+                    <img src="{{ asset('assets/images/quoc_huy.png') }}">
+                </span>
                 <!-- logo for regular state and mobile devices -->
-                <span class="logo-lg">Hà Giang</span>
+                <span class="logo-lg">
+                    <div class="pull-left">
+                        <img src="{{ asset('assets/images/quoc_huy.png') }}">
+                    </div>
+                    <div class="pull-right">
+                        <div> Phần mềm quản lý</div>
+                        <div>hoạt động ngoại giao</div>
+                    </div>
+                </span>
             </a>
 
             <!-- Header Navbar -->
@@ -58,7 +91,7 @@
                             <!-- Menu Toggle Button -->
                             <a href="#" class="dropdown-toggle" data-toggle="dropdown">
                                 <!-- The user image in the navbar-->
-                                <img src="http://infyom.com/images/logo/blue_logo_150x150.jpg"
+                                <img src="{{ asset('assets/images/default-avatar.jpg') }}"
                                      class="user-image" alt="User Image"/>
                                 <!-- hidden-xs hides the username on small devices so only the image appears. -->
                                 <span class="hidden-xs">{{ Auth::user()->name }}</span>
@@ -105,7 +138,7 @@
 
         <!-- Main Footer -->
         <footer class="main-footer" style="max-height: 100px;text-align: right">
-            Hà Giang 2020
+            Phần mềm do Sở Ngoại Vụ Hà Giang phát triển
         </footer>
 
     </div>
